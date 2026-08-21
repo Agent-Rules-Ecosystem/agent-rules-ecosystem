@@ -7,54 +7,116 @@ Organización y Repositorios Oficiales: [xolotl-hub](https://github.com/xolotl-h
 
 ## 📌 Visión General
 
-`agent-rules-ecosystem` es el manifiesto y núcleo orquestador de la arquitectura del ecosistema. Está diseñado para estandarizar el flujo de trabajo, la economía de tokens, la gobernanza de sesiones y la inyección de habilidades especializadas en cualquier tipo de proyecto (Mobile, Web, Backend, Game, Infrastructure).
+`agent-rules-ecosystem` es el manifiesto maestro, especificación estándar y orquestador del ecosistema `xolotl-hub`. Está diseñado para estandarizar la arquitectura de gobernanza, la gestión de sesiones, la estructura local de carpetas y la inyección de habilidades especializadas en cualquier entorno (Flutter, Web, Backend, Game Dev y Transversal).
 
 ### 📐 Filosofía del Ecosistema
 
 El ecosistema se divide en dos capas fundamentales:
 
 1. **Gobernanza (`*-agent-rules`)**: Define **CÓMO trabaja la IA** (Rituales `$boot`, `$work`, `$archi`, `$close`, gestión de estado en `overview/`, economía de tokens, handoffs y firma de modelos).
-2. **Habilidades (`*-agent-skill`)**: Define **QUÉ sabe hacer la IA** en dominios específicos (patrones de código, integraciones, snippets comprobados y guías técnicas).
+2. **Habilidades (`*-agent-skill`)**: Define **QUÉ sabe hacer la IA** en dominios técnicos específicos (patrones de código, integraciones, snippets comprobados y guías técnicas en formato 100% Markdown).
 
 ---
 
-## 🗺️ Mapa de Cores y Habilidades (`xolotl-hub`)
+## 🌳 Árbol Canónico del Ecosistema
 
-A continuación se detalla la matriz de repositorios oficiales en GitHub para cada entorno:
+```text
+<tu-directorio-raiz>/
+├── agent-rules-ecosystem/       # Repositorio Núcleo y Manifiesto Maestro
+├── Backend/
+│   ├── backend-agent-rules/     # Gobernanza Backend
+│   └── backend-agent-skill/     # Habilidades Backend
+│       ├── backend-auth-oauth-agent-skill/
+│       ├── backend-graphql-agent-skill/
+│       └── backend-stripe-agent-skill/
+├── Flutter/
+│   ├── flutter-agent-rules/     # Gobernanza Flutter
+│   └── flutter-agent-skill/     # Habilidades Flutter
+│       ├── flutter-bloc-patterns-agent-skill/
+│       ├── flutter-firebase-auth-agent-skill/
+│       └── flutter-firebase-odoo-agent-skill/
+├── Game/
+│   ├── game-agent-rules/        # Gobernanza Game Dev
+│   └── game-agent-skill/        # Habilidades Game Dev (Godot)
+│       ├── godot-steamworks-agent-skill/
+│       ├── godot-firebase-agent-skill/
+│       ├── godot-mobile-monetization-agent-skill/
+│       ├── godot-dialogue-plugin-agent-skill/
+│       └── godot-nakama-agent-skill/
+├── Transversal/
+│   ├── infra-agent-skill/       # Habilidades de Docker, CI/CD e Infraestructura
+│   ├── monitoring-agent-skill/  # Habilidades de Telemetría y Logging
+│   └── security-agent-skill/    # Habilidades de Seguridad y OWASP
+└── Web/
+    ├── web-agent-rules/         # Gobernanza Web (React/Next/Svelte/Vite)
+    └── web-agent-skill/         # Habilidades Web
+        ├── web-svelte-patterns-agent-skill/
+        ├── web-realtime-agent-skill/
+        └── three-js-agent-skills/
+```
 
-### 📱 1. Flutter Core
+---
+
+## 🗺️ Matriz de Repositorios Oficiales (`xolotl-hub`)
+
+### 📱 1. Flutter
 - 🛡️ **Gobernanza**: `flutter-agent-rules` → `https://github.com/xolotl-hub/flutter-agent-rules`
-- ⚡ **Habilidades**: `flutter-agent-skill` → `https://github.com/xolotl-hub/flutter-firebase-odoo-agent-skill` *(o `flutter-agent-skill`)*
+- ⚡ **Skills** (`Flutter/flutter-agent-skill/`):
+  - `flutter-bloc-patterns-agent-skill` (`$bloc`)
+  - `flutter-firebase-auth-agent-skill` (`$auth`)
+  - `flutter-firebase-odoo-agent-skill` (`$odoo`)
 
-### 🌐 2. Web Core
+### 🌐 2. Web
 - 🛡️ **Gobernanza**: `web-agent-rules` → `https://github.com/xolotl-hub/web-agent-rules`
-- ⚡ **Habilidades**: `web-agent-skill` → `https://github.com/xolotl-hub/web-agent-skill`
+- ⚡ **Skills** (`Web/web-agent-skill/`):
+  - `web-svelte-patterns-agent-skill` (`$svelte`)
+  - `web-realtime-agent-skill` (`$realtime`)
+  - `three-js-agent-skills` (`$threejs`)
 
-### ⚙️ 3. Backend Core
+### ⚙️ 3. Backend
 - 🛡️ **Gobernanza**: `backend-agent-rules` → `https://github.com/xolotl-hub/backend-agent-rules`
-- ⚡ **Habilidades**: `backend-agent-skill` → `https://github.com/xolotl-hub/backend-agent-skill`
+- ⚡ **Skills** (`Backend/backend-agent-skill/`):
+  - `backend-auth-oauth-agent-skill` (`$auth`)
+  - `backend-graphql-agent-skill` (`$gql`)
+  - `backend-stripe-agent-skill` (`$stripe`)
 
-### 🎮 4. Game Core
+### 🎮 4. Game Dev (Godot 4)
 - 🛡️ **Gobernanza**: `game-agent-rules` → `https://github.com/xolotl-hub/game-agent-rules`
-- ⚡ **Habilidades**: `game-agent-skill` → `https://github.com/xolotl-hub/game-agent-skill`
+- ⚡ **Skills** (`Game/game-agent-skill/`):
+  - `godot-steamworks-agent-skill` (`$steam`)
+  - `godot-firebase-agent-skill` (`$godotfire`)
+  - `godot-mobile-monetization-agent-skill` (`$mobile`)
+  - `godot-dialogue-plugin-agent-skill` (`$dialogue`)
+  - `godot-nakama-agent-skill` (`$nakama`)
 
-### 🔄 5. Transversal Skills (Cross-Cutting)
-Skills universales componibles e inyectables en cualquier proyecto:
-- 🛡️ **Seguridad**: `security-agent-skill` → `https://github.com/xolotl-hub/security-agent-skill`
-- 🏗️ **Infraestructura & CI/CD**: `infra-agent-skill` → `https://github.com/xolotl-hub/infra-agent-skill`
-- 📊 **Monitoreo & Telemetría**: `monitoring-agent-skill` → `https://github.com/xolotl-hub/monitoring-agent-skill`
+### 🔄 5. Transversal Skills
+Skills agnósticas componibles e inyectables en cualquier proyecto:
+- 🏗️ **Infraestructura & CI/CD**: `infra-agent-skill` (`$infra`)
+- 📊 **Monitoreo & Telemetría**: `monitoring-agent-skill` (`$monitoring`)
+- 🛡️ **Seguridad & OWASP**: `security-agent-skill` (`$security`)
 
 ---
 
-## 🚀 Guía de Instalación y Clonación
+## ⚡ Scripts de Sincronización Automática
 
-Para inicializar la estructura local completa de carpetas y clonar o verificar todos los repositorios en sus rutas canónicas, consulta la guía de instrucciones:
+Este repositorio incluye scripts ejecutables de referencia en `scripts/` para que **cualquier agente de IA o desarrollador** pueda inicializar la estructura local completa en cualquier máquina sin margen de error:
 
-👉 **[Guía de Estructura y Clonación (`ESTRUCTURA_CLONACION.md`)](./ESTRUCTURA_CLONACION.md)**
+### En Linux / macOS (Bash)
+```bash
+bash scripts/sync_ecosystem.sh
+```
 
-Para crear o validar una nueva skill del ecosistema, consulta la especificación oficial:
+### En Windows (PowerShell)
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/sync_ecosystem.ps1
+```
 
-👉 **[Estándar de Skills (`SKILL_STANDARD.md`)](./SKILL_STANDARD.md)**
+---
+
+## 📚 Documentos de Referencia
+
+- 👉 **[Guía de Estructura y Clonación (`ESTRUCTURA_CLONACION.md`)](./ESTRUCTURA_CLONACION.md)** — Protocolo e instrucciones detalladas de clonación.
+- 👉 **[Estándar Canónico de Skills (`SKILL_STANDARD.md`)](./SKILL_STANDARD.md)** — Especificación técnica agnóstica para crear y validar skills.
 
 ---
 

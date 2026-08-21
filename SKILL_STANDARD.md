@@ -295,9 +295,8 @@ proyecto-huésped/
 │   └── templates/
 │
 └── .skill/                                    ← directorio de skills (creado manualmente)
-    ├── flutter-firebase-auth-agent-skill/     ← git submodule add ...
-    ├── flutter-bloc-patterns-agent-skill/     ← git submodule add ...
-    └── infra-agent-skill/                     ← git submodule add ...
+    ├── <nombre-skill-1>-agent-skill/          ← git submodule add ...
+    └── <nombre-skill-2>-agent-skill/          ← git submodule add ...
 ```
 
 ### Comandos de instalación
@@ -306,24 +305,18 @@ proyecto-huésped/
 # 1. Crear la carpeta .skill/ si no existe
 mkdir -p .skill
 
-# 2. Añadir cada skill como submódulo usando el nombre completo del repositorio
-git submodule add https://github.com/xolotl-hub/flutter-firebase-auth-agent-skill.git .skill/flutter-firebase-auth-agent-skill
-git submodule add https://github.com/xolotl-hub/infra-agent-skill.git .skill/infra-agent-skill
+# 2. Añadir cada skill requerida como submódulo usando el nombre completo del repositorio
+git submodule add https://github.com/xolotl-hub/<nombre>-agent-skill.git .skill/<nombre>-agent-skill
 # (repetir para cada skill requerida por el proyecto)
 ```
 
 > **Importante**: El nombre del directorio dentro de `.skill/` debe ser el nombre **completo** del repositorio, no un alias corto. Esto garantiza trazabilidad directa entre la carpeta local y el repo de origen.
 
-### Tabla de skills disponibles
+### Esquema Genérico de Instalación
 
 | Repositorio | Ruta de instalación | Comando de activación |
 |---|---|---|
-| `infra-agent-skill` | `.skill/infra-agent-skill/` | `$infra` |
-| `monitoring-agent-skill` | `.skill/monitoring-agent-skill/` | `$monitoring` |
-| `security-agent-skill` | `.skill/security-agent-skill/` | `$security` |
-| `flutter-bloc-patterns-agent-skill` | `.skill/flutter-bloc-patterns-agent-skill/` | `$bloc` |
-| `flutter-firebase-auth-agent-skill` | `.skill/flutter-firebase-auth-agent-skill/` | `$auth` |
-| `flutter-firebase-odoo-agent-skill` | `.skill/flutter-firebase-odoo-agent-skill/` | `$odoo` |
+| `<nombre>-agent-skill` | `.skill/<nombre>-agent-skill/` | `$<alias>` |
 
 ---
 
@@ -331,7 +324,7 @@ git submodule add https://github.com/xolotl-hub/infra-agent-skill.git .skill/inf
 
 1. **`.agents/` es intocable.** Contiene exclusivamente el repositorio oficial `*-agent-rules`. Nunca se crea ni modifica nada dentro de `.agents/` desde el proyecto local.
 2. **Las skills van en `.skill/`, nunca dentro de `.agents/`.** La carpeta `.skill/` vive al mismo nivel que `.agents/` en la raíz del proyecto huésped.
-3. **El nombre del directorio en `.skill/` es el nombre completo del repositorio.** Ejemplo: `.skill/flutter-firebase-auth-agent-skill/`, no `.skill/auth/` ni `.skill/firebase/`.
+3. **El nombre del directorio en `.skill/` es el nombre completo del repositorio.** Ejemplo: `.skill/<nombre>-agent-skill/`, no alias simplificados como `.skill/auth/` o `.skill/firebase/`.
 4. **Los archivos de skill son de solo lectura en el proyecto huésped.** Nunca modificar directamente una skill desde un proyecto cliente.
 5. **El aprendizaje candidato va a `overview/learning.md`.** Si una skill requiere mejora, registrar la propuesta en el proyecto huésped y promoverla al repo oficial.
 6. **Una skill no duplica reglas de gobernanza.** Las reglas `$boot`, `$work`, `$close` pertenecen a `*-agent-rules`, no a una skill.
