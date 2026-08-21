@@ -52,6 +52,10 @@ Para inicializar la estructura local completa de carpetas y clonar o verificar t
 
 👉 **[Guía de Estructura y Clonación (`ESTRUCTURA_CLONACION.md`)](./ESTRUCTURA_CLONACION.md)**
 
+Para crear o validar una nueva skill del ecosistema, consulta la especificación oficial:
+
+👉 **[Estándar de Skills (`SKILL_STANDARD.md`)](./SKILL_STANDARD.md)**
+
 ---
 
 ## 🔒 Regla de Inviolabilidad y Contribución
