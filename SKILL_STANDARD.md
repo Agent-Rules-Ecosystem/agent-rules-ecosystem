@@ -47,13 +47,13 @@ Todo repositorio `*-agent-skill` **debe** respetar exactamente la siguiente estr
 │   └── <tema>.md               ← Una guía por tema o área de conocimiento
 │
 ├── resources/                  ← [RECOMENDADO] Plantillas, templates y código listo para usar
-│   └── <recurso>               ← Archivos, código, configuraciones de ejemplo
+│   └── <recurso>.md            ← Plantillas, fragmentos de código y configs en formato Markdown
 │
-└── scripts/                    ← [RECOMENDADO] Scripts ejecutables de diagnóstico o automatización
-    └── <script>                ← Scripts bash, python, etc.
+└── scripts/                    ← [RECOMENDADO] Scripts de diagnóstico o automatización
+    └── <script>.md             ← Scripts explicados en bloques de código dentro de Markdown
 ```
 
-> **Nota**: Los directorios `resources/` y `scripts/` son opcionales pero **altamente recomendados**. Una skill sin recursos prácticos es incompleta.
+> ⚠️ **Regla de Formato 100% Markdown**: Todo el contenido de una skill (incluyendo `resources/` y `scripts/`) **DEBE ser 100% archivos `.md`** (Markdown con bloques de código explícitos). **NO SE PERMITEN** archivos fuente ejecutable crudos (`.dart`, `.py`, `.sh`, `.yml`, `.json`, etc.). Esto previene falsos positivos en los analizadores de código/IDEs y mantiene el ecosistema totalmente declarativo y documental.
 
 ---
 
