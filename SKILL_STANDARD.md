@@ -263,7 +263,7 @@ Antes de hacer commit o publicar una skill, verificar:
 - [ ] Existe al menos 1 diagrama Mermaid (en README.md o SKILL.md)
 - [ ] Los $-comandos en `core/commands.md` coinciden con los listados en `README.md`
 - [ ] Las rutas en `core/path_map.md` son rutas genéricas (no hardcodeadas a un proyecto)
-- [ ] Los adaptadores apuntan a la ruta `.agents/skills/<alias>/` (no rutas absolutas)
+- [ ] Los adaptadores apuntan a la ruta `.skill/<nombre-repo>/` (no rutas absolutas ni rutas dentro de `.agents/`)
 - [ ] `resources/` contiene al menos 1 template o ejemplo de código
 
 ### ✅ Calidad Agnóstica (para Skills Transversales)
@@ -280,25 +280,59 @@ Antes de hacer commit o publicar una skill, verificar:
 
 ## 🔗 Instalación Estándar en un Proyecto
 
-```bash
-# Añadir una skill como submódulo en la carpeta .agents/skills/
-git submodule add https://github.com/xolotl-hub/<nombre>-agent-skill.git .agents/skills/<alias>
+### ⚠️ Regla de Aislamiento — `.agents/` es Intocable
+
+`.agents/` contiene **únicamente** el repositorio oficial de gobernanza (`*-agent-rules`). **Nunca** se añade nada dentro de `.agents/`. Las skills van en una carpeta separada `.skill/` al mismo nivel.
+
+### Estructura de instalación canónica
+
+```
+proyecto-huésped/
+├── .agents/                                   ← submódulo *-agent-rules (SOLO LECTURA)
+│   ├── core/
+│   ├── adapters/
+│   ├── knowledge/
+│   └── templates/
+│
+└── .skill/                                    ← directorio de skills (creado manualmente)
+    ├── flutter-firebase-auth-agent-skill/     ← git submodule add ...
+    ├── flutter-bloc-patterns-agent-skill/     ← git submodule add ...
+    └── infra-agent-skill/                     ← git submodule add ...
 ```
 
-| Skill | Alias recomendado | Comando de activación |
+### Comandos de instalación
+
+```bash
+# 1. Crear la carpeta .skill/ si no existe
+mkdir -p .skill
+
+# 2. Añadir cada skill como submódulo usando el nombre completo del repositorio
+git submodule add https://github.com/xolotl-hub/flutter-firebase-auth-agent-skill.git .skill/flutter-firebase-auth-agent-skill
+git submodule add https://github.com/xolotl-hub/infra-agent-skill.git .skill/infra-agent-skill
+# (repetir para cada skill requerida por el proyecto)
+```
+
+> **Importante**: El nombre del directorio dentro de `.skill/` debe ser el nombre **completo** del repositorio, no un alias corto. Esto garantiza trazabilidad directa entre la carpeta local y el repo de origen.
+
+### Tabla de skills disponibles
+
+| Repositorio | Ruta de instalación | Comando de activación |
 |---|---|---|
-| `infra-agent-skill` | `infra` | `$infra` |
-| `monitoring-agent-skill` | `monitoring` | `$monitoring` |
-| `security-agent-skill` | `security` | `$security` |
-| `flutter-bloc-patterns-agent-skill` | `flutter-bloc` | `$bloc` |
-| `flutter-firebase-auth-agent-skill` | `flutter-auth` | `$auth` |
-| `flutter-firebase-odoo-agent-skill` | `flutter-odoo` | `$odoo` |
+| `infra-agent-skill` | `.skill/infra-agent-skill/` | `$infra` |
+| `monitoring-agent-skill` | `.skill/monitoring-agent-skill/` | `$monitoring` |
+| `security-agent-skill` | `.skill/security-agent-skill/` | `$security` |
+| `flutter-bloc-patterns-agent-skill` | `.skill/flutter-bloc-patterns-agent-skill/` | `$bloc` |
+| `flutter-firebase-auth-agent-skill` | `.skill/flutter-firebase-auth-agent-skill/` | `$auth` |
+| `flutter-firebase-odoo-agent-skill` | `.skill/flutter-firebase-odoo-agent-skill/` | `$odoo` |
 
 ---
 
 ## 🔒 Inviolabilidades del Estándar
 
-1. **Los archivos de skill son de solo lectura en el proyecto huésped.** Nunca modificar directamente una skill desde un proyecto cliente.
-2. **El aprendizaje candidato va a `overview/learning.md`.** Si una skill requiere mejora, registrar la propuesta en el proyecto huésped y promoverla al repo oficial.
-3. **Una skill no duplica reglas de gobernanza.** Las reglas `$boot`, `$work`, `$close` pertenecen a `*-agent-rules`, no a una skill.
-4. **Una skill no asume el stack del proyecto.** Sus reglas canónicas deben funcionar en cualquier contexto de uso definido por su alcance (transversal o especializado).
+1. **`.agents/` es intocable.** Contiene exclusivamente el repositorio oficial `*-agent-rules`. Nunca se crea ni modifica nada dentro de `.agents/` desde el proyecto local.
+2. **Las skills van en `.skill/`, nunca dentro de `.agents/`.** La carpeta `.skill/` vive al mismo nivel que `.agents/` en la raíz del proyecto huésped.
+3. **El nombre del directorio en `.skill/` es el nombre completo del repositorio.** Ejemplo: `.skill/flutter-firebase-auth-agent-skill/`, no `.skill/auth/` ni `.skill/firebase/`.
+4. **Los archivos de skill son de solo lectura en el proyecto huésped.** Nunca modificar directamente una skill desde un proyecto cliente.
+5. **El aprendizaje candidato va a `overview/learning.md`.** Si una skill requiere mejora, registrar la propuesta en el proyecto huésped y promoverla al repo oficial.
+6. **Una skill no duplica reglas de gobernanza.** Las reglas `$boot`, `$work`, `$close` pertenecen a `*-agent-rules`, no a una skill.
+7. **Una skill no asume el stack del proyecto.** Sus reglas canónicas deben funcionar en cualquier contexto de uso definido por su alcance (transversal o especializado).
