@@ -1,4 +1,4 @@
-# 📂 Protocolo e Instrucciones de Estructuración y Clonación (`03 CORES`)
+# 📂 Protocolo e Instrucciones de Estructuración y Clonación
 
 Este documento contiene las **instrucciones canónicas para que cualquier Agente de IA o desarrollador** cree la estructura de carpetas local y clone todos los repositorios del ecosistema [xolotl-hub](https://github.com/xolotl-hub).
 
@@ -6,10 +6,10 @@ Este documento contiene las **instrucciones canónicas para que cualquier Agente
 
 ## 🌳 Árbol Canónico de Directorios
 
-La raíz del espacio de trabajo de cores debe organizarse estrictamente bajo el directorio `03 CORES` con el siguiente esquema:
+La raíz del espacio de trabajo se puede ubicar en cualquier directorio local elegido por el usuario y se organiza con el siguiente esquema:
 
 ```text
-03 CORES/
+<tu-directorio-raiz>/
 ├── agent-rules-ecosystem/       # Repositorio Núcleo y Manifiesto Maestro
 ├── Backend/
 │   ├── backend-agent-rules/     # Gobernanza y protocolos Backend
@@ -33,9 +33,9 @@ La raíz del espacio de trabajo de cores debe organizarse estrictamente bajo el 
 
 ## 🤖 Instrucciones para el Agente de IA
 
-Cuando el usuario pida: **"Inicializa o sincroniza la estructura de CORES"**, el Agente de IA debe ejecutar las siguientes acciones:
+Cuando el usuario pida: **"Inicializa o sincroniza la estructura del ecosistema"**, el Agente de IA debe ejecutar las siguientes acciones:
 
-1. **Ubicación Base**: Validar que la ejecución ocurra en el directorio padre de `03 CORES`.
+1. **Ubicación Base**: Validar que la ejecución ocurra en el directorio raíz elegido para el ecosistema.
 2. **Verificación de Carpetas**: Garantizar la existencia de los 5 bloques principales (`Backend`, `Flutter`, `Game`, `Transversal`, `Web`, `agent-rules-ecosystem`).
 3. **Clonación / Verificación Git**:
    - Para cada submódulo o repositorio, verificar si la carpeta existe y si contiene un repositorio Git válido.
@@ -56,7 +56,7 @@ set -e
 GH_ORG="xolotl-hub"
 BASE_DIR="$(pwd)"
 
-echo "🚀 Iniciando sincronización del ecosistema 03 CORES para: $GH_ORG"
+echo "🚀 Iniciando sincronización del ecosistema para: $GH_ORG"
 
 # Mapa de Directorios y Repositorios [Directorio_Padre:Nombre_Repo]
 REPOS=(
@@ -96,7 +96,7 @@ for ENTRY in "${REPOS[@]}"; do
 done
 
 echo "------------------------------------------------"
-echo "🎉 Estructura 03 CORES completada y sincronizada correctamente."
+echo "🎉 Estructura completada y sincronizada correctamente."
 ```
 
 ---

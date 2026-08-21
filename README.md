@@ -1,4 +1,4 @@
-# 🌐 Agent Rules Ecosystem (`03 CORES`)
+# 🌐 Agent Rules Ecosystem
 
 **Ecosistema Central de Gobernanza y Habilidades para Agentes de IA**  
 Organización y Repositorios Oficiales: [xolotl-hub](https://github.com/xolotl-hub)
@@ -7,9 +7,9 @@ Organización y Repositorios Oficiales: [xolotl-hub](https://github.com/xolotl-h
 
 ## 📌 Visión General
 
-`agent-rules-ecosystem` es el manifiesto y núcleo orquestador de la arquitectura de **03 CORES**. Está diseñado para estandarizar el flujo de trabajo, la economía de tokens, la gobernanza de sesiones y la inyección de habilidades especializadas en cualquier tipo de proyecto (Mobile, Web, Backend, Game, Infrastructure).
+`agent-rules-ecosystem` es el manifiesto y núcleo orquestador de la arquitectura del ecosistema. Está diseñado para estandarizar el flujo de trabajo, la economía de tokens, la gobernanza de sesiones y la inyección de habilidades especializadas en cualquier tipo de proyecto (Mobile, Web, Backend, Game, Infrastructure).
 
-### 📐 Filosofía de los 03 CORES
+### 📐 Filosofía del Ecosistema
 
 El ecosistema se divide en dos capas fundamentales:
 
