@@ -322,6 +322,7 @@ git submodule add https://github.com/xolotl-hub/<nombre>-agent-skill.git .skill/
 | **Flutter** | `flutter-bloc-patterns-agent-skill` | `.skill/flutter-bloc-patterns-agent-skill/` | `$bloc` |
 | **Flutter** | `flutter-firebase-auth-agent-skill` | `.skill/flutter-firebase-auth-agent-skill/` | `$auth` |
 | **Flutter** | `flutter-firebase-odoo-agent-skill` | `.skill/flutter-firebase-odoo-agent-skill/` | `$odoo` |
+| **Flutter** | `flutter-payments-agent-skill` | `.skill/flutter-payments-agent-skill/` | `$pay` |
 | **Web** | `web-svelte-patterns-agent-skill` | `.skill/web-svelte-patterns-agent-skill/` | `$svelte` |
 | **Web** | `web-realtime-agent-skill` | `.skill/web-realtime-agent-skill/` | `$realtime` |
 | **Web** | `three-js-agent-skills` | `.skill/three-js-agent-skills/` | `$threejs` |

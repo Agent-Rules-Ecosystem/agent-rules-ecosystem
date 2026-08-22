@@ -45,6 +45,7 @@
 - `flutter-bloc-patterns-agent-skill` (`$bloc`)
 - `flutter-firebase-auth-agent-skill` (`$auth`)
 - `flutter-firebase-odoo-agent-skill` (`$odoo`)
+- `flutter-payments-agent-skill` (`$pay`) — ✅ Creado localmente
 
 #### Web
 - `web-svelte-patterns-agent-skill` (`$svelte`)
