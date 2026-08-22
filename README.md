@@ -1,19 +1,38 @@
 # 🌐 Agent Rules Ecosystem
 
-**Ecosistema Central de Gobernanza y Habilidades para Agentes de IA**  
-Organización y Repositorios Oficiales: [xolotl-hub](https://github.com/xolotl-hub)
+> **Organización y Repositorios Oficiales**: [github.com/Agent-Rules-Ecosystem](https://github.com/Agent-Rules-Ecosystem)  
+> **Manifiesto Maestro y Orquestador del Ecosistema de Gobernanza y Habilidades para Agentes de IA**
 
 ---
 
 ## 📌 Visión General
 
-`agent-rules-ecosystem` es el manifiesto maestro, especificación estándar y orquestador del ecosistema `xolotl-hub`. Está diseñado para estandarizar la arquitectura de gobernanza, la gestión de sesiones, la estructura local de carpetas y la inyección de habilidades especializadas en cualquier entorno (Flutter, Web, Backend, Game Dev y Transversal).
+`agent-rules-ecosystem` es la especificación estándar, manifiesto maestro y arquitectura base de la organización **`Agent-Rules-Ecosystem`**. Su objetivo es proporcionar un marco estandarizado de **gobernanza, rituales de sesión, persistencia de contexto e inyección de habilidades especializadas** para agentes de Inteligencia Artificial (Gemini, Claude, Antigravity, ChatGPT, Codex, Cursor IDE).
 
-### 📐 Filosofía del Ecosistema
+### 📐 Filosofía de la Arquitectura en 2 Capas
 
-El ecosistema se divide en dos capas fundamentales:
+```mermaid
+graph TD
+    subgraph Dominio ["Proyecto Cliente"]
+        RULES[".agents/ (Submódulo *-agent-rules)"]
+        SKILLS[".skill/ (Submódulos *-agent-skill)"]
+        OVERVIEW["overview/ (Persistencia de Estado)"]
+    end
+    
+    subgraph Gobernanza ["1. Capa de Gobernanza (CÓMO Trabaja la IA)"]
+        RULES --> BOOT["$boot (Bootstrap & Handoffs)"]
+        RULES --> WORK["$work (Gestión de Backlog & Tareas)"]
+        RULES --> CLOSE["$close (Cierre & Validación)"]
+    end
+    
+    subgraph Habilidades ["2. Capa de Habilidades (QUÉ Sabe Hacer la IA)"]
+        SKILLS --> TECH["Patrones Técnicos & Snippets 100% Markdown"]
+        SKILLS --> AUDIT["Commandos de Auditoría ($alias:audit)"]
+        SKILLS --> KNOWLEDGE["Guías de Dominio (knowledge/)"]
+    end
+```
 
-1. **Gobernanza (`*-agent-rules`)**: Define **CÓMO trabaja la IA** (Rituales `$boot`, `$work`, `$archi`, `$close`, gestión de estado en `overview/`, economía de tokens, handoffs y firma de modelos).
+1. **Gobernanza (`*-agent-rules`)**: Define **CÓMO trabaja la IA** (Rituales `$boot`, `$work`, `$close`, gestión de estado en `overview/`, economía de tokens, handoffs y firma de modelos).
 2. **Habilidades (`*-agent-skill`)**: Define **QUÉ sabe hacer la IA** en dominios técnicos específicos (patrones de código, integraciones, snippets comprobados y guías técnicas en formato 100% Markdown).
 
 ---
@@ -21,107 +40,109 @@ El ecosistema se divide en dos capas fundamentales:
 ## 🌳 Árbol Canónico del Ecosistema
 
 ```text
-<tu-directorio-raiz>/
+CORE/
 ├── agent-rules-ecosystem/       # Repositorio Núcleo y Manifiesto Maestro
 ├── Backend/
-│   ├── backend-agent-rules/     # Gobernanza Backend
+│   ├── backend-agent-rules/     # Gobernanza Backend (Node, Python, APIs, DBs)
 │   └── backend-agent-skill/     # Habilidades Backend
 │       ├── backend-auth-oauth-agent-skill/
 │       ├── backend-graphql-agent-skill/
 │       └── backend-stripe-agent-skill/
 ├── Flutter/
-│   ├── flutter-agent-rules/     # Gobernanza Flutter
+│   ├── flutter-agent-rules/     # Gobernanza Flutter / Mobile
 │   └── flutter-agent-skill/     # Habilidades Flutter
 │       ├── flutter-bloc-patterns-agent-skill/
 │       ├── flutter-firebase-auth-agent-skill/
-│       └── flutter-firebase-odoo-agent-skill/
+│       ├── flutter-firebase-odoo-agent-skill/
+│       └── flutter-payments-agent-skill/
 ├── Game/
-│   ├── game-agent-rules/        # Gobernanza Game Dev
-│   └── game-agent-skill/        # Habilidades Game Dev (Godot)
-│       ├── godot-steamworks-agent-skill/
+│   ├── game-agent-rules/        # Gobernanza Game Dev (Godot 4 & Lore)
+│   └── game-agent-skill/        # Habilidades Game Dev (Godot 4)
+│       ├── godot-dialogue-plugin-agent-skill/
 │       ├── godot-firebase-agent-skill/
 │       ├── godot-mobile-monetization-agent-skill/
-│       ├── godot-dialogue-plugin-agent-skill/
-│       └── godot-nakama-agent-skill/
+│       ├── godot-nakama-agent-skill/
+│       └── godot-steamworks-agent-skill/
 ├── Transversal/
 │   ├── infra-agent-skill/       # Habilidades de Docker, CI/CD e Infraestructura
 │   ├── monitoring-agent-skill/  # Habilidades de Telemetría y Logging
 │   └── security-agent-skill/    # Habilidades de Seguridad y OWASP
 └── Web/
-    ├── web-agent-rules/         # Gobernanza Web (React/Next/Svelte/Vite)
+    ├── web-agent-rules/         # Gobernanza Web (HTML5, CSS, Svelte, React, Vue, Astro)
     └── web-agent-skill/         # Habilidades Web
-        ├── web-svelte-patterns-agent-skill/
+        ├── three-js-agent-skills/
         ├── web-realtime-agent-skill/
-        └── three-js-agent-skills/
+        ├── web-svelte-patterns-agent-skill/
+        └── wordpress-agent-skill/
 ```
 
 ---
 
-## 🗺️ Matriz de Repositorios Oficiales (`xolotl-hub`)
+## 🗺️ Matriz de Repositorios Oficiales (`Agent-Rules-Ecosystem`)
 
-### 📱 1. Flutter
-- 🛡️ **Gobernanza**: `flutter-agent-rules` → `https://github.com/xolotl-hub/flutter-agent-rules`
+### 📱 1. Flutter (Mobile / Multiplataforma)
+- 🛡️ **Gobernanza**: [`flutter-agent-rules`](https://github.com/Agent-Rules-Ecosystem/flutter-agent-rules)
 - ⚡ **Skills** (`Flutter/flutter-agent-skill/`):
-  - `flutter-bloc-patterns-agent-skill` (`$bloc`)
-  - `flutter-firebase-auth-agent-skill` (`$auth`)
-  - `flutter-firebase-odoo-agent-skill` (`$odoo`)
+  - [`flutter-bloc-patterns-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-bloc-patterns-agent-skill) (`$bloc`) — Patrones BLoC/Cubit y State Management
+  - [`flutter-firebase-auth-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-firebase-auth-agent-skill) (`$auth`) — Autenticación Firebase en Flutter
+  - [`flutter-firebase-odoo-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-firebase-odoo-agent-skill) (`$odoo`) — Integración Firebase SSOT + Odoo ERP
+  - [`flutter-payments-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-payments-agent-skill) (`$pay`) — Stripe, In-App Purchases, Apple/Google Pay
 
-### 🌐 2. Web
-- 🛡️ **Gobernanza**: `web-agent-rules` → `https://github.com/xolotl-hub/web-agent-rules`
+### 🌐 2. Web & CMS
+- 🛡️ **Gobernanza**: [`web-agent-rules`](https://github.com/Agent-Rules-Ecosystem/web-agent-rules)
 - ⚡ **Skills** (`Web/web-agent-skill/`):
-  - `web-svelte-patterns-agent-skill` (`$svelte`)
-  - `web-realtime-agent-skill` (`$realtime`)
-  - `three-js-agent-skills` (`$threejs`)
+  - [`web-svelte-patterns-agent-skill`](https://github.com/Agent-Rules-Ecosystem/web-svelte-patterns-agent-skill) (`$svelte`) — Patrones de Svelte 5 / SvelteKit
+  - [`web-realtime-agent-skill`](https://github.com/Agent-Rules-Ecosystem/web-realtime-agent-skill) (`$realtime`) — WebSockets, SSE y estado en tiempo real
+  - [`three-js-agent-skills`](https://github.com/Agent-Rules-Ecosystem/three-js-agent-skills) (`$threejs`) — WebGL, Three.js y optimización GPU
+  - [`wordpress-agent-skill`](https://github.com/Agent-Rules-Ecosystem/wordpress-agent-skill) (`$wp`) — Plantillas visuales, FSE, REST/GraphQL, ACF
 
-### ⚙️ 3. Backend
-- 🛡️ **Gobernanza**: `backend-agent-rules` → `https://github.com/xolotl-hub/backend-agent-rules`
+### ⚙️ 3. Backend & APIs
+- 🛡️ **Gobernanza**: [`backend-agent-rules`](https://github.com/Agent-Rules-Ecosystem/backend-agent-rules)
 - ⚡ **Skills** (`Backend/backend-agent-skill/`):
-  - `backend-auth-oauth-agent-skill` (`$auth`)
-  - `backend-graphql-agent-skill` (`$gql`)
-  - `backend-stripe-agent-skill` (`$stripe`)
+  - [`backend-auth-oauth-agent-skill`](https://github.com/Agent-Rules-Ecosystem/backend-auth-oauth-agent-skill) (`$auth`) — OAuth2, JWT, OIDC y seguridad de sesiones
+  - [`backend-graphql-agent-skill`](https://github.com/Agent-Rules-Ecosystem/backend-graphql-agent-skill) (`$gql`) — Esquemas GraphQL, Dataloader N+1 y seguridad
+  - [`backend-stripe-agent-skill`](https://github.com/Agent-Rules-Ecosystem/backend-stripe-agent-skill) (`$stripe`) — Webhooks, suscripciones y Checkout
 
 ### 🎮 4. Game Dev (Godot 4)
-- 🛡️ **Gobernanza**: `game-agent-rules` → `https://github.com/xolotl-hub/game-agent-rules`
+- 🛡️ **Gobernanza**: [`game-agent-rules`](https://github.com/Agent-Rules-Ecosystem/game-agent-rules)
 - ⚡ **Skills** (`Game/game-agent-skill/`):
-  - `godot-steamworks-agent-skill` (`$steam`)
-  - `godot-firebase-agent-skill` (`$godotfire`)
-  - `godot-mobile-monetization-agent-skill` (`$mobile`)
-  - `godot-dialogue-plugin-agent-skill` (`$dialogue`)
-  - `godot-nakama-agent-skill` (`$nakama`)
+  - [`godot-steamworks-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-steamworks-agent-skill) (`$steam`) — Logros, Cloud Save, Workshop, Lobbies
+  - [`godot-firebase-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-firebase-agent-skill) (`$godotfire`) — Auth de jugadores, Firestore/RTDB, Cloud Save
+  - [`godot-mobile-monetization-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-mobile-monetization-agent-skill) (`$mobile`) — AdMob, IAP, Google Play Games, Game Center
+  - [`godot-dialogue-plugin-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-dialogue-plugin-agent-skill) (`$dialogue`) — Dialogue Manager y Yarn Spinner
+  - [`godot-nakama-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-nakama-agent-skill) (`$nakama`) — Servidor multiplayer Nakama
 
-### 🔄 5. Transversal Skills
-Skills agnósticas componibles e inyectables en cualquier proyecto:
-- 🏗️ **Infraestructura & CI/CD**: `infra-agent-skill` (`$infra`)
-- 📊 **Monitoreo & Telemetría**: `monitoring-agent-skill` (`$monitoring`)
-- 🛡️ **Seguridad & OWASP**: `security-agent-skill` (`$security`)
+### 🔄 5. Skills Transversales (Agnósticas)
+- 🏗️ [`infra-agent-skill`](https://github.com/Agent-Rules-Ecosystem/infra-agent-skill) (`$infra`) — Docker, Kubernetes, CI/CD GitHub Actions
+- 📊 [`monitoring-agent-skill`](https://github.com/Agent-Rules-Ecosystem/monitoring-agent-skill) (`$monitoring`) — Logging, Telemetría OpenTelemetry, APM
+- 🛡️ [`security-agent-skill`](https://github.com/Agent-Rules-Ecosystem/security-agent-skill) (`$security`) — Auditoría de vulnerabilidades OWASP y secretos
 
 ---
 
-## ⚡ Scripts de Sincronización Automática
+## ⚡ Instalación Estándar en un Proyecto
 
-Este repositorio incluye scripts ejecutables de referencia en `scripts/` para que **cualquier agente de IA o desarrollador** pueda inicializar la estructura local completa en cualquier máquina sin margen de error:
-
-### En Linux / macOS (Bash)
 ```bash
-bash scripts/sync_ecosystem.sh
-```
+# 1. Instalar la regla de gobernanza del dominio en .agents/
+git submodule add https://github.com/Agent-Rules-Ecosystem/<dominio>-agent-rules.git .agents
 
-### En Windows (PowerShell)
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/sync_ecosystem.ps1
+# 2. Instalar las skills requeridas por el proyecto en .skill/
+mkdir -p .skill
+git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.git .skill/<nombre>-agent-skill
 ```
 
 ---
 
 ## 📚 Documentos de Referencia
 
-- 👉 **[Guía de Estructura y Clonación (`ESTRUCTURA_CLONACION.md`)](./ESTRUCTURA_CLONACION.md)** — Protocolo e instrucciones detalladas de clonación.
-- 👉 **[Estándar Canónico de Skills (`SKILL_STANDARD.md`)](./SKILL_STANDARD.md)** — Especificación técnica agnóstica para crear y validar skills.
+- 👉 **[Guía de Estructura y Clonación (`ESTRUCTURA_CLONACION.md`)](./ESTRUCTURA_CLONACION.md)** — Instrucciones detalladas de despliegue local.
+- 👉 **[Estándar Canónico de Skills (`SKILL_STANDARD.md`)](./SKILL_STANDARD.md)** — Especificación técnica agnóstica para crear y validar cualquier skill.
+- 👉 **[Estado y Pendientes (`PENDIENTES.md`)](./PENDIENTES.md)** — Registro vivo del estado de los 23 repositorios.
 
 ---
 
 ## 🔒 Regla de Inviolabilidad y Contribución
 
-1. **Aislamiento**: Los submódulos `.agents/` en proyectos cliente nunca se modifican directamente desde el proyecto.
-2. **Propuestas de Mejora**: Todo aprendizaje candidato se registra en `overview/learning.md` del proyecto huésped.
-3. **Promoción**: Las mejoras aprobadas se fusionan hacia el repositorio oficial correspondiente en `xolotl-hub`.
+1. **Aislamiento**: Los submódulos `.agents/` y `.skill/` son de solo lectura dentro de los proyectos clientes.
+2. **Propuestas de Mejora**: Todo aprendizaje candidato se registra en `overview/learning.md` del proyecto huésped con `$learn` o `$learnagnostico`.
+3. **Promoción**: Las mejoras aprobadas se fusionan hacia los repositorios oficiales en `Agent-Rules-Ecosystem`.
+
