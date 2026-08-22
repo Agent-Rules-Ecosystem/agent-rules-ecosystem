@@ -312,11 +312,27 @@ git submodule add https://github.com/xolotl-hub/<nombre>-agent-skill.git .skill/
 
 > **Importante**: El nombre del directorio dentro de `.skill/` debe ser el nombre **completo** del repositorio, no un alias corto. Esto garantiza trazabilidad directa entre la carpeta local y el repo de origen.
 
-### Esquema Genérico de Instalación
+### Tabla de Skills Disponibles e Instalación
 
-| Repositorio | Ruta de instalación | Comando de activación |
-|---|---|---|
-| `<nombre>-agent-skill` | `.skill/<nombre>-agent-skill/` | `$<alias>` |
+| Dominio | Repositorio | Ruta de instalación | Comando |
+|---|---|---|---|
+| **Transversal** | `infra-agent-skill` | `.skill/infra-agent-skill/` | `$infra` |
+| **Transversal** | `monitoring-agent-skill` | `.skill/monitoring-agent-skill/` | `$monitoring` |
+| **Transversal** | `security-agent-skill` | `.skill/security-agent-skill/` | `$security` |
+| **Flutter** | `flutter-bloc-patterns-agent-skill` | `.skill/flutter-bloc-patterns-agent-skill/` | `$bloc` |
+| **Flutter** | `flutter-firebase-auth-agent-skill` | `.skill/flutter-firebase-auth-agent-skill/` | `$auth` |
+| **Flutter** | `flutter-firebase-odoo-agent-skill` | `.skill/flutter-firebase-odoo-agent-skill/` | `$odoo` |
+| **Web** | `web-svelte-patterns-agent-skill` | `.skill/web-svelte-patterns-agent-skill/` | `$svelte` |
+| **Web** | `web-realtime-agent-skill` | `.skill/web-realtime-agent-skill/` | `$realtime` |
+| **Web** | `three-js-agent-skills` | `.skill/three-js-agent-skills/` | `$threejs` |
+| **Backend** | `backend-auth-oauth-agent-skill` | `.skill/backend-auth-oauth-agent-skill/` | `$auth` |
+| **Backend** | `backend-graphql-agent-skill` | `.skill/backend-graphql-agent-skill/` | `$gql` |
+| **Backend** | `backend-stripe-agent-skill` | `.skill/backend-stripe-agent-skill/` | `$stripe` |
+| **Game** | `godot-steamworks-agent-skill` | `.skill/godot-steamworks-agent-skill/` | `$steam` |
+| **Game** | `godot-firebase-agent-skill` | `.skill/godot-firebase-agent-skill/` | `$godotfire` |
+| **Game** | `godot-mobile-monetization-agent-skill` | `.skill/godot-mobile-monetization-agent-skill/` | `$mobile` |
+| **Game** | `godot-dialogue-plugin-agent-skill` | `.skill/godot-dialogue-plugin-agent-skill/` | `$dialogue` |
+| **Game** | `godot-nakama-agent-skill` | `.skill/godot-nakama-agent-skill/` | `$nakama` |
 
 ---
 
