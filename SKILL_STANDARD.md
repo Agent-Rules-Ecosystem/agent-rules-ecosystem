@@ -325,6 +325,7 @@ git submodule add https://github.com/xolotl-hub/<nombre>-agent-skill.git .skill/
 | **Web** | `web-svelte-patterns-agent-skill` | `.skill/web-svelte-patterns-agent-skill/` | `$svelte` |
 | **Web** | `web-realtime-agent-skill` | `.skill/web-realtime-agent-skill/` | `$realtime` |
 | **Web** | `three-js-agent-skills` | `.skill/three-js-agent-skills/` | `$threejs` |
+| **Web** | `wordpress-agent-skill` | `.skill/wordpress-agent-skill/` | `$wp` |
 | **Backend** | `backend-auth-oauth-agent-skill` | `.skill/backend-auth-oauth-agent-skill/` | `$auth` |
 | **Backend** | `backend-graphql-agent-skill` | `.skill/backend-graphql-agent-skill/` | `$gql` |
 | **Backend** | `backend-stripe-agent-skill` | `.skill/backend-stripe-agent-skill/` | `$stripe` |

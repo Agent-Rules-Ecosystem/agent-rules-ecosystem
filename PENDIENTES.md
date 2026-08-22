@@ -50,6 +50,7 @@
 - `web-svelte-patterns-agent-skill` (`$svelte`)
 - `web-realtime-agent-skill` (`$realtime`)
 - `three-js-agent-skills` (`$threejs`)
+- `wordpress-agent-skill` (`$wp`) — ✅ Creado y Sincronizado
 
 #### Backend
 - `backend-auth-oauth-agent-skill` (`$auth`)
