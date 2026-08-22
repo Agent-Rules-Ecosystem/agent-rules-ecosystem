@@ -1,4 +1,4 @@
-﻿# ðŸ“ Agent Skill Standard â€” EspecificaciÃ³n Oficial
+# ðŸ“ Agent Skill Standard â€” EspecificaciÃ³n Oficial
 
 > **Referencia canÃ³nica para la creaciÃ³n, validaciÃ³n y mantenimiento de cualquier `*-agent-skill`** dentro del ecosistema `Agent-Rules-Ecosystem`.  
 > Toda skill existente o futura debe cumplir con esta especificaciÃ³n para ser considerada vÃ¡lida.
@@ -338,7 +338,40 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 
 ---
 
-## ðŸ”’ Inviolabilidades del EstÃ¡ndar
+## ⚡ Registro Activo de Tareas de Skills (`overview/work/skill/`)
+
+Una skill no debe limitarse a actuar como un visor pasivo o dar respuestas efímeras en el chat. Al ejecutarse o auditar el proyecto (`$skill:audit` o `$skill`), cada skill **debe persistir sus hallazgos y tareas accionables** en el proyecto dentro de la carpeta `overview/work/skill/`.
+
+### Reglas del Contrato de Interacción Activa:
+1. **Creación Automática**: Si la carpeta `overview/work/skill/` no existe en el proyecto cliente, la skill la crea automáticamente al ejecutarse.
+2. **Nomenclatura Obligatoria de Archivos (`overview/work/skill/<skill-name>.md`)**: Cada skill escribe exclusivamente en su propio archivo Markdown dentro de dicha carpeta, utilizando el nombre canónico del dominio de la skill:
+   - `.skill/flutter-firebase-auth-agent-skill` → `overview/work/skill/flutter-firebase-auth.md`
+   - `.skill/monitoring-agent-skill` → `overview/work/skill/monitoring.md`
+   - `.skill/security-agent-skill` → `overview/work/skill/security.md`
+3. **Tabla Estandarizada de Actividades**: Todo archivo `overview/work/skill/<skill-name>.md` debe contener obligatoriamente una tabla estructurada con las columnas: `ID`, `Tipo`, `Estado`, `Resumen`, `Evidencia/Ruta` y `Acción Requerida`.
+4. **Consolidación en `*-agent-rules`**: El agente core de gobernanza (`.agents`) escanea `overview/work/skill/` durante `$boot`, `$work` y `$close` e integra estas tareas al índice maestro `overview/work.md` para su ejecución directa en el proyecto.
+
+### Plantilla Oficial de Reporte de Skill (`overview/work/skill/<skill-name>.md`):
+
+```markdown
+# 📋 Registro Activo de Tareas — <Skill Name>
+
+> **Generado por**: `<skill-name>-agent-skill` (`$<skill-alias>:audit`)  
+> **Última actualización**: YYYY-MM-DD  
+
+## 🎯 Tareas Pendientes Accionables
+
+| ID | Tipo | Estado | Resumen | Evidencia/Ruta | Acción Requerida |
+|---|---|---|---|---|---|
+| SEC-01 | Fix | Pendiente | API Key hardcodeada en fuente | `lib/core/config.dart:L14` | Mover secreto a `.env` / gestor de secretos |
+
+## 📝 Observaciones y Notas
+- Contexto adicional o hallazgos relevantes de la auditoría.
+```
+
+---
+
+## 🔒 Inviolabilidades del Estándar
 
 1. **`.agents/` es intocable.** Contiene exclusivamente el repositorio oficial `*-agent-rules`. Nunca se crea ni modifica nada dentro de `.agents/` desde el proyecto local.
 2. **Las skills van en `.skill/`, nunca dentro de `.agents/`.** La carpeta `.skill/` vive al mismo nivel que `.agents/` en la raÃ­z del proyecto huÃ©sped.
