@@ -349,7 +349,11 @@ Una skill no debe limitarse a actuar como un visor pasivo o dar respuestas efím
    - `.skill/monitoring-agent-skill` → `overview/work/skill/monitoring.md`
    - `.skill/security-agent-skill` → `overview/work/skill/security.md`
 3. **Tabla Estandarizada de Actividades**: Todo archivo `overview/work/skill/<skill-name>.md` debe contener obligatoriamente una tabla estructurada con las columnas: `ID`, `Tipo`, `Estado`, `Resumen`, `Evidencia/Ruta` y `Acción Requerida`.
-4. **Consolidación en `*-agent-rules`**: El agente core de gobernanza (`.agents`) escanea `overview/work/skill/` durante `$boot`, `$work` y `$close` e integra estas tareas al índice maestro `overview/work.md` para su ejecución directa en el proyecto.
+4. **Consolidación y Triaje en `*-agent-rules`**: El agente core de gobernanza (`.agents`) escanea `overview/work/skill/` durante `$boot`, `$work` y `$close` e integra las tareas identificadas por las skills a los rastreadores principales del proyecto según su tipo:
+   - 🛠️ **Deuda Técnica** (`overview/work/deuda_tecnica.md`): Refactorizaciones, mejoras de arquitectura o problemas de calidad.
+   - 📋 **Pendientes** (`overview/work/pendientes.md`): Requerimientos secundarios, configuraciones a futuro o tareas de media/baja prioridad.
+   - 🎯 **Tasks / Tareas Inmediatas** (`overview/work/tasks.md` e índice maestro `overview/work.md`): Bugs críticos, fallos de seguridad o parches urgentes.
+   - El archivo `overview/work/skill/<skill-name>.md` se conserva de forma permanente como la fuente de detalle, respuesta completa y evidencia técnica provista por la skill.
 
 ### Plantilla Oficial de Reporte de Skill (`overview/work/skill/<skill-name>.md`):
 
