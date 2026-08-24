@@ -32,6 +32,24 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │       ├── godot-mobile-monetization-agent-skill/
 │       ├── godot-dialogue-plugin-agent-skill/
 │       └── godot-nakama-agent-skill/
+├── Kotlin/
+│   ├── kotlin-agent-rules/      # Gobernanza y protocolos Kotlin (Android Nativo / KMP)
+│   └── kotlin-agent-skill/      # Habilidades y patrones Kotlin
+│       ├── kotlin-jetpack-compose-agent-skill/
+│       ├── kotlin-coroutines-flow-agent-skill/
+│       └── kotlin-room-sqlite-agent-skill/
+├── Python/
+│   ├── python-agent-rules/      # Gobernanza y protocolos Python (AI & Data)
+│   └── python-agent-skill/      # Habilidades y patrones Python
+│       ├── python-fastapi-pydantic-agent-skill/
+│       ├── python-langchain-agents-agent-skill/
+│       └── python-pandas-data-agent-skill/
+├── Swift/
+│   ├── swift-agent-rules/       # Gobernanza y protocolos Swift (iOS Nativo / SwiftUI)
+│   └── swift-agent-skill/       # Habilidades y patrones Swift
+│       ├── swiftui-navigation-state-agent-skill/
+│       ├── swift-async-concurrency-agent-skill/
+│       └── swift-swiftdata-realm-agent-skill/
 ├── Transversal/
 │   ├── infra-agent-skill/       # Habilidades de Docker, CI/CD e Infraestructura
 │   ├── monitoring-agent-skill/  # Habilidades de Logging y Telemetría
