@@ -316,6 +316,8 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 
 | Dominio | Repositorio | Ruta de instalaciÃ³n | Comando |
 |---|---|---|---|
+| **Transversal** | `grapho-agent-skill` | `.skill/grapho-agent-skill/` | `$grapho` |
+| **Transversal** | `grapho-3d-visualizer-agent-skill` | `.skill/grapho-3d-visualizer-agent-skill/` | `$grapho3d` |
 | **Transversal** | `i18n-agent-skill` | `.skill/i18n-agent-skill/` | `$i18n` |
 | **Transversal** | `infra-agent-skill` | `.skill/infra-agent-skill/` | `$infra` |
 | **Transversal** | `monitoring-agent-skill` | `.skill/monitoring-agent-skill/` | `$monitoring` |

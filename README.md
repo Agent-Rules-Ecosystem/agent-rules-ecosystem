@@ -154,6 +154,8 @@ CORE/
   - [`python-pandas-data-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-pandas-data-agent-skill) (`$pandas`) — Manipulación de DataFrames, ETL y análisis numérico
 
 ### 🔄 8. Skills Transversales (Agnósticas)
+- 🕸️ [`grapho-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-agent-skill) (`$grapho`) — Motor AST de análisis determinista de grafos y Clean Arch (< 1s)
+- 🎨 [`grapho-3d-visualizer-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-3d-visualizer-agent-skill) (`$grapho3d`) — Visualizador 3D/2.5D interactivo (Sci-Fi Constellation & Medieval RPG Waifus)
 - 🌍 [`i18n-agent-skill`](https://github.com/Agent-Rules-Ecosystem/i18n-agent-skill) (`$i18n`) — Internacionalización, Localización multi-idioma y Fallbacks transparentes
 - 🏗️ [`infra-agent-skill`](https://github.com/Agent-Rules-Ecosystem/infra-agent-skill) (`$infra`) — Docker, Kubernetes, CI/CD GitHub Actions
 - 📊 [`monitoring-agent-skill`](https://github.com/Agent-Rules-Ecosystem/monitoring-agent-skill) (`$monitoring`) — Logging, Telemetría OpenTelemetry, APM
