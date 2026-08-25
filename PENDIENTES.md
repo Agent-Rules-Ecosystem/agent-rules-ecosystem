@@ -1,4 +1,4 @@
-﻿# ðŸ“‹ Estado y Pendientes del Ecosistema Agent Rules & Skills
+# ðŸ“‹ Estado y Pendientes del Ecosistema Agent Rules & Skills
 
 > **Referencia de estado del ecosistema `Agent-Rules-Ecosystem`**  
 > Actualizado: 2026-08-21 Â· SesiÃ³n: AuditorÃ­a, CreaciÃ³n de Skills Game y SincronizaciÃ³n Git
@@ -36,8 +36,9 @@
 | Repositorio | Alias | Cobertura |
 |---|---|---|
 | `infra-agent-skill` | `$infra` | Docker, Kubernetes, CI/CD |
-| `monitoring-agent-skill` | `$monitoring` | Logging, APM, MÃ©tricas |
-| `security-agent-skill` | `$security` | AuditorÃ­a OWASP, Secretos |
+| `monitoring-agent-skill` | `$monitoring` | Logging, APM, Métricas |
+| `security-agent-skill` | `$security` | Auditoría OWASP, Secretos |
+| `telemetry-agent-skill` | `$telemetry` | Analytics, Crashlytics, Sanitización PII |
 
 ### 3. Skills Especializadas por Dominio (`*-agent-skill`)
 

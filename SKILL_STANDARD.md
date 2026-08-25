@@ -319,6 +319,7 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 | **Transversal** | `infra-agent-skill` | `.skill/infra-agent-skill/` | `$infra` |
 | **Transversal** | `monitoring-agent-skill` | `.skill/monitoring-agent-skill/` | `$monitoring` |
 | **Transversal** | `security-agent-skill` | `.skill/security-agent-skill/` | `$security` |
+| **Transversal** | `telemetry-agent-skill` | `.skill/telemetry-agent-skill/` | `$telemetry` |
 | **Flutter** | `flutter-bloc-patterns-agent-skill` | `.skill/flutter-bloc-patterns-agent-skill/` | `$bloc` |
 | **Flutter** | `flutter-firebase-auth-agent-skill` | `.skill/flutter-firebase-auth-agent-skill/` | `$auth` |
 | **Flutter** | `flutter-firebase-odoo-agent-skill` | `.skill/flutter-firebase-odoo-agent-skill/` | `$odoo` |
