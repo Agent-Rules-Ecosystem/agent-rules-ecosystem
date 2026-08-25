@@ -27,7 +27,7 @@ graph TD
     
     subgraph Habilidades ["2. Capa de Habilidades (QUÉ Sabe Hacer la IA)"]
         SKILLS --> TECH["Patrones Técnicos & Snippets 100% Markdown"]
-        SKILLS --> AUDIT["Commandos de Auditoría ($alias:audit)"]
+        SKILLS --> AUDIT["Comandos de Auditoría ($alias:audit)"]
         SKILLS --> KNOWLEDGE["Guías de Dominio (knowledge/)"]
     end
 ```
@@ -63,10 +63,30 @@ CORE/
 │       ├── godot-mobile-monetization-agent-skill/
 │       ├── godot-nakama-agent-skill/
 │       └── godot-steamworks-agent-skill/
+├── Kotlin/
+│   ├── kotlin-agent-rules/      # Gobernanza Android / Kotlin Multiplatform
+│   └── kotlin-agent-skill/      # Habilidades Kotlin
+│       ├── kotlin-coroutines-flow-agent-skill/
+│       ├── kotlin-jetpack-compose-agent-skill/
+│       └── kotlin-room-sqlite-agent-skill/
+├── Python/
+│   ├── python-agent-rules/      # Gobernanza Python (Data, APIs, AI Agents)
+│   └── python-agent-skill/      # Habilidades Python
+│       ├── python-fastapi-pydantic-agent-skill/
+│       ├── python-langchain-agents-agent-skill/
+│       └── python-pandas-data-agent-skill/
+├── Swift/
+│   ├── swift-agent-rules/       # Gobernanza Apple Platforms / Swift
+│   └── swift-agent-skill/       # Habilidades Swift
+│       ├── swift-async-concurrency-agent-skill/
+│       ├── swift-swiftdata-realm-agent-skill/
+│       └── swiftui-navigation-state-agent-skill/
 ├── Transversal/
+│   ├── i18n-agent-skill/        # Habilidades de Internacionalización y Localización
 │   ├── infra-agent-skill/       # Habilidades de Docker, CI/CD e Infraestructura
-│   ├── monitoring-agent-skill/  # Habilidades de Telemetría y Logging
-│   └── security-agent-skill/    # Habilidades de Seguridad y OWASP
+│   ├── monitoring-agent-skill/  # Habilidades de Observabilidad y APM
+│   ├── security-agent-skill/    # Habilidades de Seguridad y OWASP
+│   └── telemetry-agent-skill/   # Habilidades de Analytics, Crashlytics y Sanitización PII
 └── Web/
     ├── web-agent-rules/         # Gobernanza Web (HTML5, CSS, Svelte, React, Vue, Astro)
     └── web-agent-skill/         # Habilidades Web
@@ -112,10 +132,33 @@ CORE/
   - [`godot-dialogue-plugin-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-dialogue-plugin-agent-skill) (`$dialogue`) — Dialogue Manager y Yarn Spinner
   - [`godot-nakama-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-nakama-agent-skill) (`$nakama`) — Servidor multiplayer Nakama
 
-### 🔄 5. Skills Transversales (Agnósticas)
+### 🤖 5. Kotlin (Android / Multiplatform)
+- 🛡️ **Gobernanza**: [`kotlin-agent-rules`](https://github.com/Agent-Rules-Ecosystem/kotlin-agent-rules)
+- ⚡ **Skills** (`Kotlin/kotlin-agent-skill/`):
+  - [`kotlin-jetpack-compose-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-jetpack-compose-agent-skill) (`$compose`) — UI Declarativa, Material 3 y State Recomposition
+  - [`kotlin-coroutines-flow-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-coroutines-flow-agent-skill) (`$coroutines`) — Concurrencia estructurada, StateFlow y SharedFlow
+  - [`kotlin-room-sqlite-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-room-sqlite-agent-skill) (`$room`) — DAOs, entidades y migraciones de DB local
+
+### 🍏 6. Swift (iOS / macOS / Apple Platforms)
+- 🛡️ **Gobernanza**: [`swift-agent-rules`](https://github.com/Agent-Rules-Ecosystem/swift-agent-rules)
+- ⚡ **Skills** (`Swift/swift-agent-skill/`):
+  - [`swiftui-navigation-state-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill) (`$swiftui`) — SwiftUI Declarativo, NavigationStack y @Observable
+  - [`swift-async-concurrency-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill) (`$async`) — Swift Concurrency, async/await, Actors y Tasks
+  - [`swift-swiftdata-realm-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swift-swiftdata-realm-agent-skill) (`$swiftdata`) — Persistencia con SwiftData, CoreData y Realm Engine
+
+### 🐍 7. Python (Data, APIs & AI Agents)
+- 🛡️ **Gobernanza**: [`python-agent-rules`](https://github.com/Agent-Rules-Ecosystem/python-agent-rules)
+- ⚡ **Skills** (`Python/python-agent-skill/`):
+  - [`python-fastapi-pydantic-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-fastapi-pydantic-agent-skill) (`$fastapi`) — APIs RESTful asíncronas, validación Pydantic v2
+  - [`python-langchain-agents-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-langchain-agents-agent-skill) (`$langchain`) — Orquestación de Agentes de IA, RAG y Cadenas LLM
+  - [`python-pandas-data-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-pandas-data-agent-skill) (`$pandas`) — Manipulación de DataFrames, ETL y análisis numérico
+
+### 🔄 8. Skills Transversales (Agnósticas)
+- 🌍 [`i18n-agent-skill`](https://github.com/Agent-Rules-Ecosystem/i18n-agent-skill) (`$i18n`) — Internacionalización, Localización multi-idioma y Fallbacks transparentes
 - 🏗️ [`infra-agent-skill`](https://github.com/Agent-Rules-Ecosystem/infra-agent-skill) (`$infra`) — Docker, Kubernetes, CI/CD GitHub Actions
 - 📊 [`monitoring-agent-skill`](https://github.com/Agent-Rules-Ecosystem/monitoring-agent-skill) (`$monitoring`) — Logging, Telemetría OpenTelemetry, APM
 - 🛡️ [`security-agent-skill`](https://github.com/Agent-Rules-Ecosystem/security-agent-skill) (`$security`) — Auditoría de vulnerabilidades OWASP y secretos
+- 📡 [`telemetry-agent-skill`](https://github.com/Agent-Rules-Ecosystem/telemetry-agent-skill) (`$telemetry`) — Analytics de producto, Crashlytics y Sanitización PII
 
 ---
 
@@ -136,7 +179,6 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 
 - 👉 **[Guía de Estructura y Clonación (`ESTRUCTURA_CLONACION.md`)](./ESTRUCTURA_CLONACION.md)** — Instrucciones detalladas de despliegue local.
 - 👉 **[Estándar Canónico de Skills (`SKILL_STANDARD.md`)](./SKILL_STANDARD.md)** — Especificación técnica agnóstica para crear y validar cualquier skill.
-- 👉 **[Estado y Pendientes (`PENDIENTES.md`)](./PENDIENTES.md)** — Registro vivo del estado de los 23 repositorios.
 
 ---
 
@@ -145,4 +187,3 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 1. **Aislamiento**: Los submódulos `.agents/` y `.skill/` son de solo lectura dentro de los proyectos clientes.
 2. **Propuestas de Mejora**: Todo aprendizaje candidato se registra en `overview/learning.md` del proyecto huésped con `$learn` o `$learnagnostico`.
 3. **Promoción**: Las mejoras aprobadas se fusionan hacia los repositorios oficiales en `Agent-Rules-Ecosystem`.
-

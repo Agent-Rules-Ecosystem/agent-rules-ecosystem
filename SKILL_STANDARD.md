@@ -316,6 +316,7 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 
 | Dominio | Repositorio | Ruta de instalaciÃ³n | Comando |
 |---|---|---|---|
+| **Transversal** | `i18n-agent-skill` | `.skill/i18n-agent-skill/` | `$i18n` |
 | **Transversal** | `infra-agent-skill` | `.skill/infra-agent-skill/` | `$infra` |
 | **Transversal** | `monitoring-agent-skill` | `.skill/monitoring-agent-skill/` | `$monitoring` |
 | **Transversal** | `security-agent-skill` | `.skill/security-agent-skill/` | `$security` |
@@ -336,6 +337,15 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 | **Game** | `godot-mobile-monetization-agent-skill` | `.skill/godot-mobile-monetization-agent-skill/` | `$mobile` |
 | **Game** | `godot-dialogue-plugin-agent-skill` | `.skill/godot-dialogue-plugin-agent-skill/` | `$dialogue` |
 | **Game** | `godot-nakama-agent-skill` | `.skill/godot-nakama-agent-skill/` | `$nakama` |
+| **Kotlin** | `kotlin-jetpack-compose-agent-skill` | `.skill/kotlin-jetpack-compose-agent-skill/` | `$compose` |
+| **Kotlin** | `kotlin-coroutines-flow-agent-skill` | `.skill/kotlin-coroutines-flow-agent-skill/` | `$coroutines` |
+| **Kotlin** | `kotlin-room-sqlite-agent-skill` | `.skill/kotlin-room-sqlite-agent-skill/` | `$room` |
+| **Swift** | `swiftui-navigation-state-agent-skill` | `.skill/swiftui-navigation-state-agent-skill/` | `$swiftui` |
+| **Swift** | `swift-async-concurrency-agent-skill` | `.skill/swift-async-concurrency-agent-skill/` | `$async` |
+| **Swift** | `swift-swiftdata-realm-agent-skill` | `.skill/swift-swiftdata-realm-agent-skill/` | `$swiftdata` |
+| **Python** | `python-fastapi-pydantic-agent-skill` | `.skill/python-fastapi-pydantic-agent-skill/` | `$fastapi` |
+| **Python** | `python-langchain-agents-agent-skill` | `.skill/python-langchain-agents-agent-skill/` | `$langchain` |
+| **Python** | `python-pandas-data-agent-skill` | `.skill/python-pandas-data-agent-skill/` | `$pandas` |
 
 ---
 
