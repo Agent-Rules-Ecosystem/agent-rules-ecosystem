@@ -36,9 +36,11 @@ Pasos que el agente debe ejecutar:
 6. `session.md` legado: si faltan `Agente:`, `## Reanudar` o `## Cambios` → reportar `session legado` (sin migrar automático).
 7. Auditoría de líneas: listar archivos de código fuente >250L; sugerir IDs `deuda` en `overview/work/deuda_tecnica.md` (prioridades **Alta**, **Media**, **Baja**).
 8. Auditar `overview/learning.md` (Protocolo de 3 Vías — ver `core/learning_protocol.md`): por cada bullet en `## 📌 Propuestas de mejora` evaluar si está ✅ aplicada (promover al `## 📜 Histórico`), ❌ rechazada (viola Filtro Agnóstico → eliminar), ⚠️ en conflicto con regla existente (flag `[conflicto learning: regla X]` en `work.md`) o ⏳ pendiente (conservar). Bullets con etiqueta `- [nombre-skill]` son propuestas para skills: ejecutar `$revlearnskill` en el governing repo cuando aplique.
-9. **Verificación y actualización de `overview/commands_project.md`**: En cada `$boot`, el agente escanea los comandos del Core (`.agents/core/commands.md`) y de las skills instaladas (`.skill/*/core/commands.md`). Si el archivo no existe o si se detectan diferencias con su contenido actual (comandos agregados, modificados o eliminados), actualiza únicamente las secciones necesarias para reflejar el estado exacto del proyecto.
+9. **Verificación y actualización de `overview/commands_project.md` y Salud de Skills**: 
+   - En cada `$boot`, el agente escanea los comandos del Core (`.agents/core/commands.md`) y de las skills instaladas (`.skill/*/core/commands.md`). Si el archivo no existe o se detectan diferencias, actualiza `overview/commands_project.md`.
+   - **Auditoría Pasiva de Salud de Skills**: Escanear `.skill/`. Por cada skill instalada, verificar si existe su reporte de auditoría activa en `overview/work/skill/[nombre-skill].md`. Si no existe o tiene >7 días sin actualizar, notificar en el reporte de `$boot` como auditoría recomendada (ej. `⚠️ Skill sin auditar: web-react -> Ejecutar $react:audit`).
 10. **Revisión de Trabajo (`work_review.md`)**: Ejecutar el protocolo de revisión de `overview/work/` respetando prioridades (1º `tasks.md`, 2º `pendientes.md`, 3º `deuda_tecnica.md`) según `templates/work_review.md`.
-11. Reportar en 5 líneas máximo: agente anterior, nodo activo, tareas pendientes, estado validación, flags (alias/session/líneas/conflicto), síntesis de `work_review` y próximo paso.
+11. Reportar en 5 líneas máximo: agente anterior, nodo activo, tareas pendientes, estado validación, flags (alias/session/líneas/conflicto/skills-pendientes), síntesis de `work_review` y próximo paso.
 
 ---
 
