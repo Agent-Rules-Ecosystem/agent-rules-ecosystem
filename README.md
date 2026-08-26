@@ -82,6 +82,8 @@ CORE/
 │       ├── swift-swiftdata-realm-agent-skill/
 │       └── swiftui-navigation-state-agent-skill/
 ├── Transversal/
+│   ├── grapho-3d-visualizer-agent-skill/
+│   ├── grapho-agent-skill/
 │   ├── i18n-agent-skill/        # Habilidades de Internacionalización y Localización
 │   ├── infra-agent-skill/       # Habilidades de Docker, CI/CD e Infraestructura
 │   ├── monitoring-agent-skill/  # Habilidades de Observabilidad y APM
@@ -91,8 +93,9 @@ CORE/
     ├── web-agent-rules/         # Gobernanza Web (HTML5, CSS, Svelte, React, Vue, Astro)
     └── web-agent-skill/         # Habilidades Web
         ├── three-js-agent-skills/
+        ├── web-react-agent-skill/
         ├── web-realtime-agent-skill/
-        ├── web-svelte-patterns-agent-skill/
+        ├── web-svelte-agent-skill/
         └── wordpress-agent-skill/
 ```
 
@@ -108,10 +111,11 @@ CORE/
   - [`flutter-firebase-odoo-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-firebase-odoo-agent-skill) (`$odoo`) — Integración Firebase SSOT + Odoo ERP
   - [`flutter-payments-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-payments-agent-skill) (`$pay`) — Stripe, In-App Purchases, Apple/Google Pay
 
-### 🌐 2. Web & CMS
+### 🌐 2. Web & Frontend / Cross-Platform
 - 🛡️ **Gobernanza**: [`web-agent-rules`](https://github.com/Agent-Rules-Ecosystem/web-agent-rules)
 - ⚡ **Skills** (`Web/web-agent-skill/`):
-  - [`web-svelte-patterns-agent-skill`](https://github.com/Agent-Rules-Ecosystem/web-svelte-patterns-agent-skill) (`$svelte`) — Patrones de Svelte 5 / SvelteKit
+  - [`web-react-agent-skill`](https://github.com/Agent-Rules-Ecosystem/web-react-agent-skill) (`$react`) — React 19, Next.js (RSC/App Router) y React Native / Expo
+  - [`web-svelte-agent-skill`](https://github.com/Agent-Rules-Ecosystem/web-svelte-agent-skill) (`$svelte`) — Svelte 5 Runes, SvelteKit (SSR/Form Actions)
   - [`web-realtime-agent-skill`](https://github.com/Agent-Rules-Ecosystem/web-realtime-agent-skill) (`$realtime`) — WebSockets, SSE y estado en tiempo real
   - [`three-js-agent-skills`](https://github.com/Agent-Rules-Ecosystem/three-js-agent-skills) (`$threejs`) — WebGL, Three.js y optimización GPU
   - [`wordpress-agent-skill`](https://github.com/Agent-Rules-Ecosystem/wordpress-agent-skill) (`$wp`) — Plantillas visuales, FSE, REST/GraphQL, ACF
