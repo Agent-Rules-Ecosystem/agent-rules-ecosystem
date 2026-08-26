@@ -107,7 +107,6 @@ CORE/
 - 🛡️ **Gobernanza**: [`flutter-agent-rules`](https://github.com/Agent-Rules-Ecosystem/flutter-agent-rules)
 - ⚡ **Skills** (`Flutter/flutter-agent-skill/`):
   - [`flutter-bloc-patterns-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-bloc-patterns-agent-skill) (`$bloc`) — Patrones BLoC/Cubit y State Management
-  - [`flutter-firebase-auth-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-firebase-auth-agent-skill) (`$auth`) — Autenticación Firebase en Flutter
   - [`flutter-firebase-odoo-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-firebase-odoo-agent-skill) (`$odoo`) — Integración Firebase SSOT + Odoo ERP
   - [`flutter-payments-agent-skill`](https://github.com/Agent-Rules-Ecosystem/flutter-payments-agent-skill) (`$pay`) — Stripe, In-App Purchases, Apple/Google Pay
 
@@ -158,6 +157,7 @@ CORE/
   - [`python-pandas-data-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-pandas-data-agent-skill) (`$pandas`) — Manipulación de DataFrames, ETL y análisis numérico
 
 ### 🔄 8. Skills Transversales (Agnósticas)
+- 🔥 [`firebase-auth-agent-skill`](https://github.com/Agent-Rules-Ecosystem/firebase-auth-agent-skill) (`$firebaseauth`) — Autenticación OAuth multi-proveedor, Custom Claims (RBAC) y Security Rules
 - 🕸️ [`grapho-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-agent-skill) (`$grapho`) — Motor AST de análisis determinista de grafos y Clean Arch (< 1s)
 - 🎨 [`grapho-3d-visualizer-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-3d-visualizer-agent-skill) (`$grapho3d`) — Visualizador 3D/2.5D interactivo (Sci-Fi Constellation & Medieval RPG Waifus)
 - 🌍 [`i18n-agent-skill`](https://github.com/Agent-Rules-Ecosystem/i18n-agent-skill) (`$i18n`) — Internacionalización, Localización multi-idioma y Fallbacks transparentes
