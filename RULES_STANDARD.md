@@ -109,13 +109,13 @@ $close                           ← Cierre de sesión, verificación de linters
 #### 1. `$boot`
 Dispara la secuencia maestro de inicio:
 1. Verifica integridad de submódulos (`git submodule status`).
-2. Carga directivas core (`core/path_map.md`, `core/brain.md`, `core/commands.md`).
+2. Carga directivas core (`core/path_map.md`, `core/brain.md`, `core/commands.md`, `core/communication.md`).
 3. Verifica/crea la estructura `overview/` usando `templates/`.
-4. Evalúa la firma `Agente:` en `session.md` (dispara Handoff si cambió de modelo).
+4. Evalúa la firma `Agente:` y el campo `Modo:` en `session.md` (si `session.md` registra `Modo: laconico` o si se invoca `$boot:laconico` / `$boot laconico`, se activa inmediatamente el **Modo Lacónico**; de lo contrario, inicia en Modo Estándar).
 5. Audita archivos de código que superen 250 líneas (>250L) e integra alertas a `work/deuda_tecnica.md`.
 6. Audita `overview/learning.md` aplicando el Protocolo de 3 Vías.
-7. Sincroniza `overview/commands_project.md` escaneando el Core y `.skill/*/`.
-8. Reporta resumen compacto en 5 líneas.
+7. Sincroniza `overview/commands_project.md` escaneando el Core (`.agents/`) y todas las skills activas (`.skill/*/`).
+8. Reporta resumen compacto en 5 líneas (o 2 líneas si está en Modo Lacónico).
 
 #### 2. `$status`
 Muestra el diagnóstico actual sin modificar archivos:
