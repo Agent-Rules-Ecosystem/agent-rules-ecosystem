@@ -100,7 +100,7 @@ $status                          ← Diagnóstico compacto en 5 líneas del esta
 $work [descripción]              ← Registro de tareas/bugs con auto-sincronización en overview/
 $archi                           ← Auditoría y actualización 100% Mermaid de architecture.md
 $learn [texto] / $learnagnostico ← Captura de lecciones aprendidas con Filtro Agnóstico
-$caveman / $modo:cavernicola     ← Activación del Modo Cavernícola (respuesta híper-concisa)
+$laconico / $laconic / $kernel   ← Activación del Modo Lacónico (respuesta hiper-concisa de alta densidad)
 $close                           ← Cierre de sesión, verificación de linters/tests y guardado de estado
 ```
 
@@ -136,8 +136,8 @@ Garantiza cobertura del 100% de la arquitectura viva en `overview/architecture.m
 #### 5. `$learn [texto]` / `$learnagnostico [texto]`
 Aplica el **Filtro Agnóstico** para remover datos específicos del cliente (nombres de marcas, rutas locales, IDs concretos) y registra la lección en `overview/learning.md`.
 
-#### 6. `$caveman` / `$modo:cavernicola`
-Conmuta el canal de comunicación al **Modo Cavernícola** (ver especificación de modos más abajo).
+#### 6. `$laconico` / `$laconic` / `$kernel`
+Conmuta el canal de comunicación al **Modo Lacónico** (ver especificación de modos más abajo).
 
 #### 7. `$close`
 Cierra la sesión de trabajo:
@@ -148,7 +148,7 @@ Cierra la sesión de trabajo:
 
 ---
 
-## 🪨 Modos de Operación y Estilo de Comunicación (`communication.md`)
+## 🏛️ Modos de Operación y Estilo de Comunicación (`communication.md`)
 
 Todo `*-agent-rules` debe normar la comunicación del agente para maximizar la densidad de información y el ahorro de tokens. Se establecen dos modos principales:
 
@@ -157,26 +157,26 @@ Todo `*-agent-rules` debe normar la comunicación del agente para maximizar la d
 - Concisas, técnicas, estructuradas con tablas y bloques de código.
 - Explicaciones breves sin rodeos ni saludos de cortesía innecesarios.
 
-### 2. Modo Cavernícola / Ultra-Conciso (`$caveman` o `$modo:cavernicola`)
+### 2. Modo Lacónico / Ultra-Conciso (`$laconico`, `$laconic`, `$kernel` o `$sintetico`)
 
-**Propósito**: Minimizar el consumo de tokens y acelerar las respuestas durante refactorizaciones masivas o sesiones de alta densidad.
+**Propósito**: Minimizar el consumo de tokens y maximizar la velocidad de respuesta durante refactorizaciones masivas o sesiones de alta densidad, eliminando todo adorno retórico.
 
-**Reglas del Modo Cavernícola**:
-- **Gramática de Cavernícola / Estilo Indio**: Oraciones híper-directas, eliminando artículos redundantes, conectores retóricos y cortesías.
+**Reglas del Modo Lacónico**:
+- **Sintaxis de Máxima Densidad**: Oraciones híper-directas, sin artículos redundantes, conectores ni cortesías.
 - **Formato**: Máximo 2-4 líneas de texto por respuesta.
-- **Acción Primero**: Mostrar directamente el bloque de código o la solución sin introducción ni conclusión.
-- **Ejemplo de conversación Cavernícola**:
+- **Acción Primero**: Entregar directamente el bloque de código o solución sin preámbulos ni conclusiones.
+- **Ejemplo de conversación en Modo Lacónico**:
 
-> **Usuario**: `$caveman arregla la validación nula en el login`  
+> **Usuario**: `$laconico arregla la validación nula en el login`  
 > **Agente**:  
-> `Modo Cavernícola activo.`  
+> `Modo Lacónico activo.`  
 > `Fix en auth_service.dart:L42.`  
 > ```dart
 > if (user == null) return AuthState.unauthenticated();
 > ```  
 > `Test pasa. Session actualizada.`
 
-Para salir del Modo Cavernícola, el usuario escribe `$modo:normal` o `$boot`.
+Para salir del Modo Lacónico, el usuario escribe `$modo:normal` o `$boot`.
 
 ---
 
