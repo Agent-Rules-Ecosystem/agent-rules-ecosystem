@@ -155,6 +155,7 @@ CORE/
   - [`python-fastapi-pydantic-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-fastapi-pydantic-agent-skill) (`$fastapi`) — APIs RESTful asíncronas, validación Pydantic v2
   - [`python-langchain-agents-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-langchain-agents-agent-skill) (`$langchain`) — Orquestación de Agentes de IA, RAG y Cadenas LLM
   - [`python-pandas-data-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-pandas-data-agent-skill) (`$pandas`) — Manipulación de DataFrames, ETL y análisis numérico
+  - [`python-blender-addon-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-blender-addon-agent-skill) (`$blender`) — Desarrollo de Addons/Extensiones Blender 4.2+ (bpy)
 
 ### 🔄 8. Skills Transversales (Agnósticas)
 - 🔥 [`firebase-auth-agent-skill`](https://github.com/Agent-Rules-Ecosystem/firebase-auth-agent-skill) (`$firebaseauth`) — Autenticación OAuth multi-proveedor, Custom Claims (RBAC) y Security Rules

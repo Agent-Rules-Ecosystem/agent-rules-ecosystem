@@ -348,6 +348,7 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 | **Python** | `python-fastapi-pydantic-agent-skill` | `.skill/python-fastapi-pydantic-agent-skill/` | `$fastapi` |
 | **Python** | `python-langchain-agents-agent-skill` | `.skill/python-langchain-agents-agent-skill/` | `$langchain` |
 | **Python** | `python-pandas-data-agent-skill` | `.skill/python-pandas-data-agent-skill/` | `$pandas` |
+| **Python** | `python-blender-addon-agent-skill` | `.skill/python-blender-addon-agent-skill/` | `$blender` |
 
 ---
 
