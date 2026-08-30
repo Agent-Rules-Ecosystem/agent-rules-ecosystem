@@ -81,13 +81,17 @@ $work bug: el drawer no cierra al navegar con GoRouter en iOS
 
 ### `$archi`
 
-Protocolo dedicado exclusivamente a garantizar la **exhaustividad total** de la arquitectura viva. Su única tarea es auditar y registrar hasta el último rincón del proyecto (pantallas, widgets, servicios, providers, repositorios y modelos) en `overview/architecture.md`.
+Protocolo dedicado exclusivamente a auditar, modularizar y mantener la arquitectura del proyecto conforme al **Agent Architecture Standard (`ARCHITECTURE_STANDARD.md`)**.
 
 El agente debe:
-1. Escanear exhaustivamente la estructura completa del proyecto y las modificaciones/conexiones no mapeadas previamente.
-2. Leer `overview/architecture.md`.
-3. Actualizar `overview/architecture.md` incorporando o completando los **diagramas sintéticos Mermaid** (`graph LR` / `graph TD`) y las tablas de mapa de conexiones clave hasta lograr cobertura del 100%. **Omitir bloques de texto redundantes**; toda la estructura y sus conexiones deben expresarse de forma sintética mediante diagramas.
-4. Confirmar: `Arquitectura viva registrada exhaustivamente en overview/architecture.md con cobertura total y diagramas Mermaid.`
+1. Escanear exhaustivamente la estructura completa del proyecto, módulos y rutas.
+2. Mantener `ARCHITECTURE.md` en la raíz como un índice sintético ligero (< 200L) con diagramas Mermaid de alto nivel y tabla de hipervínculos navegables.
+3. Crear o actualizar los subdocumentos en `overview/architecture/`:
+   - `overview/architecture/routes_map.md` (Mapa global de enrutamiento).
+   - `overview/architecture/core/data_flow.md` (Estado global, sync y persistencia).
+   - `overview/architecture/core/import_rules.md` (Reglas de importación por nivel).
+   - `overview/architecture/modules/<modulo>.md` (Subdocumento por cada módulo que supere 2 diagramas Mermaid o 5 pantallas/componentes).
+4. Confirmar: `Arquitectura viva actualizada conforme a ARCHITECTURE_STANDARD.md (Índice Raíz ARCHITECTURE.md + Subdocumentos en overview/architecture/).`
 
 Ejemplo de uso:
 ```

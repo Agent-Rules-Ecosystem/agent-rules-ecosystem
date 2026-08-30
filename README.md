@@ -187,6 +187,7 @@ git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.
 - 👉 **[Guía de Estructura y Clonación (`ESTRUCTURA_CLONACION.md`)](./ESTRUCTURA_CLONACION.md)** — Instrucciones detalladas de despliegue local.
 - 👉 **[Estándar Canónico de Rules Core (`RULES_STANDARD.md`)](./RULES_STANDARD.md)** — Especificación técnica oficial para crear y validar repositorios `*-agent-rules`.
 - 👉 **[Estándar Canónico de Skills (`SKILL_STANDARD.md`)](./SKILL_STANDARD.md)** — Especificación técnica agnóstica para crear y validar cualquier skill.
+- 👉 **[Estándar Canónico de Arquitectura (`ARCHITECTURE_STANDARD.md`)](./ARCHITECTURE_STANDARD.md)** — Especificación técnica oficial para modularización de arquitectura y navegación Hub & Spoke.
 
 ---
 

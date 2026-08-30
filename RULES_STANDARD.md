@@ -83,7 +83,7 @@ La carpeta `overview/` es el sistema de persistencia y gobernanza activa que el 
 | `overview/work/deuda_tecnica.md` | **Auditoría de Deuda Técnica**: Control de archivos con más de 250 líneas de código (>250L), code smells y refactorizaciones pendientes con prioridades (Alta, Media, Baja). |
 | `overview/work/pendientes.md` | **Backlog Secundario**: Requerimientos futuros, configuraciones no urgentes e ideas a evaluar sin bloquear la iteración actual. |
 | `overview/work/skill/` | **Registros Activos de Skills**: Carpeta donde cada skill instalada (`.skill/<name>`) persiste sus hallazgos e informes estructurados (ej. `overview/work/skill/security.md`). |
-| `overview/architecture.md` | **Arquitectura Viva**: Mapeo completo del sistema expresado **exclusivamente mediante diagramas sintéticos Mermaid** (`graph LR` / `graph TD`) y tablas de conectividad de componentes. |
+| `ARCHITECTURE.md` / `overview/architecture/` | **Arquitectura Viva (Hub & Spoke)**: Índice raíz ligero `ARCHITECTURE.md` (< 200L) y subdocumentos navegables por hipervínculos en `overview/architecture/` (rutas, capas core y módulos por dominio) conforme a `ARCHITECTURE_STANDARD.md`. |
 | `overview/commands_project.md` | **Registro Vivo de $-Comandos**: Lista consolidada y actualizada automáticamente en cada `$boot` que fusiona los comandos del Core (`.agents/`) y de las skills activas (`.skill/*/`). |
 | `overview/learning.md` | **Buffer Local de Aprendizaje**: Captura lecciones descubiertas en la sesión bajo `## 📌 Propuestas de mejora` antes de ser validadas por el **Filtro Agnóstico**. |
 | `overview/trackers/progress.md` | **Monitoreo de Avance**: Rastreo de progreso por nodos y componentes del sistema. |
@@ -98,7 +98,7 @@ Todo repositorio `*-agent-rules` **debe implementar y documentar** como mínimo 
 $boot                            ← Protocolo de Bootstrap, auditoría e inicialización de sesión
 $status                          ← Diagnóstico compacto en 5 líneas del estado del proyecto
 $work [descripción]              ← Registro de tareas/bugs con auto-sincronización en overview/
-$archi                           ← Auditoría y actualización 100% Mermaid de architecture.md
+$archi                           ← Auditoría y modularización de arquitectura según ARCHITECTURE_STANDARD.md
 $learn [texto] / $learnagnostico ← Captura de lecciones aprendidas con Filtro Agnóstico
 $laconico / $laconic / $kernel   ← Activación del Modo Lacónico (respuesta hiper-concisa de alta densidad)
 $close                           ← Cierre de sesión, verificación de linters/tests y guardado de estado
@@ -131,7 +131,7 @@ Próximo paso  : [## Reanudar de session.md]
 Registra un nuevo ítem en `overview/work/tasks.md` y actualiza el índice `overview/work.md` asignando un ID correlativo (`w1`, `w2`, ...). Ejecuta **sincronización automática** en todos los rastreadores afectados.
 
 #### 4. `$archi`
-Garantiza cobertura del 100% de la arquitectura viva en `overview/architecture.md`. Representa todos los módulos, controladores, servicios y flujos mediante **diagramas Mermaid sintéticos**.
+Garantiza la auditoría y actualización modular de la arquitectura del proyecto conforme al **Agent Architecture Standard (`ARCHITECTURE_STANDARD.md`)**. Mantiene `ARCHITECTURE.md` como un índice raíz sintético (< 200L) y segrega los detalles técnicos en subdocumentos en `overview/architecture/` (`routes_map.md`, `core/data_flow.md`, `core/import_rules.md`, y `modules/<modulo>.md`).
 
 #### 5. `$learn [texto]` / `$learnagnostico [texto]`
 Aplica el **Filtro Agnóstico** para remover datos específicos del cliente (nombres de marcas, rutas locales, IDs concretos) y registra la lección en `overview/learning.md`.
