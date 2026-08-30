@@ -3,7 +3,7 @@
 > **Referencia canónica para la estructura, modularización y enrutamiento de la documentación de arquitectura** dentro del ecosistema `Agent-Rules-Ecosystem`.  
 > Todo proyecto gobernado por el ecosistema debe cumplir con este estándar para evitar el colapso de contexto y garantizar una navegación quirúrgica para los Agentes de IA.
 
-*Versión*: 1.1 · **Fecha**: 2026-08-27 · **Repositorio**: `agent-rules-ecosystem`
+*Versión*: 1.2 · **Fecha**: 2026-08-30 · **Repositorio**: `agent-rules-ecosystem`
 
 ---
 
@@ -147,9 +147,77 @@ Cada subdocumento de módulo en `overview/architecture/modules/` debe centrarse 
 
 ---
 
+## 📝 Plantilla Canónica 3: Índice de Módulo Subdividido (modules/\<modulo\>/\<modulo\>.md)
+
+Cuando un módulo se convierte en carpeta por aplicación de la Regla Atómica de Escala, su archivo índice (`modules/<modulo>/<modulo>.md`) debe seguir este formato. **Su único rol es listar los subdocumentos con una línea de descripción** — no duplica ni resume su contenido:
+
+```markdown
+# 📦 Módulo: [Nombre del Módulo] — Índice
+
+> Pertenece a: `overview/architecture/modules/[nombre]/[nombre].md`
+> Referenciado desde: [`overview/architecture.md`](../../../architecture.md)
+> Subdividido por Regla Atómica de Escala: YYYY-MM-DD
+
+## Subdocumentos de este módulo
+
+| Archivo | Dominio que cubre |
+|---|---|
+| [`flujos.md`](./flujos.md) | Flujos operativos y secuencias de interacción |
+| [`modelos.md`](./modelos.md) | Entidades, contratos de datos y validaciones |
+| [`reglas_negocio.md`](./reglas_negocio.md) | Reglas de cálculo, restricciones y casos borde |
+
+## Diagrama de alto nivel
+
+[Diagrama Mermaid sintético del módulo — solo capas, no detalles internos]
+```
+
+> ⚠️ **Regla**: Este índice **no explica** el contenido de los subdocumentos. Cada subdocumento es autónomo y completo para su dominio. El índice solo navega.
+
+
+---
+
+## 📐 Regla Atómica de Escala
+
+Cuando un subdocumento de módulo (`overview/architecture/modules/<modulo>.md`) crece demasiado para ser útil en una sola tarea del agente, se aplica el mismo principio recursivamente:
+
+**El módulo se convierte en carpeta** con subdocumentos propios:
+
+```text
+overview/
+└── architecture/
+    └── modules/
+        └── ordenes/                    ← antes era ordenes.md
+            ├── ordenes.md              ← nuevo índice del módulo (< 150L)
+            ├── flujos.md               ← flujos operativos del módulo
+            ├── modelos.md              ← entidades y contratos de datos
+            └── reglas_negocio.md       ← reglas de validación y cálculo
+```
+
+### Regla de Oro: Autocontención
+
+> **Cada archivo describe una sola cosa, completamente.**  
+> Ningún archivo apunta a otro del mismo nivel como su fuente de verdad.
+
+| ❌ Prohibido | ✅ Correcto |
+|---|---|
+| `flujos.md` dice "ver `modelos.md` para las entidades" | `flujos.md` incluye la definición mínima necesaria de las entidades que usa |
+| `modelos.md` referencia `reglas_negocio.md` | `modelos.md` es completo y autónomo para su dominio |
+| El índice del módulo lista contenido de otros archivos | El índice solo lista los subdocumentos con una línea de descripción |
+
+### Señal de cuándo subdividir
+
+Subdivide un archivo cuando el agente necesita cargar *todo* el archivo para responder algo *específico*. No hay umbral de líneas fijo: el criterio es si el contenido del archivo cubre más de un dominio de decisión.
+
+### Profundidad máxima
+
+La subdivisión se aplica un nivel a la vez. No anticipar jerarquías futuras: solo subdividir cuando la señal se manifiesta. La profundidad no es el problema — la mezcla de dominios en un mismo archivo sí lo es.
+
+---
+
 ## 🔒 Reglas de Inviolabilidad
 
 1. **Prohibidos Monolitos**: `overview/architecture.md` no debe crecer indefinidamente. Máximo 200 líneas como índice raíz.
 2. **Creación Obligatoria de Subdocumento**: Todo módulo nuevo que supere los 2 diagramas Mermaid o 5 componentes/pantallas *debe crearse como un subdocumento independiente* en `overview/architecture/modules/` y enlazarse desde el índice.
 3. **Migración No Destructiva**: Al transformar un archivo plano legado, el agente nunca elimina `overview/architecture.md` — lo transforma in-place en el índice Hub & Spoke.
 4. **Rutas Relativas**: Los hipervínculos dentro de `overview/architecture.md` hacia subdocumentos usan rutas relativas (`./architecture/routes_map.md`, no rutas absolutas).
+5. **Autocontención Atómica**: Cada archivo es una verdad completa para su dominio. Ningún archivo del mismo nivel puede ser fuente de verdad de otro. Las referencias entre archivos son de navegación (hipervínculos), nunca de dependencia semántica.

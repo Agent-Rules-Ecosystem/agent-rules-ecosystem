@@ -29,7 +29,7 @@ Dispara el bootstrap completo. Equivalente a **"ejecuta .agents"** pero más cor
 Pasos que el agente debe ejecutar:
 0. Ejecutar `git submodule status` para verificar integridad de submódulos.
 1. Leer `core/path_map.md`, `core/communication.md`, `core/brain.md`, `core/commands.md`.
-2. Verificar si existe `overview/` — si no, crear desde `templates/`.
+2. **Scaffold incremental desde templates**: Comparar la estructura de `templates/` con `overview/`. Por cada archivo o subdirectorio presente en `templates/` que no exista en `overview/`, crearlo copiando el contenido de la plantilla correspondiente. Este paso aplica tanto a proyectos nuevos (sin `overview/`) como a proyectos existentes donde el ecosistema ha evolucionado y agregado nuevas estructuras canónicas. **No sobreescribir** archivos que ya existan en `overview/`.
 3. Cargar archivos de control de `overview/`: `session.md`, `work.md`, `work/tasks.md`, `work/deuda_tecnica.md`, `work/pendientes.md`, `work_review.md`, `architecture.md` y `trackers/progress.md`.
 4. Detectar si el `Agente:` en `session.md` difiere del modelo actual → si difiere, activar protocolo `## Handoff de Agente` de `brain.md`.
 5. Alias divergentes: si alias y canónico coexisten con contenido distinto (`tasks.md`/`work.md`, `tracker.md`/`trackers/architecture.md`) → flag `[consolidar alias]` en `work.md`.
@@ -40,7 +40,7 @@ Pasos que el agente debe ejecutar:
    - En cada `$boot`, el agente escanea los comandos del Core (`.agents/core/commands.md`) y de las skills instaladas (`.skill/*/core/commands.md`). Si el archivo no existe o se detectan diferencias, actualiza `overview/commands_project.md`.
    - **Auditoría Pasiva de Salud de Skills**: Escanear `.skill/`. Por cada skill instalada, verificar si existe su reporte de auditoría activa en `overview/work/skill/[nombre-skill].md`. Si no existe o tiene >7 días sin actualizar, notificar en el reporte de `$boot` como auditoría recomendada (ej. `⚠️ Skill sin auditar: web-react -> Ejecutar $react:audit`).
 10. **Revisión de Trabajo (`work_review.md`)**: Ejecutar el protocolo de revisión de `overview/work/` respetando prioridades (1º `tasks.md`, 2º `pendientes.md`, 3º `deuda_tecnica.md`) según `templates/work_review.md`.
-11. Reportar en 5 líneas máximo: agente anterior, nodo activo, tareas pendientes, estado validación, flags (alias/session/líneas/conflicto/skills-pendientes), síntesis de `work_review` y próximo paso.
+11. Reportar en 5 líneas máximo: agente anterior, nodo activo, tareas pendientes, estado validación, flags (alias/session/líneas/conflicto/skills-pendientes), síntesis de `work_review` y próximo paso. Incluir línea `scaffold:` listando archivos/dirs creados desde templates (o `scaffold: ninguno` si `overview/` ya estaba al día).
 
 ---
 
@@ -92,7 +92,8 @@ El agente debe:
    - `overview/architecture/core/data_flow.md` (Estado global, sync y persistencia).
    - `overview/architecture/core/import_rules.md` (Reglas de importación por nivel de capa).
    - `overview/architecture/modules/<modulo>.md` (Subdocumento por cada módulo que supere 2 diagramas Mermaid o 5 componentes/pantallas).
-4. Confirmar: `Arquitectura viva actualizada conforme a ARCHITECTURE_STANDARD.md (Índice Raíz overview/architecture.md + Subdocumentos en overview/architecture/).`
+4. **Auditoría de Regla Atómica de Escala**: Por cada `overview/architecture/modules/<modulo>.md` existente, verificar si cubre más de un dominio de decisión (señal: el agente necesita leerlo completo para responder algo específico). Si se detecta, convertirlo en carpeta `overview/architecture/modules/<modulo>/` aplicando la Plantilla Canónica 3 de `ARCHITECTURE_STANDARD.md`: crear `<modulo>.md` como índice (< 150L) y subdocumentos atómicos por cada dominio identificado. **No anticipar subdivisiones futuras**: solo actuar cuando la señal es evidente en el módulo actual.
+5. Confirmar: `Arquitectura viva actualizada conforme a ARCHITECTURE_STANDARD.md (Índice Raíz overview/architecture.md + Subdocumentos en overview/architecture/).`
 
 Ejemplo de uso:
 ```

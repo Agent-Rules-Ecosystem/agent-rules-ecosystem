@@ -72,6 +72,7 @@ CORE/
 ├── Python/
 │   ├── python-agent-rules/      # Gobernanza Python (Data, APIs, AI Agents)
 │   └── python-agent-skill/      # Habilidades Python
+│       ├── python-blender-addon-agent-skill/
 │       ├── python-fastapi-pydantic-agent-skill/
 │       ├── python-langchain-agents-agent-skill/
 │       └── python-pandas-data-agent-skill/

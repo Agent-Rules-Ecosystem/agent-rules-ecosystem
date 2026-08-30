@@ -41,6 +41,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 ├── Python/
 │   ├── python-agent-rules/      # Gobernanza y protocolos Python (AI & Data)
 │   └── python-agent-skill/      # Habilidades y patrones Python
+│       ├── python-blender-addon-agent-skill/
 │       ├── python-fastapi-pydantic-agent-skill/
 │       ├── python-langchain-agents-agent-skill/
 │       └── python-pandas-data-agent-skill/
@@ -149,6 +150,7 @@ REPOS=(
   "Kotlin:kotlin-agent-skill:kotlin-room-sqlite-agent-skill"
 
   # Skills Python
+  "Python:python-agent-skill:python-blender-addon-agent-skill"
   "Python:python-agent-skill:python-fastapi-pydantic-agent-skill"
   "Python:python-agent-skill:python-langchain-agents-agent-skill"
   "Python:python-agent-skill:python-pandas-data-agent-skill"
@@ -226,6 +228,7 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-coroutines-flow-agent-skill` | `kotlin-coroutines-flow-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-coroutines-flow-agent-skill.git` |
 | **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-room-sqlite-agent-skill` | `kotlin-room-sqlite-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-room-sqlite-agent-skill.git` |
 | **Python Core** | `Python/python-agent-rules` | `python-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/python-agent-rules.git` |
+| **Python Skill** | `Python/python-agent-skill/python-blender-addon-agent-skill` | `python-blender-addon-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-blender-addon-agent-skill.git` |
 | **Python Skill** | `Python/python-agent-skill/python-fastapi-pydantic-agent-skill` | `python-fastapi-pydantic-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-fastapi-pydantic-agent-skill.git` |
 | **Python Skill** | `Python/python-agent-skill/python-langchain-agents-agent-skill` | `python-langchain-agents-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-langchain-agents-agent-skill.git` |
 | **Python Skill** | `Python/python-agent-skill/python-pandas-data-agent-skill` | `python-pandas-data-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-pandas-data-agent-skill.git` |
