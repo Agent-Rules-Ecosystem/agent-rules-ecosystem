@@ -19,9 +19,11 @@ A medida que un proyecto crece en pantallas, módulos y reglas de negocio, conce
 ### 📐 La Solución: Patrón Hub & Spoke en `overview/architecture/`
 El conocimiento arquitectónico reside en la carpeta canónica del ecosistema `overview/architecture/` como una *red modular navegable por hipervínculos*.
 
+> **Nomenclatura canónica**: El índice raíz es **`overview/architecture.md`** (minúsculas, dentro de `overview/`). Este es el mismo archivo que los proyectos existentes ya tienen como `overview/architecture.md` — no se renombra ni se mueve.
+
 ```mermaid
 graph TD
-    ROOT["ARCHITECTURE.md\n(Índice Raíz Ligero < 200L)"]
+    ROOT["overview/architecture.md\n(Índice Raíz Ligero < 200L)"]
     
     ROOT --> ROUTING["overview/architecture/routes_map.md\n(Mapa Global de Rutas)"]
     ROOT --> CORE_DATA["overview/architecture/core/data_flow.md\n(Local-First & State)"]
@@ -36,23 +38,24 @@ graph TD
 
 ## 📂 Estructura de Directorios Obligatoria en Proyectos
 
-Todo proyecto cliente bajo la gobernanza del ecosistema debe organizar su documentación de arquitectura respetando esta jerarquía directa en `overview/architecture/`:
+Todo proyecto cliente bajo la gobernanza del ecosistema debe organizar su documentación de arquitectura respetando esta jerarquía:
 
 ```text
 <raíz-del-proyecto>/
-├── ARCHITECTURE.md                     ← [OBLIGATORIO] Índice Raíz Ligero (< 200L)
-└── overview/architecture/              ← [OBLIGATORIO] Subdocumentos de Arquitectura
-    ├── routes_map.md                   ← [OBLIGATORIO] Mapeo de rutas de navegación
-    ├── core/                           ← Patrones transversales del sistema
-    │   ├── data_flow.md                ← Estado global, Sync, Persistencia/Local-First
-    │   └── import_rules.md             ← Convenciones de capas e importaciones relativas
-    └── modules/                        ← Subdocumentos por dominio funcional
-        ├── <modulo_1>.md               ← Especificación técnica del Módulo 1
-        ├── <modulo_2>.md               ← Especificación técnica del Módulo 2
-        └── <modulo_n>.md               ← Especificación técnica del Módulo N
+└── overview/
+    ├── architecture.md                 ← [OBLIGATORIO] Índice Raíz Hub & Spoke (< 200L)
+    └── architecture/                   ← [OBLIGATORIO] Subdocumentos de Arquitectura
+        ├── routes_map.md               ← [OBLIGATORIO] Mapeo de rutas de navegación
+        ├── core/                       ← Patrones transversales del sistema
+        │   ├── data_flow.md            ← Estado global, Sync, Persistencia/Local-First
+        │   └── import_rules.md         ← Convenciones de capas e importaciones relativas
+        └── modules/                    ← Subdocumentos por dominio funcional
+            ├── <modulo_1>.md           ← Especificación técnica del Módulo 1
+            ├── <modulo_2>.md           ← Especificación técnica del Módulo 2
+            └── <modulo_n>.md           ← Especificación técnica del Módulo N
 ```
 
-> **Nota de Agnosticismo**: La estructura de capas y librerías mostrada en los ejemplos se adapta al stack técnico del proyecto (Flutter, React, Python/Blender, FastApi, Swift, Kotlin, Godot, etc.), manteniendo intacto el patrón de directorios `overview/architecture/`.
+> **Nota de Agnosticismo**: La estructura de capas y librerías se adapta al stack técnico del proyecto (Flutter, React, Python, Swift, Kotlin, Godot, etc.), manteniendo intacto el patrón de directorios `overview/architecture/`.
 
 ---
 
@@ -60,23 +63,37 @@ Todo proyecto cliente bajo la gobernanza del ecosistema debe organizar su docume
 
 Cuando un agente de IA ejecuta la auditoría `$archi` o busca contexto de arquitectura para realizar un trabajo:
 
-1. **Lectura del Índice Raíz**: El agente abre *únicamente* `ARCHITECTURE.md` para entender las capas generales del proyecto y ubicar los submódulos.
+1. **Lectura del Índice Raíz**: El agente abre *únicamente* `overview/architecture.md` para entender las capas generales del proyecto y ubicar los submódulos.
 2. **Navegación Quirúrgica**: El agente identifica el subdocumento correspondiente a la tarea actual (ejemplo: `overview/architecture/modules/cotizaciones.md`).
 3. **Carga Focalizada**: Abre únicamente ese subdocumento. 
 4. **Resultado**: Reducción del 90% en consumo de tokens y cero interferencia de módulos ajenos a la tarea.
 
 ---
 
-## 📝 Plantilla Canónica 1: ARCHITECTURE.md (Índice Raíz)
+## 🔄 Protocolo de Migración desde Archivo Plano Legado
 
-El archivo raíz *no debe superar las 200 líneas*. Debe redactarse usando la siguiente estructura:
+Proyectos con `overview/architecture.md` como archivo único (no carpeta) **no necesitan borrarlo**. La migración es incremental y no destructiva:
+
+1. **Detección**: El agente verifica si `overview/architecture.md` existe como archivo plano (sin carpeta `overview/architecture/`).
+2. **Lectura como Fuente**: Lee el archivo plano íntegramente para extraer todo el contenido ya documentado.
+3. **Transformación del Índice**: Reemplaza el contenido de `overview/architecture.md` por el formato Hub & Spoke (< 200L): solo capas de alto nivel, diagrama Mermaid sintético e hipervínculos a subdocumentos.
+4. **Población de Subdocumentos**: Crea `overview/architecture/` y distribuye el contenido del archivo plano en los subdocumentos correspondientes, sin inventar información nueva.
+5. **Verificación**: Confirma que todos los diagramas y reglas del archivo plano original están reflejados en los subdocumentos antes de limpiar la versión plana.
+
+> ⚠️ **Regla de Seguridad**: El agente **nunca elimina** `overview/architecture.md` automáticamente. Solo lo transforma in-place al formato índice Hub & Spoke.
+
+---
+
+## 📝 Plantilla Canónica 1: `overview/architecture.md` (Índice Raíz)
+
+El índice raíz vive en `overview/architecture.md` y *no debe superar las 200 líneas*:
 
 ```markdown
 # 🏛️ Arquitectura Global del Proyecto — [Nombre del Proyecto]
 
 > Última actualización: YYYY-MM-DD (Auditoría `$archi`: Cobertura 100% modularizada en `overview/architecture/`)
 
-## 1. Visión General y Capas del Sistema (Clean Architecture)
+## 1. Visión General y Capas del Sistema
 
 | Capa | Ubicación | Descripción Breve |
 |---|---|---|
@@ -89,14 +106,14 @@ El archivo raíz *no debe superar las 200 líneas*. Debe redactarse usando la si
 [Diagrama Mermaid sintético de alto nivel del flujo de datos]
 
 ## 3. Índice de Módulos (Subdocumentos de Dominio)
-* 📦 **[Módulo Órdenes y Producción](./overview/architecture/modules/ordenes.md):** Órdenes, bitácoras de formado/empaque y PDFs.
-* 🧪 **[Módulo Materia Prima](./overview/architecture/modules/materia_prima.md):** Catálogo MP, inventario de rollos y proveedores.
-* 💎 **[Módulo Cotizaciones y Monetización](./overview/architecture/modules/cotizaciones.md):** Calculadora, ajustes y catálogo comercial.
+* 📦 **[Módulo Órdenes y Producción](./architecture/modules/ordenes.md):** Órdenes, bitácoras y PDFs.
+* 🧪 **[Módulo Materia Prima](./architecture/modules/materia_prima.md):** Catálogo MP, inventario y proveedores.
+* 💎 **[Módulo Cotizaciones](./architecture/modules/cotizaciones.md):** Calculadora, ajustes y catálogo comercial.
 
 ## 4. Guías Transversales
-* 🧭 **[Mapa Global de Rutas](./overview/architecture/routes_map.md)** — Registro completo de enrutamiento.
-* 🔄 **[Flujo de Datos Local-First](./overview/architecture/core/data_flow.md)** — Sincronización y persistencia local.
-* 📏 **[Reglas de Importación por Nivel](./overview/architecture/core/import_rules.md)** — Niveles de profundidad e importaciones.
+* 🧭 **[Mapa Global de Rutas](./architecture/routes_map.md)** — Registro completo de enrutamiento.
+* 🔄 **[Flujo de Datos Local-First](./architecture/core/data_flow.md)** — Sincronización y persistencia local.
+* 📏 **[Reglas de Importación por Nivel](./architecture/core/import_rules.md)** — Niveles de profundidad e importaciones.
 ```
 
 ---
@@ -109,7 +126,7 @@ Cada subdocumento de módulo en `overview/architecture/modules/` debe centrarse 
 # 📦 Módulo: [Nombre del Módulo]
 
 > Pertenece a: `overview/architecture/modules/[nombre].md`  
-> Referenciado desde: [`ARCHITECTURE.md`](../../ARCHITECTURE.md)
+> Referenciado desde: [`overview/architecture.md`](../../../architecture.md)
 
 ## 1. Mapa de Enrutamiento Lógico y Flujo Operativo
 [Diagrama Mermaid específico del módulo]
@@ -130,7 +147,9 @@ Cada subdocumento de módulo en `overview/architecture/modules/` debe centrarse 
 
 ---
 
-## 🔒 Regla de Inviolabilidad
+## 🔒 Reglas de Inviolabilidad
 
-1. **Prohibidos Monolitos**: Ningún archivo `ARCHITECTURE.md` en el ecosistema debe crecer indefinidamente agregando secciones completas de nuevos módulos.
-2. **Creación Obligatoria de Subdocumento**: Todo módulo nuevo que supere los 2 diagramas Mermaid o 5 pantallas registradas *debe crearse como un subdocumento independiente* en `overview/architecture/modules/` y enlazarse desde `ARCHITECTURE.md`.
+1. **Prohibidos Monolitos**: `overview/architecture.md` no debe crecer indefinidamente. Máximo 200 líneas como índice raíz.
+2. **Creación Obligatoria de Subdocumento**: Todo módulo nuevo que supere los 2 diagramas Mermaid o 5 componentes/pantallas *debe crearse como un subdocumento independiente* en `overview/architecture/modules/` y enlazarse desde el índice.
+3. **Migración No Destructiva**: Al transformar un archivo plano legado, el agente nunca elimina `overview/architecture.md` — lo transforma in-place en el índice Hub & Spoke.
+4. **Rutas Relativas**: Los hipervínculos dentro de `overview/architecture.md` hacia subdocumentos usan rutas relativas (`./architecture/routes_map.md`, no rutas absolutas).
