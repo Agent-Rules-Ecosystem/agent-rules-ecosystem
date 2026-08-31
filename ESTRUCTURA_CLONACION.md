@@ -32,6 +32,9 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │       ├── godot-mobile-monetization-agent-skill/
 │       ├── godot-dialogue-plugin-agent-skill/
 │       └── godot-nakama-agent-skill/
+├── Go/
+│   ├── go-agent-rules/          # Gobernanza y protocolos Go (Golang)
+│   └── go-agent-skill/          # Habilidades y patrones Go
 ├── Kotlin/
 │   ├── kotlin-agent-rules/      # Gobernanza y protocolos Kotlin (Android Nativo / KMP)
 │   └── kotlin-agent-skill/      # Habilidades y patrones Kotlin
@@ -45,6 +48,9 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │       ├── python-fastapi-pydantic-agent-skill/
 │       ├── python-langchain-agents-agent-skill/
 │       └── python-pandas-data-agent-skill/
+├── Rust/
+│   ├── rust-agent-rules/        # Gobernanza y protocolos Rust (Sistemas / Embebidos / Tokio)
+│   └── rust-agent-skill/        # Habilidades y patrones Rust
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza y protocolos Swift (iOS Nativo / SwiftUI)
 │   └── swift-agent-skill/       # Habilidades y patrones Swift
@@ -76,7 +82,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 Cuando el usuario pida: **"Inicializa o sincroniza la estructura del ecosistema"**, el Agente de IA debe ejecutar las siguientes acciones:
 
 1. **Ubicación Base**: Validar que la ejecución ocurra en el directorio raíz elegido para el ecosistema.
-2. **Verificación de Carpetas**: Garantizar la existencia de los 8 bloques principales (`Backend`, `Flutter`, `Game`, `Kotlin`, `Python`, `Swift`, `Transversal`, `Web`, `agent-rules-ecosystem`).
+2. **Verificación de Carpetas**: Garantizar la existencia de los 10 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `Python`, `Rust`, `Swift`, `Transversal`, `Web`, `agent-rules-ecosystem`).
 3. **Clonación / Verificación Git**:
    - Para cada submódulo o repositorio de gobernanza (`*-agent-rules`), clonar en la raíz de su categoría (`<Dominio>/<dominio>-agent-rules`).
    - Para las skills especializadas, clonar dentro del subdirectorio contenedor `<Dominio>/<dominio>-agent-skill/<nombre-skill>/`.
@@ -105,8 +111,10 @@ REPOS=(
   "Backend::backend-agent-rules"
   "Flutter::flutter-agent-rules"
   "Game::game-agent-rules"
+  "Go::go-agent-rules"
   "Kotlin::kotlin-agent-rules"
   "Python::python-agent-rules"
+  "Rust::rust-agent-rules"
   "Swift::swift-agent-rules"
   "Web::web-agent-rules"
 
@@ -144,6 +152,9 @@ REPOS=(
   "Game:game-agent-skill:godot-dialogue-plugin-agent-skill"
   "Game:game-agent-skill:godot-nakama-agent-skill"
 
+  # Skills Go
+  "Go:go-agent-skill:go-plc-modbus-agent-skill"
+
   # Skills Kotlin
   "Kotlin:kotlin-agent-skill:kotlin-jetpack-compose-agent-skill"
   "Kotlin:kotlin-agent-skill:kotlin-coroutines-flow-agent-skill"
@@ -155,6 +166,9 @@ REPOS=(
   "Python:python-agent-skill:python-langchain-agents-agent-skill"
   "Python:python-agent-skill:python-pandas-data-agent-skill"
 
+  # Skills Rust
+  "Rust:rust-agent-skill:rust-plc-modbus-agent-skill"
+
   # Skills Swift
   "Swift:swift-agent-skill:swiftui-navigation-state-agent-skill"
   "Swift:swift-agent-skill:swift-async-concurrency-agent-skill"
@@ -162,7 +176,7 @@ REPOS=(
 )
 
 # 1. Crear carpetas principales
-mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Kotlin" "$BASE_DIR/Python" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web"
+mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Go" "$BASE_DIR/Kotlin" "$BASE_DIR/Python" "$BASE_DIR/Rust" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web"
 
 # 2. Clonar o Inicializar cada repositorio
 for ENTRY in "${REPOS[@]}"; do

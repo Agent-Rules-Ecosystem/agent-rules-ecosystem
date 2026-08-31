@@ -63,6 +63,9 @@ CORE/
 │       ├── godot-mobile-monetization-agent-skill/
 │       ├── godot-nakama-agent-skill/
 │       └── godot-steamworks-agent-skill/
+├── Go/
+│   ├── go-agent-rules/          # Gobernanza Go (Golang)
+│   └── go-agent-skill/          # Habilidades Go
 ├── Kotlin/
 │   ├── kotlin-agent-rules/      # Gobernanza Android / Kotlin Multiplatform
 │   └── kotlin-agent-skill/      # Habilidades Kotlin
@@ -76,6 +79,9 @@ CORE/
 │       ├── python-fastapi-pydantic-agent-skill/
 │       ├── python-langchain-agents-agent-skill/
 │       └── python-pandas-data-agent-skill/
+├── Rust/
+│   ├── rust-agent-rules/        # Gobernanza Rust (Sistemas, Tokio, Embebidos / PLCs)
+│   └── rust-agent-skill/        # Habilidades Rust
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza Apple Platforms / Swift
 │   └── swift-agent-skill/       # Habilidades Swift
@@ -136,21 +142,26 @@ CORE/
   - [`godot-dialogue-plugin-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-dialogue-plugin-agent-skill) (`$dialogue`) — Dialogue Manager y Yarn Spinner
   - [`godot-nakama-agent-skill`](https://github.com/Agent-Rules-Ecosystem/godot-nakama-agent-skill) (`$nakama`) — Servidor multiplayer Nakama
 
-### 🤖 5. Kotlin (Android / Multiplatform)
+### 🦫 5. Go (Golang)
+- 🛡️ **Gobernanza**: [`go-agent-rules`](https://github.com/Agent-Rules-Ecosystem/go-agent-rules)
+- ⚡ **Skills** (`Go/go-agent-skill/`):
+  - [`go-plc-modbus-agent-skill`](https://github.com/Agent-Rules-Ecosystem/go-plc-modbus-agent-skill) (`$goplc`) — Comunicación industrial Ethernet/Modbus TCP con PLCs
+
+### 🤖 6. Kotlin (Android / Multiplatform)
 - 🛡️ **Gobernanza**: [`kotlin-agent-rules`](https://github.com/Agent-Rules-Ecosystem/kotlin-agent-rules)
 - ⚡ **Skills** (`Kotlin/kotlin-agent-skill/`):
   - [`kotlin-jetpack-compose-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-jetpack-compose-agent-skill) (`$compose`) — UI Declarativa, Material 3 y State Recomposition
   - [`kotlin-coroutines-flow-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-coroutines-flow-agent-skill) (`$coroutines`) — Concurrencia estructurada, StateFlow y SharedFlow
   - [`kotlin-room-sqlite-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-room-sqlite-agent-skill) (`$room`) — DAOs, entidades y migraciones de DB local
 
-### 🍏 6. Swift (iOS / macOS / Apple Platforms)
+### 🍏 7. Swift (iOS / macOS / Apple Platforms)
 - 🛡️ **Gobernanza**: [`swift-agent-rules`](https://github.com/Agent-Rules-Ecosystem/swift-agent-rules)
 - ⚡ **Skills** (`Swift/swift-agent-skill/`):
   - [`swiftui-navigation-state-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill) (`$swiftui`) — SwiftUI Declarativo, NavigationStack y @Observable
   - [`swift-async-concurrency-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill) (`$async`) — Swift Concurrency, async/await, Actors y Tasks
   - [`swift-swiftdata-realm-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swift-swiftdata-realm-agent-skill) (`$swiftdata`) — Persistencia con SwiftData, CoreData y Realm Engine
 
-### 🐍 7. Python (Data, APIs & AI Agents)
+### 🐍 8. Python (Data, APIs & AI Agents)
 - 🛡️ **Gobernanza**: [`python-agent-rules`](https://github.com/Agent-Rules-Ecosystem/python-agent-rules)
 - ⚡ **Skills** (`Python/python-agent-skill/`):
   - [`python-fastapi-pydantic-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-fastapi-pydantic-agent-skill) (`$fastapi`) — APIs RESTful asíncronas, validación Pydantic v2
@@ -158,7 +169,12 @@ CORE/
   - [`python-pandas-data-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-pandas-data-agent-skill) (`$pandas`) — Manipulación de DataFrames, ETL y análisis numérico
   - [`python-blender-addon-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-blender-addon-agent-skill) (`$blender`) — Desarrollo de Addons/Extensiones Blender 4.2+ (bpy)
 
-### 🔄 8. Skills Transversales (Agnósticas)
+### 🦀 9. Rust (Sistemas & Embebidos / Tokio)
+- 🛡️ **Gobernanza**: [`rust-agent-rules`](https://github.com/Agent-Rules-Ecosystem/rust-agent-rules)
+- ⚡ **Skills** (`Rust/rust-agent-skill/`):
+  - [`rust-plc-modbus-agent-skill`](https://github.com/Agent-Rules-Ecosystem/rust-plc-modbus-agent-skill) (`$rustplc`) — Driver Modbus TCP / Ethernet asíncrono para PLCs
+
+### 🔄 10. Skills Transversales (Agnósticas)
 - 🔥 [`firebase-auth-agent-skill`](https://github.com/Agent-Rules-Ecosystem/firebase-auth-agent-skill) (`$firebaseauth`) — Autenticación OAuth multi-proveedor, Custom Claims (RBAC) y Security Rules
 - 🕸️ [`grapho-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-agent-skill) (`$grapho`) — Motor AST de análisis determinista de grafos y Clean Arch (< 1s)
 - 🎨 [`grapho-3d-visualizer-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-3d-visualizer-agent-skill) (`$grapho3d`) — Visualizador 3D/2.5D interactivo (Sci-Fi Constellation & Medieval RPG Waifus)
