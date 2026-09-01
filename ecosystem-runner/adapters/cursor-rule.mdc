@@ -1,0 +1,7 @@
+---
+description: Ecosystem Governance Core bootstrap rule
+alwaysApply: true
+---
+
+Read and follow `core/brain.md` and `core/communication.md`.
+Use `$ecosystem` for global audits and `$workeco` for ecosystem tasks.

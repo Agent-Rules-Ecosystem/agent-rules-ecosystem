@@ -195,15 +195,26 @@ CORE/
 
 ---
 
-## ⚡ Instalación Estándar en un Proyecto
+## ⚡ Quick Start
 
+**1. Instala la gobernanza de tu dominio**
 ```bash
-# 1. Instalar la regla de gobernanza del dominio en .agents/
-git submodule add https://github.com/Agent-Rules-Ecosystem/<dominio>-agent-rules.git .agents
+git submodule add git@github.com:Agent-Rules-Ecosystem/<dominio>-agent-rules.git .agents
+```
 
-# 2. Instalar las skills requeridas por el proyecto en .skill/
-mkdir -p .skill
-git submodule add https://github.com/Agent-Rules-Ecosystem/<nombre>-agent-skill.git .skill/<nombre>-agent-skill
+**2. Inicia el agente**
+```text
+$boot
+```
+
+**3. Registra tu primera tarea**
+```text
+$work [descripción de la tarea]
+```
+
+> Para agregar skills adicionales:
+```bash
+git submodule add git@github.com:Agent-Rules-Ecosystem/<nombre>-agent-skill.git .skill/<nombre>-agent-skill
 ```
 
 ---
