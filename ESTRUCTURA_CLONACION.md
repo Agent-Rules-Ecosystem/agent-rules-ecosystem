@@ -51,6 +51,10 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 ├── Rust/
 │   ├── rust-agent-rules/        # Gobernanza y protocolos Rust (Sistemas / Embebidos / Tokio)
 │   └── rust-agent-skill/        # Habilidades y patrones Rust
+├── SecondBrain/
+│   ├── second-brain-agent-rules/# Gobernanza de Segundo Cerebro y Gestión del Conocimiento
+│   └── second-brain-agent-skill/# Habilidades del Segundo Cerebro
+│       └── lore-agent-skill/    # Worldbuilding, Game Lore y Gestión Narrativa
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza y protocolos Swift (iOS Nativo / SwiftUI)
 │   └── swift-agent-skill/       # Habilidades y patrones Swift
@@ -82,7 +86,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 Cuando el usuario pida: **"Inicializa o sincroniza la estructura del ecosistema"**, el Agente de IA debe ejecutar las siguientes acciones:
 
 1. **Ubicación Base**: Validar que la ejecución ocurra en el directorio raíz elegido para el ecosistema.
-2. **Verificación de Carpetas**: Garantizar la existencia de los 10 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `Python`, `Rust`, `Swift`, `Transversal`, `Web`, `agent-rules-ecosystem`).
+2. **Verificación de Carpetas**: Garantizar la existencia de los 11 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`, `agent-rules-ecosystem`).
 3. **Clonación / Verificación Git**:
    - Para cada submódulo o repositorio de gobernanza (`*-agent-rules`), clonar en la raíz de su categoría (`<Dominio>/<dominio>-agent-rules`).
    - Para las skills especializadas, clonar dentro del subdirectorio contenedor `<Dominio>/<dominio>-agent-skill/<nombre-skill>/`.
@@ -115,6 +119,7 @@ REPOS=(
   "Kotlin::kotlin-agent-rules"
   "Python::python-agent-rules"
   "Rust::rust-agent-rules"
+  "SecondBrain::second-brain-agent-rules"
   "Swift::swift-agent-rules"
   "Web::web-agent-rules"
 
@@ -169,6 +174,9 @@ REPOS=(
   # Skills Rust
   "Rust:rust-agent-skill:rust-plc-modbus-agent-skill"
 
+  # Skills SecondBrain
+  "SecondBrain:second-brain-agent-skill:lore-agent-skill"
+
   # Skills Swift
   "Swift:swift-agent-skill:swiftui-navigation-state-agent-skill"
   "Swift:swift-agent-skill:swift-async-concurrency-agent-skill"
@@ -176,7 +184,7 @@ REPOS=(
 )
 
 # 1. Crear carpetas principales
-mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Go" "$BASE_DIR/Kotlin" "$BASE_DIR/Python" "$BASE_DIR/Rust" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web"
+mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Go" "$BASE_DIR/Kotlin" "$BASE_DIR/Python" "$BASE_DIR/Rust" "$BASE_DIR/SecondBrain" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web"
 
 # 2. Clonar o Inicializar cada repositorio
 for ENTRY in "${REPOS[@]}"; do
