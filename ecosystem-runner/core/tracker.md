@@ -46,7 +46,7 @@
 
 | Skill Repository | Core Heredador | Capa 1 (Base/Arqui) | Capa 2 (Congruencia) | Capa 3 (Rules Sync) | Notas / Hallazgos |
 | :--- | :--- | :---: | :---: | :---: | :--- |
-| `lore-agent-skill` | `second-brain-agent-rules` / `game-agent-rules` | 🔴 | 🔴 | 🔴 | Pendiente validación de herencia |
+| `lore-agent-skill` | `second-brain-agent-rules` / `game-agent-rules` | 🟢 | 🟢 | 🟢 | Auditado y verificado: 100% congruente con `second-brain-agent-rules` y `game-agent-rules` |
 | `second-brain-agent-skill` | `second-brain-agent-rules` | 🔴 | 🔴 | 🔴 | Pendiente validación de herencia |
 | `grapho-agent-skill` | `transversal-agent-rules` | 🔴 | 🔴 | 🔴 | Auditado previo (firmas AST ok) |
 
