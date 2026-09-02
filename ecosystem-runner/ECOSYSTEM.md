@@ -39,8 +39,10 @@ Registra una tarea, bug, refactor o pendiente a nivel Ecosistema.
 1. Generar ID correlativo (`w1`, `d1`, `p1`) etiquetado como `[ECO]`.
 2. Registrar la descripción, hipótesis/solución y Cores afectados en `overview/work/tasks.md`.
 3. Agregar entrada en el índice maestro `overview/work.md`.
-4. Sincronizar simultáneamente `overview/` (`session.md`, `work.md`, `tasks.md`, `pendientes.md`, `deuda_tecnica.md`).
-5. Confirmar en 1 línea lacónica: `[ECO] Tarea registrada como [ID] en overview/work.md`.
+4. **Regla de Invalidación/Reinicio de Tracker**: Si el cambio toca `templates/` o cualquiera de los archivos de estándar maestro (`ARCHITECTURE_STANDARD.md`, `ESTRUCTURA_CLONACION.md`, `RULES_STANDARD.md`, `SKILL_STANDARD.md`), el agente invalida automáticamente `ecosystem-runner/core/tracker.md`, marcando los Cores afectados como `🔴 PENDIENTE` para forzar re-auditoría contra las plantillas/estándares actualizados.
+5. Sincronizar simultáneamente `overview/` (`session.md`, `work.md`, `tasks.md`, `pendientes.md`, `deuda_tecnica.md`).
+6. Confirmar en 1 línea lacónica: `[ECO] Tarea registrada como [ID] en overview/work.md` (e indicar reinicio de tracker si aplica).
+
 
 ---
 

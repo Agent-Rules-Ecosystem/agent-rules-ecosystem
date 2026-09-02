@@ -1,0 +1,6 @@
+---
+description: Rule for loading ecosystem governance
+globs: *
+---
+Read `.agents/AGENTS.md` before starting any development or refactoring task.
+Execute `$boot` if `overview/session.md` is absent.
