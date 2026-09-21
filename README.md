@@ -66,12 +66,15 @@ CORE/
 ├── Go/
 │   ├── go-agent-rules/          # Gobernanza Go (Golang)
 │   └── go-agent-skill/          # Habilidades Go
+│       └── go-plc-modbus-agent-skill/
 ├── Kotlin/
 │   ├── kotlin-agent-rules/      # Gobernanza Android / Kotlin Multiplatform
 │   └── kotlin-agent-skill/      # Habilidades Kotlin
 │       ├── kotlin-coroutines-flow-agent-skill/
 │       ├── kotlin-jetpack-compose-agent-skill/
 │       └── kotlin-room-sqlite-agent-skill/
+├── MultiCore/
+│   └── multicore-agent-rules/   # Gobernanza y orquestación multi-stack (Monorepos y sistemas políglotas)
 ├── Python/
 │   ├── python-agent-rules/      # Gobernanza Python (Data, APIs, AI Agents)
 │   └── python-agent-skill/      # Habilidades Python
@@ -82,6 +85,7 @@ CORE/
 ├── Rust/
 │   ├── rust-agent-rules/        # Gobernanza Rust (Sistemas, Tokio, Embebidos / PLCs)
 │   └── rust-agent-skill/        # Habilidades Rust
+│       └── rust-plc-modbus-agent-skill/
 ├── SecondBrain/
 │   ├── second-brain-agent-rules/# Gobernanza de Segundo Cerebro y Gestión del Conocimiento
 │   └── second-brain-agent-skill/# Habilidades del Segundo Cerebro
@@ -93,21 +97,25 @@ CORE/
 │       ├── swift-swiftdata-realm-agent-skill/
 │       └── swiftui-navigation-state-agent-skill/
 ├── Transversal/
+│   ├── firebase-auth-agent-skill/
 │   ├── grapho-3d-visualizer-agent-skill/
 │   ├── grapho-agent-skill/
 │   ├── i18n-agent-skill/        # Habilidades de Internacionalización y Localización
 │   ├── infra-agent-skill/       # Habilidades de Docker, CI/CD e Infraestructura
 │   ├── monitoring-agent-skill/  # Habilidades de Observabilidad y APM
+│   ├── performance-agent-skill/ # Habilidades de Optimización y Rendimiento
 │   ├── security-agent-skill/    # Habilidades de Seguridad y OWASP
 │   └── telemetry-agent-skill/   # Habilidades de Analytics, Crashlytics y Sanitización PII
-└── Web/
-    ├── web-agent-rules/         # Gobernanza Web (HTML5, CSS, Svelte, React, Vue, Astro)
-    └── web-agent-skill/         # Habilidades Web
-        ├── three-js-agent-skills/
-        ├── web-react-agent-skill/
-        ├── web-realtime-agent-skill/
-        ├── web-svelte-agent-skill/
-        └── wordpress-agent-skill/
+├── Web/
+│   ├── web-agent-rules/         # Gobernanza Web (HTML5, CSS, Svelte, React, Vue, Astro)
+│   └── web-agent-skill/         # Habilidades Web
+│       ├── three-js-agent-skills/
+│       ├── web-react-agent-skill/
+│       ├── web-realtime-agent-skill/
+│       ├── web-svelte-agent-skill/
+│       └── wordpress-agent-skill/
+└── Web3/
+    └── solidity-agent-rules/    # Gobernanza Solidity + Base (EVM L2) — Smart Contracts
 ```
 
 ---
@@ -183,13 +191,20 @@ CORE/
 - ⚡ **Skills** (`SecondBrain/second-brain-agent-skill/`):
   - [`lore-agent-skill`](https://github.com/Agent-Rules-Ecosystem/lore-agent-skill) (`$lore`) — Worldbuilding, personajes, eventos, facciones y consistencia narrativa
 
-### 🔄 11. Skills Transversales (Agnósticas)
+### 🔀 11. MultiCore (Monorepos y Sistemas Políglotas)
+- 🛡️ **Gobernanza**: [`multicore-agent-rules`](https://github.com/Agent-Rules-Ecosystem/multicore-agent-rules)
+
+### 🔷 12. Web3 & Smart Contracts (Base / EVM)
+- 🛡️ **Gobernanza**: [`solidity-agent-rules`](https://github.com/Agent-Rules-Ecosystem/solidity-agent-rules)
+
+### 🔄 13. Skills Transversales (Agnósticas)
 - 🔥 [`firebase-auth-agent-skill`](https://github.com/Agent-Rules-Ecosystem/firebase-auth-agent-skill) (`$firebaseauth`) — Autenticación OAuth multi-proveedor, Custom Claims (RBAC) y Security Rules
 - 🕸️ [`grapho-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-agent-skill) (`$grapho`) — Motor AST de análisis determinista de grafos y Clean Arch (< 1s)
 - 🎨 [`grapho-3d-visualizer-agent-skill`](https://github.com/Agent-Rules-Ecosystem/grapho-3d-visualizer-agent-skill) (`$grapho3d`) — Visualizador 3D/2.5D interactivo (Sci-Fi Constellation & Medieval RPG Waifus)
 - 🌍 [`i18n-agent-skill`](https://github.com/Agent-Rules-Ecosystem/i18n-agent-skill) (`$i18n`) — Internacionalización, Localización multi-idioma y Fallbacks transparentes
 - 🏗️ [`infra-agent-skill`](https://github.com/Agent-Rules-Ecosystem/infra-agent-skill) (`$infra`) — Docker, Kubernetes, CI/CD GitHub Actions
 - 📊 [`monitoring-agent-skill`](https://github.com/Agent-Rules-Ecosystem/monitoring-agent-skill) (`$monitoring`) — Logging, Telemetría OpenTelemetry, APM
+- ⚡ [`performance-agent-skill`](https://github.com/Agent-Rules-Ecosystem/performance-agent-skill) (`$perf`) — Profiling y optimización de CPU, GPU, memoria, frame budget y bundles
 - 🛡️ [`security-agent-skill`](https://github.com/Agent-Rules-Ecosystem/security-agent-skill) (`$security`) — Auditoría de vulnerabilidades OWASP y secretos
 - 📡 [`telemetry-agent-skill`](https://github.com/Agent-Rules-Ecosystem/telemetry-agent-skill) (`$telemetry`) — Analytics de producto, Crashlytics y Sanitización PII
 

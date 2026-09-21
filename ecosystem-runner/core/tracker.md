@@ -1,6 +1,6 @@
 # 🎯 Tracker de Gobernanza y Congruencia Ecosistémica (3 Capas)
 
-> **Propósito**: Registro agentico y persistente del estado de cumplimiento de los 11 Cores y Skills del ecosistema a través de 3 capas de validación.
+> **Propósito**: Registro agentico y persistente del estado de cumplimiento de los 13 Cores y Skills del ecosistema a través de 3 capas de validación.
 
 ---
 
@@ -23,7 +23,7 @@
 
 ---
 
-## 📊 Matriz de Gobernanza: Cores (12 Main Cores)
+## 📊 Matriz de Gobernanza: Cores (13 Main Cores)
 
 | Core Repository | Capa 1 (Base/Arqui) | Capa 2 (Congruencia) | Capa 3 (Skill Sync) | Notas / Hallazgos |
 | :--- | :---: | :---: | :---: | :--- |
@@ -40,6 +40,7 @@
 | `swift-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
 | `transversal-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
 | `web-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
+| `solidity-agent-rules` | 🟡 | 🔴 | ⚪ | Creado [w7]. Core Web3 / Base blockchain. Capa 2 pendiente de auditoría. |
 
 
 ---

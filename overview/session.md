@@ -1,13 +1,15 @@
 # Estado de Sesión Ecosistema
 
 Agente: Gemini 3.7 Flash — 2026-09-21
-Nodo Activo: [w6] Generalización de `multicore-agent-rules` a Modelo de Nodos y Roles Topológicos Agnósticos
+Nodo Activo: [w8] Actualización y alineación de README.md Maestro
 Validación: verificado
 
 ## Reanudar
-- Continuar con auditoría de Cores pendientes en `ecosystem-runner/core/tracker.md` (ej. `backend-agent-rules` o `python-agent-rules`).
+- Continuar con auditorías o integración de nuevos cores/skills en `ecosystem-runner/core/tracker.md`.
 
 ## Cambios
+- [2026-09-21]: Completado [w8] `README.md` maestro actualizado y sincronizado en su totalidad: incorporados `MultiCore/multicore-agent-rules`, `Web3/solidity-agent-rules` y `performance-agent-skill` al árbol canónico y a las matrices de repositorios y skills transversales.
+- [2026-09-21]: Completado [w7] `solidity-agent-rules` creado en `Web3/solidity-agent-rules/` con gobernanza especializada en Base (EVM L2), patrones de seguridad (CEI, SWC Registry), optimización de gas, plantillas `overview/`, adaptadores agénticos (Claude, Gemini, Cursor) y registrado en `ESTRUCTURA_CLONACION.md` y `tracker.md`.
 - [2026-09-21]: Completado [w6] `multicore-agent-rules` generalizado al Modelo de Nodos y Roles Topológicos (`Provider`, `Consumer`, `Bridge/Interop`, `Contract`) con plantillas modulares (`node_provider.md`, `node_consumer.md`, `node_bridge.md`, `shared_contracts.md`) y soporte para cualquier topología políglota.
 - [2026-09-21]: Completado [w5] `multicore-agent-rules` creado en `MultiCore/multicore-agent-rules/`.
 

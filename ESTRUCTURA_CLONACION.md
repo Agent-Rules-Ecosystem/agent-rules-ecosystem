@@ -42,8 +42,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │       ├── kotlin-coroutines-flow-agent-skill/
 │       └── kotlin-room-sqlite-agent-skill/
 ├── MultiCore/
-│   ├── multicore-agent-rules/   # Gobernanza y orquestación multi-stack (Monorepos y sistemas políglotas)
-│   └── multicore-agent-skill/   # Habilidades y herramientas de orquestación
+│   └── multicore-agent-rules/   # Gobernanza y orquestación multi-stack (Monorepos y sistemas políglotas)
 ├── Python/
 │   ├── python-agent-rules/      # Gobernanza y protocolos Python (AI & Data)
 │   └── python-agent-skill/      # Habilidades y patrones Python
@@ -65,6 +64,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │       ├── swift-async-concurrency-agent-skill/
 │       └── swift-swiftdata-realm-agent-skill/
 ├── Transversal/
+│   ├── firebase-auth-agent-skill/
 │   ├── grapho-3d-visualizer-agent-skill/
 │   ├── grapho-agent-skill/
 │   ├── i18n-agent-skill/
@@ -74,13 +74,15 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │   ├── security-agent-skill/    # Habilidades de Seguridad y OWASP
 │   └── telemetry-agent-skill/
 ├── Web/
-    ├── web-agent-rules/         # Gobernanza y protocolos Web (React/Next/Vite)
-    └── web-agent-skill/         # Habilidades y patrones Web
-        ├── three-js-agent-skills/
-        ├── web-react-agent-skill/
-        ├── web-realtime-agent-skill/
-        ├── web-svelte-agent-skill/
-        └── wordpress-agent-skill/
+│   ├── web-agent-rules/         # Gobernanza y protocolos Web (React/Next/Vite)
+│   └── web-agent-skill/         # Habilidades y patrones Web
+│       ├── three-js-agent-skills/
+│       ├── web-react-agent-skill/
+│       ├── web-realtime-agent-skill/
+│       ├── web-svelte-agent-skill/
+│       └── wordpress-agent-skill/
+└── Web3/
+    └── solidity-agent-rules/    # Gobernanza Solidity + Base (EVM L2) — Contratos Inteligentes
 ```
 
 ---
@@ -90,7 +92,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 Cuando el usuario pida: **"Inicializa o sincroniza la estructura del ecosistema"**, el Agente de IA debe ejecutar las siguientes acciones:
 
 1. **Ubicación Base**: Validar que la ejecución ocurra en el directorio raíz elegido para el ecosistema.
-2. **Verificación de Carpetas**: Garantizar la existencia de los 12 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `MultiCore`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`, `agent-rules-ecosystem`).
+2. **Verificación de Carpetas**: Garantizar la existencia de los 13 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `MultiCore`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`, `Web3`, `agent-rules-ecosystem`).
 3. **Clonación / Verificación Git**:
    - Para cada submódulo o repositorio de gobernanza (`*-agent-rules`), clonar en la raíz de su categoría (`<Dominio>/<dominio>-agent-rules`).
    - Para las skills especializadas, clonar dentro del subdirectorio contenedor `<Dominio>/<dominio>-agent-skill/<nombre-skill>/`.
@@ -127,8 +129,10 @@ REPOS=(
   "SecondBrain::second-brain-agent-rules"
   "Swift::swift-agent-rules"
   "Web::web-agent-rules"
+  "Web3::solidity-agent-rules"
 
   # Transversales
+  "Transversal::firebase-auth-agent-skill"
   "Transversal::grapho-agent-skill"
   "Transversal::grapho-3d-visualizer-agent-skill"
   "Transversal::i18n-agent-skill"
@@ -190,7 +194,7 @@ REPOS=(
 )
 
 # 1. Crear carpetas principales
-mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Go" "$BASE_DIR/Kotlin" "$BASE_DIR/MultiCore" "$BASE_DIR/Python" "$BASE_DIR/Rust" "$BASE_DIR/SecondBrain" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web"
+mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Go" "$BASE_DIR/Kotlin" "$BASE_DIR/MultiCore" "$BASE_DIR/Python" "$BASE_DIR/Rust" "$BASE_DIR/SecondBrain" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web" "$BASE_DIR/Web3"
 
 # 2. Clonar o Inicializar cada repositorio
 for ENTRY in "${REPOS[@]}"; do
@@ -271,6 +275,7 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Swift Skill** | `Swift/swift-agent-skill/swiftui-navigation-state-agent-skill` | `swiftui-navigation-state-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swift-async-concurrency-agent-skill` | `swift-async-concurrency-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swift-swiftdata-realm-agent-skill` | `swift-swiftdata-realm-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swift-swiftdata-realm-agent-skill.git` |
+| **Transversal** | `Transversal/firebase-auth-agent-skill` | `firebase-auth-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/firebase-auth-agent-skill.git` |
 | **Transversal** | `Transversal/grapho-agent-skill` | `grapho-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/grapho-agent-skill.git` |
 | **Transversal** | `Transversal/grapho-3d-visualizer-agent-skill` | `grapho-3d-visualizer-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/grapho-3d-visualizer-agent-skill.git` |
 | **Transversal** | `Transversal/i18n-agent-skill` | `i18n-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/i18n-agent-skill.git` |
@@ -279,4 +284,4 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Transversal** | `Transversal/performance-agent-skill` | `performance-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/performance-agent-skill.git` |
 | **Transversal** | `Transversal/security-agent-skill` | `security-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/security-agent-skill.git` |
 | **Transversal** | `Transversal/telemetry-agent-skill` | `telemetry-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/telemetry-agent-skill.git` |
-
+| **Web3 Core** | `Web3/solidity-agent-rules` | `solidity-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/solidity-agent-rules.git` |
