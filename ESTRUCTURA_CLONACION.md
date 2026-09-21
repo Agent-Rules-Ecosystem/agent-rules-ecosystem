@@ -41,6 +41,9 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │       ├── kotlin-jetpack-compose-agent-skill/
 │       ├── kotlin-coroutines-flow-agent-skill/
 │       └── kotlin-room-sqlite-agent-skill/
+├── MultiCore/
+│   ├── multicore-agent-rules/   # Gobernanza y orquestación multi-stack (Monorepos y sistemas políglotas)
+│   └── multicore-agent-skill/   # Habilidades y herramientas de orquestación
 ├── Python/
 │   ├── python-agent-rules/      # Gobernanza y protocolos Python (AI & Data)
 │   └── python-agent-skill/      # Habilidades y patrones Python
@@ -67,9 +70,10 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │   ├── i18n-agent-skill/
 │   ├── infra-agent-skill/       # Habilidades de Docker, CI/CD e Infraestructura
 │   ├── monitoring-agent-skill/  # Habilidades de Logging y Telemetría
+│   ├── performance-agent-skill/ # Habilidades de Optimización y Rendimiento
 │   ├── security-agent-skill/    # Habilidades de Seguridad y OWASP
 │   └── telemetry-agent-skill/
-└── Web/
+├── Web/
     ├── web-agent-rules/         # Gobernanza y protocolos Web (React/Next/Vite)
     └── web-agent-skill/         # Habilidades y patrones Web
         ├── three-js-agent-skills/
@@ -86,7 +90,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 Cuando el usuario pida: **"Inicializa o sincroniza la estructura del ecosistema"**, el Agente de IA debe ejecutar las siguientes acciones:
 
 1. **Ubicación Base**: Validar que la ejecución ocurra en el directorio raíz elegido para el ecosistema.
-2. **Verificación de Carpetas**: Garantizar la existencia de los 11 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`, `agent-rules-ecosystem`).
+2. **Verificación de Carpetas**: Garantizar la existencia de los 12 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `MultiCore`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`, `agent-rules-ecosystem`).
 3. **Clonación / Verificación Git**:
    - Para cada submódulo o repositorio de gobernanza (`*-agent-rules`), clonar en la raíz de su categoría (`<Dominio>/<dominio>-agent-rules`).
    - Para las skills especializadas, clonar dentro del subdirectorio contenedor `<Dominio>/<dominio>-agent-skill/<nombre-skill>/`.
@@ -117,6 +121,7 @@ REPOS=(
   "Game::game-agent-rules"
   "Go::go-agent-rules"
   "Kotlin::kotlin-agent-rules"
+  "MultiCore::multicore-agent-rules"
   "Python::python-agent-rules"
   "Rust::rust-agent-rules"
   "SecondBrain::second-brain-agent-rules"
@@ -129,6 +134,7 @@ REPOS=(
   "Transversal::i18n-agent-skill"
   "Transversal::infra-agent-skill"
   "Transversal::monitoring-agent-skill"
+  "Transversal::performance-agent-skill"
   "Transversal::security-agent-skill"
   "Transversal::telemetry-agent-skill"
 
@@ -184,7 +190,7 @@ REPOS=(
 )
 
 # 1. Crear carpetas principales
-mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Go" "$BASE_DIR/Kotlin" "$BASE_DIR/Python" "$BASE_DIR/Rust" "$BASE_DIR/SecondBrain" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web"
+mkdir -p "$BASE_DIR/Backend" "$BASE_DIR/Flutter" "$BASE_DIR/Game" "$BASE_DIR/Go" "$BASE_DIR/Kotlin" "$BASE_DIR/MultiCore" "$BASE_DIR/Python" "$BASE_DIR/Rust" "$BASE_DIR/SecondBrain" "$BASE_DIR/Swift" "$BASE_DIR/Transversal" "$BASE_DIR/Web"
 
 # 2. Clonar o Inicializar cada repositorio
 for ENTRY in "${REPOS[@]}"; do
@@ -245,15 +251,22 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Game Skill** | `Game/game-agent-skill/godot-mobile-monetization-agent-skill` | `godot-mobile-monetization-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/godot-mobile-monetization-agent-skill.git` |
 | **Game Skill** | `Game/game-agent-skill/godot-dialogue-plugin-agent-skill` | `godot-dialogue-plugin-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/godot-dialogue-plugin-agent-skill.git` |
 | **Game Skill** | `Game/game-agent-skill/godot-nakama-agent-skill` | `godot-nakama-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/godot-nakama-agent-skill.git` |
+| **Go Core** | `Go/go-agent-rules` | `go-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/go-agent-rules.git` |
+| **Go Skill** | `Go/go-agent-skill/go-plc-modbus-agent-skill` | `go-plc-modbus-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/go-plc-modbus-agent-skill.git` |
 | **Kotlin Core** | `Kotlin/kotlin-agent-rules` | `kotlin-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/kotlin-agent-rules.git` |
 | **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-jetpack-compose-agent-skill` | `kotlin-jetpack-compose-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-jetpack-compose-agent-skill.git` |
 | **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-coroutines-flow-agent-skill` | `kotlin-coroutines-flow-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-coroutines-flow-agent-skill.git` |
 | **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-room-sqlite-agent-skill` | `kotlin-room-sqlite-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-room-sqlite-agent-skill.git` |
+| **MultiCore Core** | `MultiCore/multicore-agent-rules` | `multicore-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/multicore-agent-rules.git` |
 | **Python Core** | `Python/python-agent-rules` | `python-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/python-agent-rules.git` |
 | **Python Skill** | `Python/python-agent-skill/python-blender-addon-agent-skill` | `python-blender-addon-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-blender-addon-agent-skill.git` |
 | **Python Skill** | `Python/python-agent-skill/python-fastapi-pydantic-agent-skill` | `python-fastapi-pydantic-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-fastapi-pydantic-agent-skill.git` |
 | **Python Skill** | `Python/python-agent-skill/python-langchain-agents-agent-skill` | `python-langchain-agents-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-langchain-agents-agent-skill.git` |
 | **Python Skill** | `Python/python-agent-skill/python-pandas-data-agent-skill` | `python-pandas-data-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-pandas-data-agent-skill.git` |
+| **Rust Core** | `Rust/rust-agent-rules` | `rust-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/rust-agent-rules.git` |
+| **Rust Skill** | `Rust/rust-agent-skill/rust-plc-modbus-agent-skill` | `rust-plc-modbus-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/rust-plc-modbus-agent-skill.git` |
+| **SecondBrain Core** | `SecondBrain/second-brain-agent-rules` | `second-brain-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/second-brain-agent-rules.git` |
+| **SecondBrain Skill** | `SecondBrain/second-brain-agent-skill/lore-agent-skill` | `lore-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/lore-agent-skill.git` |
 | **Swift Core** | `Swift/swift-agent-rules` | `swift-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/swift-agent-rules.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swiftui-navigation-state-agent-skill` | `swiftui-navigation-state-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swift-async-concurrency-agent-skill` | `swift-async-concurrency-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill.git` |
@@ -263,5 +276,7 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Transversal** | `Transversal/i18n-agent-skill` | `i18n-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/i18n-agent-skill.git` |
 | **Transversal** | `Transversal/infra-agent-skill` | `infra-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/infra-agent-skill.git` |
 | **Transversal** | `Transversal/monitoring-agent-skill` | `monitoring-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/monitoring-agent-skill.git` |
+| **Transversal** | `Transversal/performance-agent-skill` | `performance-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/performance-agent-skill.git` |
 | **Transversal** | `Transversal/security-agent-skill` | `security-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/security-agent-skill.git` |
 | **Transversal** | `Transversal/telemetry-agent-skill` | `telemetry-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/telemetry-agent-skill.git` |
+

@@ -23,7 +23,7 @@
 
 ---
 
-## 📊 Matriz de Gobernanza: Cores (11 Main Cores)
+## 📊 Matriz de Gobernanza: Cores (12 Main Cores)
 
 | Core Repository | Capa 1 (Base/Arqui) | Capa 2 (Congruencia) | Capa 3 (Skill Sync) | Notas / Hallazgos |
 | :--- | :---: | :---: | :---: | :--- |
@@ -33,12 +33,14 @@
 | `game-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
 | `go-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
 | `kotlin-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
+| `multicore-agent-rules` | 🟢 | 🟢 | 🟢 | Creado y 100% verificado contra `RULES_STANDARD.md` y `ARCHITECTURE_STANDARD.md` (Hub & Spoke, contratos y matriz de congruencia) |
 | `python-agent-rules` | 🔴 | 🔴 | ⚪ | **Falta carpeta `arquitectura/` y adjuntos** |
 | `rust-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
 | `second-brain-agent-rules` | 🟢 | 🟢 | 🟢 | Re-auditado contra Estándar Maestro: 100% verificado (`templates/architecture/{core,modules,routes_map.md}` y `templates/trackers/`) |
 | `swift-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
 | `transversal-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
 | `web-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
+
 
 ---
 
@@ -47,6 +49,7 @@
 | Skill Repository | Core Heredador | Capa 1 (Base/Arqui) | Capa 2 (Congruencia) | Capa 3 (Rules Sync) | Notas / Hallazgos |
 | :--- | :--- | :---: | :---: | :---: | :--- |
 | `lore-agent-skill` | `second-brain-agent-rules` / `game-agent-rules` | 🟢 | 🟢 | 🟢 | Auditado y verificado: 100% congruente con `second-brain-agent-rules` y `game-agent-rules` |
+| `performance-agent-skill` | `transversal-agent-rules` | 🟢 | 🟢 | 🟢 | Creado y validado contra `SKILL_STANDARD.md` (100% Markdown, adaptadores por plataforma, core y knowledge) |
 | `second-brain-agent-skill` | `second-brain-agent-rules` | 🔴 | 🔴 | 🔴 | Pendiente validación de herencia |
 | `grapho-agent-skill` | `transversal-agent-rules` | 🔴 | 🔴 | 🔴 | Auditado previo (firmas AST ok) |
 
