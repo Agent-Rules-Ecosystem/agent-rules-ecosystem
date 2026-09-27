@@ -88,6 +88,17 @@ La carpeta `overview/` es el sistema de persistencia y gobernanza activa que el 
 | `overview/learning.md` | **Buffer Local de Aprendizaje**: Captura lecciones descubiertas en la sesión bajo `## 📌 Propuestas de mejora` antes de ser validadas por el **Filtro Agnóstico**. |
 | `overview/trackers/progress.md` | **Monitoreo de Avance**: Rastreo de progreso por nodos y componentes del sistema. |
 
+### 📐 Estándar de Ciclo de Vida y Confianza en `overview/`
+
+Todo ítem registrado en `overview/work/` (tareas, deuda, pendientes) **debe** incluir dos campos de metadatos que permiten al agente priorizar y filtrar información sin cargarlo todo:
+
+| Campo | Valores canónicos | Descripción |
+|---|---|---|
+| `Estado` | `activo \| draft \| en_revision \| superseded` | Ciclo de vida del ítem. `superseded` = resuelto/reemplazado, mover al historial. |
+| `Confianza` | `alta \| media \| baja \| no_verificada` | Certeza del diagnóstico o decisión. Si es `baja` o `no_verificada`, el agente lo notifica antes de actuar. |
+
+> **Regla**: Ningún ítem de `overview/` puede tener `Estado: activo` y `Confianza: no_verificada` simultáneamente más de una sesión sin ser escalado a `deuda_tecnica.md`.
+
 ---
 
 ## ⚡ Estándar de $-Comandos Obligatorios del Core
@@ -103,6 +114,17 @@ $learn [texto] / $learnagnostico ← Captura de lecciones aprendidas con Filtro 
 $laconico / $laconic / $kernel   ← Activación del Modo Lacónico (respuesta hiper-concisa de alta densidad)
 $close                           ← Cierre de sesión, verificación de linters/tests y guardado de estado
 ```
+
+**Comando Estándar Opcional** — todo `*-agent-rules` **puede** implementarlo si el dominio lo justifica:
+
+```
+$audit                           ← Auditoría de consistencia interna: detecta contradicciones entre overview/architecture/,
+                                   deuda_tecnica.md y el estado real del proyecto. Verifica que los IDs en work.md
+                                   existan en tasks.md/deuda_tecnica.md y que items con estado 'superseded'
+                                   no sigan listados en tablas activas.
+```
+
+> **Criterio de inclusión**: Implementar `$audit` cuando el proyecto tiene más de 20 ítems en `overview/work/` o más de 3 skills instaladas con reportes activos en `overview/work/skill/`.
 
 ### Detalle Operativo de los Comandos:
 

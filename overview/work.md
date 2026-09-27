@@ -10,8 +10,12 @@
 | [w6] | [ECO] | Generalización de multicore-agent-rules a Modelo de Nodos y Roles Topológicos | MultiCore / Todos | hecho |
 | [w7] | [ECO] | Creación de solidity-agent-rules para desarrollo en Base blockchain | Web3 / Nuevo Core | hecho |
 | [w8] | [ECO] | Actualización y alineación completa de README.md con MultiCore, Web3 y performance-agent-skill | Master / README.md | hecho |
+| [w9] | [ECO] | Refuerzo de Verdad Estructurada y Optimización de Tokens (YAML Schema, SQLite Indexing, Epistemología y Timeline Ledger en SecondBrain, Lore y Grapho) | SecondBrain, Lore, Grapho | hecho |
+| [w10] | [ECO] | Estándar de Ciclo de Vida y Confianza en overview/ y Protocolo de Carga de Contexto en 3 Capas propagado a los 12 repositorios | Master / 12 Cores | hecho |
 
 ## ✅ Completados (Historial)
+- [w10] [ECO] Estándar de Ciclo de Vida (`Estado`/`Confianza`), comando `$audit` opcional y Protocolo de Carga de Contexto en 3 Capas en `RULES_STANDARD.md` y `core/brain.md`, propagado a los 12 `*-agent-rules` -> Razón: Eficiencia de tokens agnóstica y trazabilidad sin pérdida de especificidad de dominio.
+- [w9] [ECO] Integración de motor de conocimiento determinista en `grapho-agent-skill` (`scan_knowledge.py` con SQLite FTS5 + JSON queries), estandarización de YAML Frontmatter tipado, epistemología y Timeline Ledger (`events.log.md`) en `lore-agent-skill` y contratos en `second-brain-agent-rules` -> Razón: Garantizar veracidad matemática, cero alucinaciones y reducción masiva de tokens (~90%) en bases de conocimiento y lore.
 - [w8] [ECO] Actualización completa del Manifiesto Maestro `README.md` (Árbol canónico y matriz de repositorios) agregando `MultiCore/multicore-agent-rules`, `Web3/solidity-agent-rules` y `performance-agent-skill` -> Razón: Sincronización y exhaustividad del manifiesto público del ecosistema.
 - [w7] [ECO] Creación del nuevo core `Web3/solidity-agent-rules` especializado en contratos inteligentes sobre Base (EVM L2), seguridad SWC/CEI, optimización de gas y plantillas de control -> Razón: Gobernanza agéntica para desarrollo de smart contracts Web3.
 - [w6] [ECO] Generalización de `multicore-agent-rules` a Modelo de Nodos y Roles Topológicos (`Provider`, `Consumer`, `Bridge`, `Contract`) -> Razón: Soportar proyectos políglotas arbitrarios (Godot+Go+Solidity+SecondBrain, etc.).

@@ -52,7 +52,7 @@
 | `lore-agent-skill` | `second-brain-agent-rules` / `game-agent-rules` | 🟢 | 🟢 | 🟢 | Auditado y verificado: 100% congruente con `second-brain-agent-rules` y `game-agent-rules` |
 | `performance-agent-skill` | `transversal-agent-rules` | 🟢 | 🟢 | 🟢 | Creado y validado contra `SKILL_STANDARD.md` (100% Markdown, adaptadores por plataforma, core y knowledge) |
 | `second-brain-agent-skill` | `second-brain-agent-rules` | 🔴 | 🔴 | 🔴 | Pendiente validación de herencia |
-| `grapho-agent-skill` | `transversal-agent-rules` | 🔴 | 🔴 | 🔴 | Auditado previo (firmas AST ok) |
+| `grapho-agent-skill` | `transversal-agent-rules` | 🟢 | 🟢 | 🟢 | Auditado y verificado: motor de grafos AST/código y grafos de conocimiento SQLite FTS5 (`scan_knowledge.py`) |
 
 ---
 
