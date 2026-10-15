@@ -153,7 +153,7 @@ Próximo paso  : [## Reanudar de session.md]
 Registra un nuevo ítem en `overview/work/tasks.md` y actualiza el índice `overview/work.md` asignando un ID correlativo (`w1`, `w2`, ...). Ejecuta **sincronización automática** en todos los rastreadores afectados.
 
 #### 4. `$archi`
-Garantiza la auditoría y actualización modular de la arquitectura del proyecto conforme al **Agent Architecture Standard (`ARCHITECTURE_STANDARD.md`)**. Mantiene `ARCHITECTURE.md` como un índice raíz sintético (< 200L) y segrega los detalles técnicos en subdocumentos en `overview/architecture/` (`routes_map.md`, `core/data_flow.md`, `core/import_rules.md`, y `modules/<modulo>.md`).
+Garantiza la auditoría y actualización modular de la arquitectura del proyecto conforme al **Agent Architecture Standard (`ARCHITECTURE_STANDARD.md`)**. Mantiene `ARCHITECTURE.md` como un índice raíz sintético (< 200L) y segrega los detalles técnicos en subdocumentos en `overview/architecture/` (`routes_map.md`, `core/data_flow.md`, `core/import_rules.md`, y `modules/<modulo>.md`). En monorepos/multi-stack (`multicore-agent-rules`), `$archi` opera en modo federado: orquesta el `$archi` nativo de cada spoke y sintetiza la topología macro inter-nodo y contratos en la raíz.
 
 #### 5. `$learn [texto]` / `$learnagnostico [texto]`
 Aplica el **Filtro Agnóstico** para remover datos específicos del cliente (nombres de marcas, rutas locales, IDs concretos) y registra la lección en `overview/learning.md`.

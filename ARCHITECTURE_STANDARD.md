@@ -68,6 +68,12 @@ Cuando un agente de IA ejecuta la auditoría `$archi` o busca contexto de arquit
 3. **Carga Focalizada**: Abre únicamente ese subdocumento. 
 4. **Resultado**: Reducción del 90% en consumo de tokens y cero interferencia de módulos ajenos a la tarea.
 
+### Variantes de Ejecución de `$archi`
+- **Monolito / Stack Único**: Ejecuta el escaneo modular interno directo y actualiza `overview/architecture/`.
+- **Multi-Stack / Monorepo (`multicore-agent-rules` Hub)**: Ejecuta `$archi` federado en dos fases:
+  1. *Delegación Descendente*: Invoca `$archi` nativo en cada spoke activo (`<spoke>/.agents/`) para que cada nodo audite y mantenga su propio `<spoke>/overview/architecture.md`.
+  2. *Síntesis Ascendente*: El Hub agrega la topología macro inter-nodo, contratos compartidos (`overview/architecture/core/contracts.md`) y matriz de congruencia en la raíz, enlazando las fichas técnicas a los diagramas locales de cada spoke sin explosión de tokens.
+
 ---
 
 ## 🔄 Protocolo de Migración desde Archivo Plano Legado
