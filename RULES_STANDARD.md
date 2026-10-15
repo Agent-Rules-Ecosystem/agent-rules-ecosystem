@@ -221,10 +221,12 @@ graph LR
 ## 🏷️ Naming Convention & Reglas Inviolables
 
 1. **Nombres de Repositorio**: Debe seguir el formato `<plataforma>-agent-rules` en minúsculas y `kebab-case` (ej. `flutter-agent-rules`, `python-agent-rules`, `web-agent-rules`).
-2. **Ubicación Canónica**: En el proyecto huésped, **SIEMPRE** se instala en `.agents/` en la raíz.
+2. **Ubicación Canónica**: En el proyecto huésped, se instala en `.agents/` en la raíz (Stand-Alone), o en `knowledge/.agents` (o `vault/.agents` / `docs/.agents`) cuando opera como Spoke Canónico bajo el rol `Knowledge` en monorepos federados (`MultiCore`).
 3. **Intocabilidad de `.agents/`**: La carpeta `.agents/` es de **solo lectura** en los proyectos cliente. Ninguna tarea ni archivo del proyecto se debe modificar dentro de `.agents/`.
 4. **Prohibición de Skills en `.agents/`**: Las habilidades (`*-agent-skill`) se instalan **exclusivamente** en `.skill/`. Jamás deben colocarse dentro de `.agents/`.
 5. **Paridad de Comandos**: Todo comando listado en `core/commands.md` debe estar reflejado en la plantilla `templates/commands_project.md`.
+6. **Spokes de Conocimiento vs Skills**: Un repositorio de conocimiento persistente con bóveda (`second-brain-agent-rules`, `docs-agent-rules`) es un **Spoke Canónico** (`Knowledge`) con gobernanza local (`.agents/`), bóveda (`vault/`) y estado propio (`overview/`). Las herramientas procedurales que operan sobre él (`lore-agent-skill`, `grapho-agent-skill`) son las que se instalan como skills en `.skill/`.
+7. **Desacople Semántico en i18n**: Toda traducción o localización para UI debe estar estrictamente desacoplada de tokens, enums de dominio, claves de serialización y formatos de cálculo numérico para evitar roturas de estado e invariantes.
 
 ---
 

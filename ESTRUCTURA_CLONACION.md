@@ -54,9 +54,8 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │   ├── rust-agent-rules/        # Gobernanza y protocolos Rust (Sistemas / Embebidos / Tokio)
 │   └── rust-agent-skill/        # Habilidades y patrones Rust
 ├── SecondBrain/
-│   ├── second-brain-agent-rules/# Gobernanza de Segundo Cerebro y Gestión del Conocimiento
-│   └── second-brain-agent-skill/# Habilidades del Segundo Cerebro
-│       └── lore-agent-skill/    # Worldbuilding, Game Lore y Gestión Narrativa
+│   ├── second-brain-agent-rules/# Gobernanza de Segundo Cerebro (Spoke Canónico Knowledge / Stand-Alone)
+│   └── lore-agent-skill/        # Worldbuilding, Game Lore y Gestión Narrativa (.skill/)
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza y protocolos Swift (iOS Nativo / SwiftUI)
 │   └── swift-agent-skill/       # Habilidades y patrones Swift
@@ -185,7 +184,7 @@ REPOS=(
   "Rust:rust-agent-skill:rust-plc-modbus-agent-skill"
 
   # Skills SecondBrain
-  "SecondBrain:second-brain-agent-skill:lore-agent-skill"
+  "SecondBrain::lore-agent-skill"
 
   # Skills Swift
   "Swift:swift-agent-skill:swiftui-navigation-state-agent-skill"
@@ -270,7 +269,7 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Rust Core** | `Rust/rust-agent-rules` | `rust-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/rust-agent-rules.git` |
 | **Rust Skill** | `Rust/rust-agent-skill/rust-plc-modbus-agent-skill` | `rust-plc-modbus-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/rust-plc-modbus-agent-skill.git` |
 | **SecondBrain Core** | `SecondBrain/second-brain-agent-rules` | `second-brain-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/second-brain-agent-rules.git` |
-| **SecondBrain Skill** | `SecondBrain/second-brain-agent-skill/lore-agent-skill` | `lore-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/lore-agent-skill.git` |
+| **SecondBrain Skill** | `SecondBrain/lore-agent-skill` | `lore-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/lore-agent-skill.git` |
 | **Swift Core** | `Swift/swift-agent-rules` | `swift-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/swift-agent-rules.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swiftui-navigation-state-agent-skill` | `swiftui-navigation-state-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swift-async-concurrency-agent-skill` | `swift-async-concurrency-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill.git` |

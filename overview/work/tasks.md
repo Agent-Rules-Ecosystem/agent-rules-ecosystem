@@ -1,5 +1,21 @@
 # Tareas Ecosistémicas (`tasks.md`)
 
+## Tarea: [w11] Transición Canónica de SecondBrain a Spoke Knowledge y Protocolo de Enlace Hub-Spokes (Completada ✅)
+
+- **Tipo**: Architecture Evolution / Monorepo Hub-Spoke / Knowledge Systems
+- **Prioridad**: Alta
+- **Estado**: ✅ Completada (2026-10-14)
+- **Confianza**: Alta
+- **Cores/Skills Afectados**: `second-brain-agent-rules`, `multicore-agent-rules`, `agent-rules-ecosystem` (Master)
+- **Resultado**:
+  1. `multicore-agent-rules`: Incorporados comandos `$knowledge:sync` y `$knowledge:query`, jerarquía cognitiva (`Knowledge -> Contracts -> Código`) en `brain.md`, ingesta en `$close`, consolidación dinámica de comandos en `$boot`, plantilla `knowledge_contract.md` y directiva de aislamiento Dual-Tier en staging.
+  2. `second-brain-agent-rules`: Gobernanza Dual-Mode (Stand-Alone vs Spoke federado) en `brain.md` y `commands.md`, Bóveda Activa `vault/{domain,specs,algorithms,learnings}` en `path_map.md` con 4 plantillas canónicas de ingeniería en `templates/vault/`.
+  3. `ARCHITECTURE_STANDARD.md`: Estándar de Interoperabilidad Nativa Zero-Panic & Caller Buffers para Providers C-ABI, Teardown Simétrico LIFO para extensiones de runtimes anfitriones y Aislamiento Dual-Tier.
+  4. `RULES_STANDARD.md`: Reglas canónicas para Spokes de Conocimiento (`Knowledge`) y Desacople Semántico en localización (`i18n`).
+  5. Saneamiento: `ESTRUCTURA_CLONACION.md`, `README.md` maestro y `tracker.md` actualizados con la deprecación formal de `second-brain-agent-skill`.
+
+---
+
 ## Tarea: [w10] Estándar de Ciclo de Vida en `overview/` y Protocolo de Carga de Contexto en 3 Capas (Completada ✅)
 
 - **Tipo**: Core Governance / Token Optimization / Architecture Standards

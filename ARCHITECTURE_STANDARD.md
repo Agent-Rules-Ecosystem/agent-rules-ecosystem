@@ -214,6 +214,49 @@ La subdivisión se aplica un nivel a la vez. No anticipar jerarquías futuras: s
 
 ---
 
+---
+
+## 🛡️ Estándar de Interoperabilidad Nativa y C-ABI (Protocolo Zero-Panic & Caller Buffers)
+
+> **Ámbito de Aplicación**: Cualquier nodo con rol `Provider` o `Bridge` que exponga interfaces binarias nativas (Rust, C++, Zig, Go c-shared) hacia runtimes anfitriones (Python, Node.js, Godot, Dart/Flutter, Blender).
+
+1. **Protocolo Zero-Panic en Fronteras FFI**:
+   - 🚫 **Terminantemente prohibido permitir que un pánico cruce la frontera FFI**. Un desenrollado de stack (panic unwind) no controlado a través de una llamada `extern "C"` produce comportamiento indefinido (UB) y caída catastrófica del proceso host.
+   - Todo punto de entrada exportado debe envolver su ejecución en mecanismos de captura (ej. `std::panic::catch_unwind` en Rust) y mapear el error a un código de salida estandarizado.
+2. **Códigos de Retorno Normalizados**:
+   - Las funciones C-ABI retornan enteros de estado: `0` para éxito, valores negativos `< 0` para errores tipados (`-1: NULL_POINTER`, `-2: BUFFER_TOO_SMALL`, `-3: PARSE_ERROR`, `-99: UNCAUGHT_PANIC`).
+3. **Memoria Prealocada por el Llamador (Caller-Allocated Buffers)**:
+   - Para prevenir incompatibilidades entre gestores de memoria (allocators como libc `malloc` vs Rust `jemalloc`), el runtime llamador (host) aloca y es dueño del buffer de salida.
+   - Firma C-ABI canónica:
+     ```c
+     int32_t process_data(const uint8_t* in_ptr, size_t in_len, uint8_t* out_ptr, size_t out_capacity, size_t* out_written);
+     ```
+
+---
+
+## 🔄 Protocolo de Teardown Simétrico LIFO para Extensiones de Runtimes Anfitriones
+
+> **Ámbito de Aplicación**: Nodos o plugins que se ejecutan dentro del espacio de memoria de un software anfitrión (Blender Addons, Godot GDExtensions, Plugins de Unreal Engine, VSTs/DAWs).
+
+1. **Simetría LIFO Estricta (Last-In, First-Out)**:
+   - Todo recurso registrado durante el ciclo de inicialización (`register()`, `_init()`) debe desregistrarse en el **orden inverso exacto** durante el teardown (`unregister()`, `_notification(NOTIFICATION_PREDELETE)`).
+2. **Prevención de Punteros Huérfanos**:
+   - Clases UI, operadores, manejadores de eventos (handlers), temporizadores en segundo plano y enlaces C-ABI deben liberarse explícitamente antes de cerrar la extensión para garantizar recarga en caliente (hot-reload) limpia sin corromper el runtime host.
+
+---
+
+## 📦 Patrón de Aislamiento Dual-Tier en Staging (Pureza de Licenciamiento)
+
+> **Ámbito de Aplicación**: Monorepos y proyectos híbridos que combinan código abierto público (GPL/MIT) con módulos o extensiones comerciales/propietarias.
+
+1. **Separación Física de Capas**:
+   - Los módulos abiertos nunca deben depender directamente de rutas comerciales propietarias.
+   - Todo componente comercial o de pago reside en capas desacopladas de staging/overlay (ej. `engine/overlay/`) y se comunica exclusivamente mediante interfaces abstractas en `packages/contracts/`.
+2. **Empaquetado Multi-Tier**:
+   - La inyección de código propietario se ejecuta durante el pipeline de empaquetado/distribución (ej. `tools/pack_zip/`), manteniendo el repositorio público 100% puro y auditable.
+
+---
+
 ## 🔒 Reglas de Inviolabilidad
 
 1. **Prohibidos Monolitos**: `overview/architecture.md` no debe crecer indefinidamente. Máximo 200 líneas como índice raíz.
@@ -221,3 +264,5 @@ La subdivisión se aplica un nivel a la vez. No anticipar jerarquías futuras: s
 3. **Migración No Destructiva**: Al transformar un archivo plano legado, el agente nunca elimina `overview/architecture.md` — lo transforma in-place en el índice Hub & Spoke.
 4. **Rutas Relativas**: Los hipervínculos dentro de `overview/architecture.md` hacia subdocumentos usan rutas relativas (`./architecture/routes_map.md`, no rutas absolutas).
 5. **Autocontención Atómica**: Cada archivo es una verdad completa para su dominio. Ningún archivo del mismo nivel puede ser fuente de verdad de otro. Las referencias entre archivos son de navegación (hipervínculos), nunca de dependencia semántica.
+6. **Inviolabilidad Zero-Panic FFI**: Ninguna librería nativa Provider exportada debe dejar escapar pánicos o excepciones hacia el host.
+
