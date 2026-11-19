@@ -54,16 +54,16 @@ Cuando el usuario escribe **"ejecuta .agents"** (o variante como "corre .agents"
   3. `overview/work/deuda_tecnica.md` (deuda ordenada por prioridad **Alta**, **Media** y **Baja**)
 - **Histórico de completados (traslado físico inmediato)**: Al resolver cualquier ítem (tarea, bug o deuda) proveniente de `work/tasks.md`, `work/pendientes.md` o `work/deuda_tecnica.md`, retirar inmediatamente la fila de la tabla activa y moverla físicamente a `## ✅ Completados (Historial)` en `work.md`, `deuda_tecnica.md` y `pendientes.md` conservando su ID (`[w1]`, `[d2]`, `[p1]`).
 - **Registro preventivo previo a ejecución (Pre-execution Work Logging)**: Al recibir un requerimiento o bug, actualizar de forma automática y simultánea los archivos de control de `overview/` (`work.md`, `work/tasks.md`, `session.md`, `pendientes.md`, `deuda_tecnica.md`, `work_review.md` y `architecture.md`) INMEDIATAMENTE antes de ejecutar cualquier acción.
-- **Triaje e Integración Activa de Skills (`overview/work/skill/`)**: Durante `$boot`, `$work` y `$close`, escanear `overview/work/skill/*.md` e integrar sus hallazgos en `deuda_tecnica.md` (refactores/arquitectura), `pendientes.md` (secundarios) o `tasks.md` (bugs/urgentes), conservando el archivo de la skill como evidencia de detalle.
+- **Triaje e Integración Activa de Skills (`overview/work/skill/`)**: Durante `$boot`, `$work` y `$close`, escanear `overview/work/skill/*.md` e integrar sus hallazgos en `deuda_tecnica.md` (refactores/arquitectura), `pendientes.md` (secundarios) o `tasks.md` (bugs/urgentes), conservando el archivo de la skill como evidencia de detalle. **Sincronización inversa**: al cerrar en `work.md` un ítem originado en un reporte de skill, marcar la fila origen en `overview/work/skill/<skill>.md` como `superseded` con el ID resuelto. La integración automática solo agrega filas nuevas (`Estado: activo`); nunca sobrescribe filas existentes.
 - **Historial de Intentos firmado por Agente**: En `overview/work.md`, mantener registro incremental sin borrar intentos previos: mismo día → actualizar fila existente; diferente día → nueva fila con firma del Agente; al resolver → registrar causa raíz y solución aplicada.
-- **Protocolo de Revisión de Trabajo (`work_review.md`)**: Al finalizar `$boot`, ejecutar obligatoriamente el protocolo definido en `templates/work_review.md`.
+- **Protocolo de Revisión de Trabajo (`work_review.md`)**: Al finalizar `$boot`, ejecutar los pasos de `.agents/templates/work_review.md` y registrar el resultado en `overview/work_review.md` (reporte mutable, no copia del protocolo).
 
 ## Protocolo de Carga de Contexto en 3 Capas
 
 > **Regla de Ahorro de Tokens**: El agente **nunca** carga el directorio `overview/` completo de una vez. Sigue este orden estricto para minimizar consumo:
 
 1. **Capa 1 — Índice**: Cargar solo `overview/session.md` + `overview/work.md` (índice maestro de IDs y estados). Suficiente para responder "¿en qué estamos?".
-2. **Capa 2 — Categoría**: Si la tarea activa lo requiere, cargar el archivo de categoría correspondiente: `overview/work/tasks.md` (tarea activa) **o** `overview/work/deuda_tecnica.md` **o** `overview/work/pendientes.md`. No los tres a la vez.
+2. **Capa 2 — Categoría**: Si la tarea activa lo requiere, cargar el archivo de categoría correspondiente: `overview/work/tasks.md` (tarea activa) **o** `overview/work/deuda_tecnica.md` **o** `overview/work/pendientes.md`. No los tres a la vez. **Excepción**: durante `$boot` (Paso 10) y `$close` se leen secuencialmente los tres solo para producir la síntesis/reporte, sin retenerlos juntos en contexto.
 3. **Capa 3 — Nodo Específico**: Solo si el trabajo lo exige, cargar archivos de arquitectura (`overview/architecture/`) o skill reports (`overview/work/skill/`). Cargar únicamente el subdocumento del módulo o skill relevante, no toda la carpeta.
 
 > **Regla de Confianza en la Carga**: Si un archivo de `overview/` tiene campo `Confianza: baja` o `no_verificada`, el agente debe notificarlo antes de actuar sobre esa información y priorizar verificación.
@@ -82,6 +82,8 @@ Cuando el usuario escribe **"ejecuta .agents"** (o variante como "corre .agents"
 - Toda comprobación que no pueda ejecutarse en el entorno actual debe reportarse explícitamente como **omitida** indicando el motivo; nunca contarla como aprobada.
 
 ## Handoff de Agente
+
+> **Campos de firma**: `Agente:` = último agente que cerró la sesión; `Agente que reanuda:` = agente actual. Al terminar el handoff, el agente actual escribe su firma en `Agente:` y deja `Agente que reanuda:` vacío para el siguiente.
 
 Cuando el Agente que retoma una sesión es distinto al que la inició (diferente modelo o proveedor):
 
