@@ -2,7 +2,7 @@
 
 Este directorio referencia las habilidades técnicas inyectables (`*-agent-skill`) transversales del ecosistema [`Agent-Rules-Ecosystem`](https://github.com/Agent-Rules-Ecosystem).
 
-> Para el catálogo completo de las 39 skills (transversales y por lenguaje/plataforma), consultar [`README.md`](../README.md) y [`SKILL_STANDARD.md`](../SKILL_STANDARD.md).
+> Para el catálogo completo de las 30 skills (transversales y por lenguaje/plataforma), consultar [`README.md`](../README.md) y [`SKILL_STANDARD.md`](../SKILL_STANDARD.md).
 
 ## Skills Transversales Oficiales
 

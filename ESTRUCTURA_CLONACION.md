@@ -38,18 +38,12 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 ├── Kotlin/
 │   ├── kotlin-agent-rules/      # Gobernanza y protocolos Kotlin (Android Nativo / KMP)
 │   └── kotlin-agent-skill/      # Habilidades y patrones Kotlin
-│       ├── kotlin-jetpack-compose-agent-skill/
-│       ├── kotlin-coroutines-flow-agent-skill/
-│       └── kotlin-room-sqlite-agent-skill/
 ├── MultiCore/
 │   └── multicore-agent-rules/   # Gobernanza y orquestación multi-stack (Monorepos y sistemas políglotas)
 ├── Python/
 │   ├── python-agent-rules/      # Gobernanza y protocolos Python (AI & Data)
 │   └── python-agent-skill/      # Habilidades y patrones Python
 │       ├── python-blender-addon-agent-skill/
-│       ├── python-fastapi-pydantic-agent-skill/
-│       ├── python-langchain-agents-agent-skill/
-│       └── python-pandas-data-agent-skill/
 ├── Rust/
 │   ├── rust-agent-rules/        # Gobernanza y protocolos Rust (Sistemas / Embebidos / Tokio)
 │   └── rust-agent-skill/        # Habilidades y patrones Rust
@@ -61,9 +55,6 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza y protocolos Swift (iOS Nativo / SwiftUI)
 │   └── swift-agent-skill/       # Habilidades y patrones Swift
-│       ├── swiftui-navigation-state-agent-skill/
-│       ├── swift-async-concurrency-agent-skill/
-│       └── swift-swiftdata-realm-agent-skill/
 ├── Transversal/
 │   ├── firebase-auth-agent-skill/
 │   ├── grapho-3d-visualizer-agent-skill/
@@ -173,15 +164,9 @@ REPOS=(
   "Go:go-agent-skill:go-plc-modbus-agent-skill"
 
   # Skills Kotlin
-  "Kotlin:kotlin-agent-skill:kotlin-jetpack-compose-agent-skill"
-  "Kotlin:kotlin-agent-skill:kotlin-coroutines-flow-agent-skill"
-  "Kotlin:kotlin-agent-skill:kotlin-room-sqlite-agent-skill"
 
   # Skills Python
   "Python:python-agent-skill:python-blender-addon-agent-skill"
-  "Python:python-agent-skill:python-fastapi-pydantic-agent-skill"
-  "Python:python-agent-skill:python-langchain-agents-agent-skill"
-  "Python:python-agent-skill:python-pandas-data-agent-skill"
 
   # Skills Rust
   "Rust:rust-agent-skill:rust-plc-modbus-agent-skill"
@@ -190,9 +175,6 @@ REPOS=(
   "SecondBrain:second-brain-agent-skill:lore-agent-skill"
 
   # Skills Swift
-  "Swift:swift-agent-skill:swiftui-navigation-state-agent-skill"
-  "Swift:swift-agent-skill:swift-async-concurrency-agent-skill"
-  "Swift:swift-agent-skill:swift-swiftdata-realm-agent-skill"
 )
 
 # 1. Crear carpetas principales
@@ -260,23 +242,14 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Go Core** | `Go/go-agent-rules` | `go-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/go-agent-rules.git` |
 | **Go Skill** | `Go/go-agent-skill/go-plc-modbus-agent-skill` | `go-plc-modbus-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/go-plc-modbus-agent-skill.git` |
 | **Kotlin Core** | `Kotlin/kotlin-agent-rules` | `kotlin-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/kotlin-agent-rules.git` |
-| **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-jetpack-compose-agent-skill` | `kotlin-jetpack-compose-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-jetpack-compose-agent-skill.git` |
-| **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-coroutines-flow-agent-skill` | `kotlin-coroutines-flow-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-coroutines-flow-agent-skill.git` |
-| **Kotlin Skill** | `Kotlin/kotlin-agent-skill/kotlin-room-sqlite-agent-skill` | `kotlin-room-sqlite-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/kotlin-room-sqlite-agent-skill.git` |
 | **MultiCore Core** | `MultiCore/multicore-agent-rules` | `multicore-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/multicore-agent-rules.git` |
 | **Python Core** | `Python/python-agent-rules` | `python-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/python-agent-rules.git` |
 | **Python Skill** | `Python/python-agent-skill/python-blender-addon-agent-skill` | `python-blender-addon-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-blender-addon-agent-skill.git` |
-| **Python Skill** | `Python/python-agent-skill/python-fastapi-pydantic-agent-skill` | `python-fastapi-pydantic-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-fastapi-pydantic-agent-skill.git` |
-| **Python Skill** | `Python/python-agent-skill/python-langchain-agents-agent-skill` | `python-langchain-agents-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-langchain-agents-agent-skill.git` |
-| **Python Skill** | `Python/python-agent-skill/python-pandas-data-agent-skill` | `python-pandas-data-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/python-pandas-data-agent-skill.git` |
 | **Rust Core** | `Rust/rust-agent-rules` | `rust-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/rust-agent-rules.git` |
 | **Rust Skill** | `Rust/rust-agent-skill/rust-plc-modbus-agent-skill` | `rust-plc-modbus-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/rust-plc-modbus-agent-skill.git` |
 | **SecondBrain Core** | `SecondBrain/second-brain-agent-rules` | `second-brain-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/second-brain-agent-rules.git` |
 | **SecondBrain Skill** | `SecondBrain/second-brain-agent-skill/lore-agent-skill` | `lore-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/lore-agent-skill.git` |
 | **Swift Core** | `Swift/swift-agent-rules` | `swift-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/swift-agent-rules.git` |
-| **Swift Skill** | `Swift/swift-agent-skill/swiftui-navigation-state-agent-skill` | `swiftui-navigation-state-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill.git` |
-| **Swift Skill** | `Swift/swift-agent-skill/swift-async-concurrency-agent-skill` | `swift-async-concurrency-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill.git` |
-| **Swift Skill** | `Swift/swift-agent-skill/swift-swiftdata-realm-agent-skill` | `swift-swiftdata-realm-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swift-swiftdata-realm-agent-skill.git` |
 | **Transversal** | `Transversal/firebase-auth-agent-skill` | `firebase-auth-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/firebase-auth-agent-skill.git` |
 | **Transversal** | `Transversal/grapho-agent-skill` | `grapho-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/grapho-agent-skill.git` |
 | **Transversal** | `Transversal/grapho-3d-visualizer-agent-skill` | `grapho-3d-visualizer-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/grapho-3d-visualizer-agent-skill.git` |

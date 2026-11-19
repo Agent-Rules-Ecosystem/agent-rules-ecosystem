@@ -1,6 +1,6 @@
 # 🌐 Sincronización Canónica del Ecosistema (`sync_ecosystem`)
 
-> **Formato 100% Declarativo Markdown**. Especificación multiplataforma (Bash / PowerShell) para clonar o actualizar los 12 Cores (`*-agent-rules`) y las 39 Skills (`*-agent-skill`) de [`Agent-Rules-Ecosystem`](https://github.com/Agent-Rules-Ecosystem) usando SSH.
+> **Formato 100% Declarativo Markdown**. Especificación multiplataforma (Bash / PowerShell) para clonar o actualizar los 12 Cores (`*-agent-rules`) y las 30 Skills (`*-agent-skill`) de [`Agent-Rules-Ecosystem`](https://github.com/Agent-Rules-Ecosystem) usando SSH.
 > Fuente de verdad del árbol de directorios: [`ESTRUCTURA_CLONACION.md`](../ESTRUCTURA_CLONACION.md).
 
 ## 📜 Referencia Bash (`sync_ecosystem.sh`)
@@ -62,18 +62,9 @@ REPOS=(
   "Game:game-agent-skill:godot-dialogue-plugin-agent-skill"
   "Game:game-agent-skill:godot-nakama-agent-skill"
   "Go:go-agent-skill:go-plc-modbus-agent-skill"
-  "Kotlin:kotlin-agent-skill:kotlin-jetpack-compose-agent-skill"
-  "Kotlin:kotlin-agent-skill:kotlin-coroutines-flow-agent-skill"
-  "Kotlin:kotlin-agent-skill:kotlin-room-sqlite-agent-skill"
   "Python:python-agent-skill:python-blender-addon-agent-skill"
-  "Python:python-agent-skill:python-fastapi-pydantic-agent-skill"
-  "Python:python-agent-skill:python-langchain-agents-agent-skill"
-  "Python:python-agent-skill:python-pandas-data-agent-skill"
   "Rust:rust-agent-skill:rust-plc-modbus-agent-skill"
   "SecondBrain:second-brain-agent-skill:lore-agent-skill"
-  "Swift:swift-agent-skill:swiftui-navigation-state-agent-skill"
-  "Swift:swift-agent-skill:swift-async-concurrency-agent-skill"
-  "Swift:swift-agent-skill:swift-swiftdata-realm-agent-skill"
 )
 
 for ENTRY in "${REPOS[@]}"; do
@@ -105,6 +96,6 @@ $GH_ORG = "Agent-Rules-Ecosystem"
 $currentPath = Get-Location
 $baseDir = if ((Split-Path -Leaf $currentPath) -eq "agent-rules-ecosystem") { Split-Path -Parent $currentPath } else { $currentPath.Path }
 
-# Replicar el mismo listado de 12 Cores + 38 Skills que en el bloque Bash anterior
+# Replicar el mismo listado de 12 Cores + 30 Skills que en el bloque Bash anterior
 # usando clonación SSH: git@github.com:$GH_ORG/<repo>.git
 ```

@@ -340,18 +340,9 @@ git submodule add git@github.com:Agent-Rules-Ecosystem/<nombre>-agent-skill.git 
 | **Game** | `godot-dialogue-plugin-agent-skill` | `.skill/godot-dialogue-plugin-agent-skill/` | `$dialogue` |
 | **Game** | `godot-nakama-agent-skill` | `.skill/godot-nakama-agent-skill/` | `$nakama` |
 | **Go** | `go-plc-modbus-agent-skill` | `.skill/go-plc-modbus-agent-skill/` | `$goplc` |
-| **Kotlin** | `kotlin-jetpack-compose-agent-skill` | `.skill/kotlin-jetpack-compose-agent-skill/` | `$compose` |
-| **Kotlin** | `kotlin-coroutines-flow-agent-skill` | `.skill/kotlin-coroutines-flow-agent-skill/` | `$coroutines` |
-| **Kotlin** | `kotlin-room-sqlite-agent-skill` | `.skill/kotlin-room-sqlite-agent-skill/` | `$room` |
-| **Python** | `python-fastapi-pydantic-agent-skill` | `.skill/python-fastapi-pydantic-agent-skill/` | `$fastapi` |
-| **Python** | `python-langchain-agents-agent-skill` | `.skill/python-langchain-agents-agent-skill/` | `$langchain` |
-| **Python** | `python-pandas-data-agent-skill` | `.skill/python-pandas-data-agent-skill/` | `$pandas` |
 | **Python** | `python-blender-addon-agent-skill` | `.skill/python-blender-addon-agent-skill/` | `$blender` |
 | **Rust** | `rust-plc-modbus-agent-skill` | `.skill/rust-plc-modbus-agent-skill/` | `$rustplc` |
 | **SecondBrain** | `lore-agent-skill` | `.skill/lore-agent-skill/` | `$lore` |
-| **Swift** | `swiftui-navigation-state-agent-skill` | `.skill/swiftui-navigation-state-agent-skill/` | `$swiftui` |
-| **Swift** | `swift-async-concurrency-agent-skill` | `.skill/swift-async-concurrency-agent-skill/` | `$async` |
-| **Swift** | `swift-swiftdata-realm-agent-skill` | `.skill/swift-swiftdata-realm-agent-skill/` | `$swiftdata` |
 
 ---
 

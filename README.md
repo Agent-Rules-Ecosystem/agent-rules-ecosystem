@@ -69,18 +69,12 @@ CORE/
 ├── Kotlin/
 │   ├── kotlin-agent-rules/      # Gobernanza Android / Kotlin Multiplatform
 │   └── kotlin-agent-skill/      # Habilidades Kotlin
-│       ├── kotlin-coroutines-flow-agent-skill/
-│       ├── kotlin-jetpack-compose-agent-skill/
-│       └── kotlin-room-sqlite-agent-skill/
 ├── MultiCore/
 │   └── multicore-agent-rules/   # Gobernanza y orquestación multi-stack (Monorepos y sistemas políglotas)
 ├── Python/
 │   ├── python-agent-rules/      # Gobernanza Python (Data, APIs, AI Agents)
 │   └── python-agent-skill/      # Habilidades Python
 │       ├── python-blender-addon-agent-skill/
-│       ├── python-fastapi-pydantic-agent-skill/
-│       ├── python-langchain-agents-agent-skill/
-│       └── python-pandas-data-agent-skill/
 ├── Rust/
 │   ├── rust-agent-rules/        # Gobernanza Rust (Sistemas, Tokio, Embebidos / PLCs)
 │   └── rust-agent-skill/        # Habilidades Rust
@@ -92,9 +86,6 @@ CORE/
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza Apple Platforms / Swift
 │   └── swift-agent-skill/       # Habilidades Swift
-│       ├── swift-async-concurrency-agent-skill/
-│       ├── swift-swiftdata-realm-agent-skill/
-│       └── swiftui-navigation-state-agent-skill/
 ├── Transversal/
 │   ├── firebase-auth-agent-skill/
 │   ├── grapho-3d-visualizer-agent-skill/
@@ -163,23 +154,14 @@ CORE/
 ### 🤖 6. Kotlin (Android / Multiplatform)
 - 🛡️ **Gobernanza**: [`kotlin-agent-rules`](https://github.com/Agent-Rules-Ecosystem/kotlin-agent-rules)
 - ⚡ **Skills** (`Kotlin/kotlin-agent-skill/`):
-  - [`kotlin-jetpack-compose-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-jetpack-compose-agent-skill) (`$compose`) — UI Declarativa, Material 3 y State Recomposition
-  - [`kotlin-coroutines-flow-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-coroutines-flow-agent-skill) (`$coroutines`) — Concurrencia estructurada, StateFlow y SharedFlow
-  - [`kotlin-room-sqlite-agent-skill`](https://github.com/Agent-Rules-Ecosystem/kotlin-room-sqlite-agent-skill) (`$room`) — DAOs, entidades y migraciones de DB local
 
 ### 🍏 7. Swift (iOS / macOS / Apple Platforms)
 - 🛡️ **Gobernanza**: [`swift-agent-rules`](https://github.com/Agent-Rules-Ecosystem/swift-agent-rules)
 - ⚡ **Skills** (`Swift/swift-agent-skill/`):
-  - [`swiftui-navigation-state-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill) (`$swiftui`) — SwiftUI Declarativo, NavigationStack y @Observable
-  - [`swift-async-concurrency-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill) (`$async`) — Swift Concurrency, async/await, Actors y Tasks
-  - [`swift-swiftdata-realm-agent-skill`](https://github.com/Agent-Rules-Ecosystem/swift-swiftdata-realm-agent-skill) (`$swiftdata`) — Persistencia con SwiftData, CoreData y Realm Engine
 
 ### 🐍 8. Python (Data, APIs & AI Agents)
 - 🛡️ **Gobernanza**: [`python-agent-rules`](https://github.com/Agent-Rules-Ecosystem/python-agent-rules)
 - ⚡ **Skills** (`Python/python-agent-skill/`):
-  - [`python-fastapi-pydantic-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-fastapi-pydantic-agent-skill) (`$fastapi`) — APIs RESTful asíncronas, validación Pydantic v2
-  - [`python-langchain-agents-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-langchain-agents-agent-skill) (`$langchain`) — Orquestación de Agentes de IA, RAG y Cadenas LLM
-  - [`python-pandas-data-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-pandas-data-agent-skill) (`$pandas`) — Manipulación de DataFrames, ETL y análisis numérico
   - [`python-blender-addon-agent-skill`](https://github.com/Agent-Rules-Ecosystem/python-blender-addon-agent-skill) (`$blender`) — Desarrollo de Addons/Extensiones Blender 4.2+ (bpy)
 
 ### 🦀 9. Rust (Sistemas & Embebidos / Tokio)
