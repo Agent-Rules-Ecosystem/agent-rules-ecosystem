@@ -13,7 +13,7 @@
 | Guías del Framework | `.agents/knowledge/` | Discovery / Bajo demanda |
 | Plantillas `overview/` | `.agents/templates/` | `$boot` / Inicio |
 | Catálogo de Skills | `.agents/skills/README.md` | Bajo demanda |
-| Skills del Ecosistema | `.agents/skills/<skill_name>/` | Bajo demanda |
+| Skills Instaladas | `.skill/<skill_name>/` | Bajo demanda |
 
 > **Gobernanza de Skills por Proyecto**: Skills específicas de un proyecto deben gestionarse como submódulo independiente en `.skill/<skill_name>/` (raíz del repo huésped, **fuera** de `.agents/`).
 

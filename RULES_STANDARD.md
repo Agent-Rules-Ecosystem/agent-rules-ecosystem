@@ -14,7 +14,7 @@ Un **rules core** (`*-agent-rules`) es el repositorio oficial de gobernanza que 
 | | `*-agent-rules` | `*-agent-skill` |
 |---|---|---|
 | **Define** | **CÓMO** trabaja la IA (rituales, gobernanza, estado) | **QUÉ** sabe hacer la IA (dominio técnico específico) |
-| **Contiene** | `$boot`, `$work`, `$close`, `$caveman`, `overview/`, session tracking, handoffs | Patrones, guías, snippets, comandos de dominio (`$alias:audit`) |
+| **Contiene** | `$boot`, `$work`, `$close`, `$laconico`, `overview/`, session tracking, handoffs | Patrones, guías, snippets, comandos de dominio (`$alias:audit`) |
 | **Alcance** | Global para el proyecto y marco tecnológico principal | Inyectable puntualmente según necesidad (`.skill/`) |
 | **Instalación** | `.agents/` en la raíz del proyecto (Submódulo) | `.skill/<nombre>-agent-skill/` |
 
@@ -41,8 +41,8 @@ Todo repositorio `*-agent-rules` **debe** respetar exactamente la siguiente estr
 │   ├── commands.md             ← Registro oficial de $-comandos de gobernanza
 │   ├── brain.md                ← Motor de decisiones, triaje, handoff y firmas
 │   ├── path_map.md             ← Mapa canónico de rutas del framework/plataforma
-│   ├── communication.md        ← Reglas de comunicación, economía de tokens y Modos ($caveman)
-│   └── learning_protocol.md   ← Protocolo de 3 Vías y Filtro Agnóstico
+│   ├── communication.md        ← Reglas de comunicación, economía de tokens y Modo Lacónico (`$laconico`)
+│   └── learning_protocol.md    ← Protocolo de 3 Vías y Filtro Agnóstico
 │
 ├── knowledge/                  ← [OBLIGATORIO] Guías de arquitectura del framework (Clean Arch, release, etc.)
 │   └── <tema>.md               ← Guías técnicas base del lenguaje/plataforma
@@ -53,13 +53,22 @@ Todo repositorio `*-agent-rules` **debe** respetar exactamente la siguiente estr
 ├── skills/                     ← [OBLIGATORIO] Índice de skills compatibles con este core
 │   └── README.md               ← Catálogo y comandos de instalación de skills
 │
-└── templates/                  ├── [OBLIGATORIO] Plantillas maestras para generar `overview/` en el proyecto
+└── templates/                  ← [OBLIGATORIO] Plantillas maestras para generar `overview/` en el proyecto
     ├── session.md              ← Plantilla de sesión activa
     ├── work.md                 ← Índice maestro de trabajo
     ├── work_review.md          ← Revisión de prioridades
-    ├── architecture.md         ← Arquitectura viva Mermaid
+    ├── architecture.md         ← Arquitectura viva Mermaid (Índice Hub & Spoke)
     ├── commands_project.md     ← Registro vivo de $-comandos
     ├── learning.md             ← Buffer de lecciones aprendidas
+    ├── architecture/           ← Subplantillas modulares de arquitectura
+    │   ├── routes_map.md       ← Mapa de rutas y puntos de entrada
+    │   ├── core/
+    │   │   ├── data_flow.md    ← Flujo de datos y persistencia
+    │   │   └── import_rules.md ← Reglas de importación por capa
+    │   └── modules/
+    │       └── principal.md    ← Plantilla de módulo funcional
+    ├── trackers/               ← Monitoreo de avance
+    │   └── progress.md         ← Progreso por nodos y componentes
     └── work/                   ← Subdirectorio de trabajo
         ├── tasks.md            ← Tareas inmediatas y bugs
         ├── deuda_tecnica.md    ← Registro de deuda técnica (>250L)
@@ -83,7 +92,7 @@ La carpeta `overview/` es el sistema de persistencia y gobernanza activa que el 
 | `overview/work/deuda_tecnica.md` | **Auditoría de Deuda Técnica**: Control de archivos con más de 250 líneas de código (>250L), code smells y refactorizaciones pendientes con prioridades (Alta, Media, Baja). |
 | `overview/work/pendientes.md` | **Backlog Secundario**: Requerimientos futuros, configuraciones no urgentes e ideas a evaluar sin bloquear la iteración actual. |
 | `overview/work/skill/` | **Registros Activos de Skills**: Carpeta donde cada skill instalada (`.skill/<name>`) persiste sus hallazgos e informes estructurados (ej. `overview/work/skill/security.md`). |
-| `ARCHITECTURE.md` / `overview/architecture/` | **Arquitectura Viva (Hub & Spoke)**: Índice raíz ligero `ARCHITECTURE.md` (< 200L) y subdocumentos navegables por hipervínculos en `overview/architecture/` (rutas, capas core y módulos por dominio) conforme a `ARCHITECTURE_STANDARD.md`. |
+| `overview/architecture.md` / `overview/architecture/` | **Arquitectura Viva (Hub & Spoke)**: Índice raíz ligero `overview/architecture.md` (< 200L) y subdocumentos navegables por hipervínculos en `overview/architecture/` (rutas, capas core y módulos por dominio) conforme a `ARCHITECTURE_STANDARD.md`. |
 | `overview/commands_project.md` | **Registro Vivo de $-Comandos**: Lista consolidada y actualizada automáticamente en cada `$boot` que fusiona los comandos del Core (`.agents/`) y de las skills activas (`.skill/*/`). |
 | `overview/learning.md` | **Buffer Local de Aprendizaje**: Captura lecciones descubiertas en la sesión bajo `## 📌 Propuestas de mejora` antes de ser validadas por el **Filtro Agnóstico**. |
 | `overview/trackers/progress.md` | **Monitoreo de Avance**: Rastreo de progreso por nodos y componentes del sistema. |
@@ -94,7 +103,7 @@ Todo ítem registrado en `overview/work/` (tareas, deuda, pendientes) **debe** i
 
 | Campo | Valores canónicos | Descripción |
 |---|---|---|
-| `Estado` | `activo \| draft \| en_revision \| superseded` | Ciclo de vida del ítem. `superseded` = resuelto/reemplazado, mover al historial. |
+| `Estado` | `activo \| pendiente \| en_revision \| bloqueado \| superseded` | Ciclo de vida del ítem. `superseded` = resuelto/reemplazado, mover al historial. |
 | `Confianza` | `alta \| media \| baja \| no_verificada` | Certeza del diagnóstico o decisión. Si es `baja` o `no_verificada`, el agente lo notifica antes de actuar. |
 
 > **Regla**: Ningún ítem de `overview/` puede tener `Estado: activo` y `Confianza: no_verificada` simultáneamente más de una sesión sin ser escalado a `deuda_tecnica.md`.
@@ -111,7 +120,7 @@ $status                          ← Diagnóstico compacto en 5 líneas del esta
 $work [descripción]              ← Registro de tareas/bugs con auto-sincronización en overview/
 $archi                           ← Auditoría y modularización de arquitectura según ARCHITECTURE_STANDARD.md
 $learn [texto] / $learnagnostico ← Captura de lecciones aprendidas con Filtro Agnóstico
-$laconico / $laconic / $kernel   ← Activación del Modo Lacónico (respuesta hiper-concisa de alta densidad)
+$laconico / $modo:detallado        ← Control del Modo Lacónico (por defecto) o Detallado bajo pedido
 $close                           ← Cierre de sesión, verificación de linters/tests y guardado de estado
 ```
 
@@ -133,7 +142,7 @@ Dispara la secuencia maestro de inicio:
 1. Verifica integridad de submódulos (`git submodule status`).
 2. Carga directivas core (`core/path_map.md`, `core/brain.md`, `core/commands.md`, `core/communication.md`).
 3. Verifica/crea la estructura `overview/` usando `templates/`.
-4. Evalúa la firma `Agente:` y el campo `Modo:` en `session.md` (si `session.md` registra `Modo: laconico` o si se invoca `$boot:laconico` / `$boot laconico`, se activa inmediatamente el **Modo Lacónico**; de lo contrario, inicia en Modo Estándar).
+4. Evalúa la firma `Agente:` y el campo `Modo:` en `session.md` (**Modo Lacónico** por defecto; solo conmuta a detallado si `session.md` registra `Modo: detallado` o si se invoca `$modo:detallado`).
 5. Audita archivos de código que superen 250 líneas (>250L) e integra alertas a `work/deuda_tecnica.md`.
 6. Audita `overview/learning.md` aplicando el Protocolo de 3 Vías.
 7. Sincroniza `overview/commands_project.md` escaneando el Core (`.agents/`) y todas las skills activas (`.skill/*/`).
@@ -153,13 +162,13 @@ Próximo paso  : [## Reanudar de session.md]
 Registra un nuevo ítem en `overview/work/tasks.md` y actualiza el índice `overview/work.md` asignando un ID correlativo (`w1`, `w2`, ...). Ejecuta **sincronización automática** en todos los rastreadores afectados.
 
 #### 4. `$archi`
-Garantiza la auditoría y actualización modular de la arquitectura del proyecto conforme al **Agent Architecture Standard (`ARCHITECTURE_STANDARD.md`)**. Mantiene `ARCHITECTURE.md` como un índice raíz sintético (< 200L) y segrega los detalles técnicos en subdocumentos en `overview/architecture/` (`routes_map.md`, `core/data_flow.md`, `core/import_rules.md`, y `modules/<modulo>.md`). En monorepos/multi-stack (`multicore-agent-rules`), `$archi` opera en modo federado: orquesta el `$archi` nativo de cada spoke y sintetiza la topología macro inter-nodo y contratos en la raíz.
+Garantiza la auditoría y actualización modular de la arquitectura del proyecto conforme al **Agent Architecture Standard (`ARCHITECTURE_STANDARD.md`)**. Mantiene `overview/architecture.md` como un índice raíz sintético (< 200L) y segrega los detalles técnicos en subdocumentos en `overview/architecture/` (`routes_map.md`, `core/data_flow.md`, `core/import_rules.md`, y `modules/<modulo>.md`). En monorepos/multi-stack (`multicore-agent-rules`), `$archi` opera en modo federado: orquesta el `$archi` nativo de cada spoke y sintetiza la topología macro inter-nodo y contratos en la raíz.
 
 #### 5. `$learn [texto]` / `$learnagnostico [texto]`
 Aplica el **Filtro Agnóstico** para remover datos específicos del cliente (nombres de marcas, rutas locales, IDs concretos) y registra la lección en `overview/learning.md`.
 
-#### 6. `$laconico` / `$laconic` / `$kernel`
-Conmuta el canal de comunicación al **Modo Lacónico** (ver especificación de modos más abajo).
+#### 6. `$laconico` / `$modo:detallado`
+`$laconico` activa o refuerza el **Modo Lacónico** (por defecto). `$modo:detallado` habilita explicaciones paso a paso manteniendo tono sobrio sin clichés ni adulación (ver especificación de modos más abajo).
 
 #### 7. `$close`
 Cierra la sesión de trabajo:
@@ -172,33 +181,26 @@ Cierra la sesión de trabajo:
 
 ## 🏛️ Modos de Operación y Estilo de Comunicación (`communication.md`)
 
-Todo `*-agent-rules` debe normar la comunicación del agente para maximizar la densidad de información y el ahorro de tokens. Se establecen dos modos principales:
+Todo `*-agent-rules` debe normar la comunicación del agente para maximizar la densidad de información, eliminar clichés/adulación y ahorrar tokens. Se establecen dos modos:
 
-### 1. Modo Pair Programming Estándar (Por Defecto)
-- Respuestas en GitHub-style Markdown.
-- Concisas, técnicas, estructuradas con tablas y bloques de código.
-- Explicaciones breves sin rodeos ni saludos de cortesía innecesarios.
-
-### 2. Modo Lacónico / Ultra-Conciso (`$laconico`, `$laconic`, `$kernel` o `$sintetico`)
-
-**Propósito**: Minimizar el consumo de tokens y maximizar la velocidad de respuesta durante refactorizaciones masivas o sesiones de alta densidad, eliminando todo adorno retórico.
+### 1. Modo Lacónico (`$laconico` — Por Defecto)
+**Propósito**: Minimizar el consumo de tokens y mantener máxima densidad técnica sin adornos retóricos, saludos, frases aduladoras ni palabras rimbombantes.
 
 **Reglas del Modo Lacónico**:
-- **Sintaxis de Máxima Densidad**: Oraciones híper-directas, sin artículos redundantes, conectores ni cortesías.
-- **Formato**: Máximo 2-4 líneas de texto por respuesta.
-- **Acción Primero**: Entregar directamente el bloque de código o solución sin preámbulos ni conclusiones.
-- **Ejemplo de conversación en Modo Lacónico**:
+- **Sintaxis de Máxima Densidad**: Oraciones breves y directas (`A -> B`), sin artículos redundantes, conectores ni cortesías.
+- **Formato**: Máximo 2-4 líneas de texto por respuesta, referenciando rutas y líneas (`[archivo#L10-L15]`) en lugar de duplicar código en chat.
+- **Acción Primero**: Entregar directamente el resultado o cambio sin preámbulos ni conclusiones.
 
 > **Usuario**: `$laconico arregla la validación nula en el login`  
 > **Agente**:  
 > `Modo Lacónico activo.`  
-> `Fix en auth_service.dart:L42.`  
-> ```dart
-> if (user == null) return AuthState.unauthenticated();
-> ```  
-> `Test pasa. Session actualizada.`
+> `Fix en auth_service.<ext>:L42 -> null guard agregado.`  
+> `Tests pasan. Session actualizada.`
 
-Para salir del Modo Lacónico, el usuario escribe `$modo:normal` o `$boot`.
+### 2. Modo Detallado (`$modo:detallado` — Bajo Pedido)
+- Respuestas en GitHub-style Markdown con explicaciones técnicas paso a paso cuando la tarea lo requiera o el usuario lo solicite explícitamente.
+- Mantiene tono sobrio, analítico y directo: cero clichés, cero hipérboles y cero frases aduladoras.
+- Para volver al modo breve por defecto, el usuario escribe `$laconico`.
 
 ---
 
@@ -237,9 +239,9 @@ Antes de hacer commit o publicar un repositorio `*-agent-rules`, verificar:
 - [ ] `README.md` incluye badges, arquitectura en 2 capas y matriz de skills compatibles.
 - [ ] `AGENTS.md` contiene la directiva de arranque universal del core.
 - [ ] `adapters/` contiene `GEMINI.md`, `CLAUDE.md`, `AGENTS.md`, `cursor-rule.mdc` y `README.md`.
-- [ ] `core/commands.md` define los 7 $-comandos obligatorios (`$boot`, `$status`, `$work`, `$archi`, `$learn`, `$caveman`, `$close`).
+- [ ] `core/commands.md` define los 7 $-comandos obligatorios (`$boot`, `$status`, `$work`, `$archi`, `$learn`, `$laconico`, `$close`).
 - [ ] `core/brain.md` define la lógica de handoffs, firmas de agente y matriz de prioridades.
-- [ ] `core/communication.md` normatiza el **Modo Cavernícola (`$caveman`)** y la economía de tokens.
+- [ ] `core/communication.md` normatiza el **Modo Lacónico (`$laconico`)** y la economía de tokens.
 - [ ] `core/path_map.md` contiene las rutas genéricas del framework/plataforma target.
 - [ ] `core/learning_protocol.md` define el Protocolo de 3 Vías.
 - [ ] `knowledge/` contiene guías técnicas esenciales del framework (mínimo 2 archivos).

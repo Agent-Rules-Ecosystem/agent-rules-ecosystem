@@ -4,18 +4,18 @@
 
 ## 🔴 Prioridad Alta (Impacto Crítico / Bloqueante)
 
-| ID | Ubicación / Componente | Descripción de la Deuda | Impacto |
-|---|---|---|---|
+| ID | Ubicación / Componente | Descripción de la Deuda | Impacto | Confianza | Estado |
+|---|---|---|---|---|---|
 
 ## 🟡 Prioridad Media (Impacto Moderado / Mantenibilidad)
 
-| ID | Ubicación / Componente | Descripción de la Deuda | Impacto |
-|---|---|---|---|
+| ID | Ubicación / Componente | Descripción de la Deuda | Impacto | Confianza | Estado |
+|---|---|---|---|---|---|
 
 ## 🟢 Prioridad Baja (Mejora Menor / Estilo)
 
-| ID | Ubicación / Componente | Descripción de la Deuda | Impacto |
-|---|---|---|---|
+| ID | Ubicación / Componente | Descripción de la Deuda | Impacto | Confianza | Estado |
+|---|---|---|---|---|---|
 
 ---
 
@@ -23,5 +23,5 @@
 
 <!-- Mover aquí deuda técnica completada conservando su ID -->
 
-| ID | Ubicación / Componente | Descripción de la Deuda | Solución Aplicada | Agente | Fecha |
-|---|---|---|---|---|---|
+| ID | Ubicación / Componente | Descripción de la Deuda | Solución Aplicada | Agente | Fecha | Estado |
+|---|---|---|---|---|---|---|

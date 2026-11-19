@@ -6,7 +6,7 @@
 
 - **ID:** `[wX]`
 - **Descripción:**
-- **Estado:** `activo` <!-- activo | draft | en_revision | superseded -->
+- **Estado:** `activo` <!-- activo | pendiente | en_revision | bloqueado | superseded -->
 - **Confianza:** `alta` <!-- alta | media | baja | no_verificada -->
 - **Agente:** `[Modelo / Firma]`
 - **Fecha inicio:** `YYYY-MM-DD`

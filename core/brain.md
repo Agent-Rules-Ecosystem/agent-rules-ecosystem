@@ -10,7 +10,7 @@ graph TD
     C --> E[Discovery de proyecto]
     D --> E
     E --> F[Trabajar]
-    F --> M{Autocheck modo cavernicola}
+    F --> M{Autocheck Modo Lacónico}
     M -- Falla --> R[Reescribir respuesta]
     R --> G[Validar]
     M -- OK --> G
@@ -44,16 +44,18 @@ Cuando el usuario escribe **"ejecuta .agents"** (o variante como "corre .agents"
 
 ## Inicio
 
-- Ejecutar `git submodule status`.
-- Leer core y `overview/session.md`, `overview/work.md`, `overview/work/tasks.md`, `overview/work/deuda_tecnica.md`, `overview/work/pendientes.md`, `overview/trackers/progress.md` y reportes de skills en `overview/work/skill/`.
+- Verificar `.git/` (si falta en un proyecto nuevo/ZIP, ejecutar `git init` antes de agregar submódulos) y ejecutar `git submodule status`.
+- Leer core y aplicar el **Protocolo de Carga de Contexto en 3 Capas**: cargar inicialmente **Capa 1** (`overview/session.md`, `overview/work.md`), y luego **Capa 2/3** (`tasks.md`, `pendientes.md`, `deuda_tecnica.md`, `trackers/progress.md`, `overview/work/skill/`) solo según la tarea activa y el paso `work_review.md`.
 - Si falta `overview/` o archivos base, crearlos desde `.agents/templates/`.
 - Si falta `overview/architecture.md`, crearlo desde plantilla antes de trabajar.
 - **Orden de prioridad de atención en `$work`**: 
   1. `overview/work/tasks.md` (tarea activa en ejecución)
   2. `overview/work/pendientes.md` (ítems de seguimiento identificados)
   3. `overview/work/deuda_tecnica.md` (deuda ordenada por prioridad **Alta**, **Media** y **Baja**)
-- **Histórico de completados**: Al resolver cualquier ítem (tarea, bug o deuda), retirarlo inmediatamente de las tablas activas y trasladarlo a la sección `## ✅ Completados (Historial)` en `work.md`, `deuda_tecnica.md` y `pendientes.md` conservando su ID (`[w1]`, `[d2]`, `[p1]`).
+- **Histórico de completados (traslado físico inmediato)**: Al resolver cualquier ítem (tarea, bug o deuda) proveniente de `work/tasks.md`, `work/pendientes.md` o `work/deuda_tecnica.md`, retirar inmediatamente la fila de la tabla activa y moverla físicamente a `## ✅ Completados (Historial)` en `work.md`, `deuda_tecnica.md` y `pendientes.md` conservando su ID (`[w1]`, `[d2]`, `[p1]`).
 - **Registro preventivo previo a ejecución (Pre-execution Work Logging)**: Al recibir un requerimiento o bug, actualizar de forma automática y simultánea los archivos de control de `overview/` (`work.md`, `work/tasks.md`, `session.md`, `pendientes.md`, `deuda_tecnica.md`, `work_review.md` y `architecture.md`) INMEDIATAMENTE antes de ejecutar cualquier acción.
+- **Triaje e Integración Activa de Skills (`overview/work/skill/`)**: Durante `$boot`, `$work` y `$close`, escanear `overview/work/skill/*.md` e integrar sus hallazgos en `deuda_tecnica.md` (refactores/arquitectura), `pendientes.md` (secundarios) o `tasks.md` (bugs/urgentes), conservando el archivo de la skill como evidencia de detalle.
+- **Historial de Intentos firmado por Agente**: En `overview/work.md`, mantener registro incremental sin borrar intentos previos: mismo día → actualizar fila existente; diferente día → nueva fila con firma del Agente; al resolver → registrar causa raíz y solución aplicada.
 - **Protocolo de Revisión de Trabajo (`work_review.md`)**: Al finalizar `$boot`, ejecutar obligatoriamente el protocolo definido en `templates/work_review.md`.
 
 ## Protocolo de Carga de Contexto en 3 Capas
@@ -65,8 +67,19 @@ Cuando el usuario escribe **"ejecuta .agents"** (o variante como "corre .agents"
 3. **Capa 3 — Nodo Específico**: Solo si el trabajo lo exige, cargar archivos de arquitectura (`overview/architecture/`) o skill reports (`overview/work/skill/`). Cargar únicamente el subdocumento del módulo o skill relevante, no toda la carpeta.
 
 > **Regla de Confianza en la Carga**: Si un archivo de `overview/` tiene campo `Confianza: baja` o `no_verificada`, el agente debe notificarlo antes de actuar sobre esa información y priorizar verificación.
+>
+> **Principio *Overview-First* y Consulta $O(1)$**: Leer primero los índices/trackers en `overview/` antes de abrir archivos hermanos de código o documentación. Ante preguntas de avance o estado de archivos/ítems, consultar exclusivamente `overview/trackers/progress.md` (o tracker equivalente) en $O(1)$, prohibiendo escaneos especulativos de carpetas.
 
+## Discovery Progresivo y Jurisdicción de `overview/`
 
+- **Guardrail de tokens en discovery inicial**: Leer máximo **5 archivos** de código fuente en el primer barrido; expandir solo cuando la tarea lo requiera explícitamente.
+- **Localidad Horizontal**: `overview/` tiene jurisdicción exclusiva sobre sus directorios hermanos (mismo directorio padre); el agente nunca aplica reglas de un `overview/` local a carpetas por encima de su nivel.
+- **Normalización y no ignorar**: Todas las rutas de `overview/` van en minúsculas (`overview/`, `trackers/`, `history/`, `context/`, `workflows/`, `work/`). Nunca ignorar notas o documentación suelta en carpetas no estándar: relocalizar a `overview/context/` o referenciar en `overview/work.md` con `[pendiente clasificar]`.
+
+## Selección Contextual de Reglas y Reporte de Omisiones
+
+- Al iniciar o auditar una tarea, identificar explícitamente qué reglas y checklists aplican según el tipo de cambio (ciclo de vida, UI/i18n, arquitectura, empaquetado, seguridad).
+- Toda comprobación que no pueda ejecutarse en el entorno actual debe reportarse explícitamente como **omitida** indicando el motivo; nunca contarla como aprobada.
 
 ## Handoff de Agente
 

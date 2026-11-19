@@ -2,7 +2,7 @@
 
 - Fecha: YYYY-MM-DD
 - Agente: [Proveedor Modelo] — ver formato en `core/communication.md`
-- Modo: `estandar` | `laconico`
+- Modo: `laconico` | `detallado` *(por defecto: `laconico`)*
 - Nodo activo: [id de `overview/trackers/progress.md`]
 - Estado validación: `verificado` | `no verificado` | `no aplica`
 

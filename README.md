@@ -52,7 +52,6 @@ CORE/
 │   ├── flutter-agent-rules/     # Gobernanza Flutter / Mobile
 │   └── flutter-agent-skill/     # Habilidades Flutter
 │       ├── flutter-bloc-patterns-agent-skill/
-│       ├── flutter-firebase-auth-agent-skill/
 │       ├── flutter-firebase-odoo-agent-skill/
 │       └── flutter-payments-agent-skill/
 ├── Game/
@@ -88,7 +87,8 @@ CORE/
 │       └── rust-plc-modbus-agent-skill/
 ├── SecondBrain/
 │   ├── second-brain-agent-rules/# Gobernanza de Segundo Cerebro (Spoke Canónico Knowledge / Stand-Alone)
-│   └── lore-agent-skill/        # Worldbuilding, Game Lore y Gestión Narrativa (.skill/)
+│   └── second-brain-agent-skill/
+│       └── lore-agent-skill/    # Worldbuilding, Game Lore y Gestión Narrativa (.skill/)
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza Apple Platforms / Swift
 │   └── swift-agent-skill/       # Habilidades Swift
@@ -187,7 +187,7 @@ CORE/
 
 ### 🧠 10. Second Brain & Lore (Gestión de Conocimiento y Narrativa)
 - 🛡️ **Gobernanza**: [`second-brain-agent-rules`](https://github.com/Agent-Rules-Ecosystem/second-brain-agent-rules) *(Spoke Canónico `Knowledge` en MultiCore / Stand-Alone con Bóveda Activa `vault/`)*
-- ⚡ **Skills de Dominio** (`SecondBrain/` / `.skill/`):
+- ⚡ **Skills de Dominio** (`SecondBrain/second-brain-agent-skill/` / `.skill/`):
   - [`lore-agent-skill`](https://github.com/Agent-Rules-Ecosystem/lore-agent-skill) (`$lore`) — Worldbuilding, personajes, eventos, facciones y consistencia narrativa
 
 ### 🔀 11. MultiCore (Monorepos y Sistemas Políglotas)

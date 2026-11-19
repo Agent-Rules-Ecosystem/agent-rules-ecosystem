@@ -1,6 +1,6 @@
 # 🎯 Tracker de Gobernanza y Congruencia Ecosistémica (3 Capas)
 
-> **Propósito**: Registro agentico y persistente del estado de cumplimiento de los 13 Cores y Skills del ecosistema a través de 3 capas de validación.
+> **Propósito**: Registro agéntico y persistente del estado de cumplimiento de los 12 Cores de Dominio + Master (`agent-rules-ecosystem`) y Skills del ecosistema a través de 3 capas de validación.
 
 ---
 
@@ -17,31 +17,29 @@
 
 ## 🏗️ Capas de Auditoría
 
-1. **Capa 1: Base Estructural** — Templates, comandos `$boot`/`$work`/`$archi`, estructura de carpetas (`arquitectura/`, `architecture.md`, etc.).
+1. **Capa 1: Base Estructural** — Templates, comandos `$boot`/`$work`/`$archi`, estructura de carpetas (`architecture/`, `architecture.md`, etc.).
 2. **Capa 2: Congruencia Agéntica** — Verificación manual/agéntica de tono, consistencia lógica, usabilidad y sin obsolescencia.
 3. **Capa 3: Congruencia de Skill** — Validación de acoplamiento y congruencia entre `*-agent-skill` y su `*-agent-rules` heredador.
 
 ---
 
-## 📊 Matriz de Gobernanza: Cores (13 Main Cores)
+## 📊 Matriz de Gobernanza: Cores (Master + 12 Cores de Dominio)
 
 | Core Repository | Capa 1 (Base/Arqui) | Capa 2 (Congruencia) | Capa 3 (Skill Sync) | Notas / Hallazgos |
 | :--- | :---: | :---: | :---: | :--- |
-| `agent-rules-ecosystem` (Master) | 🟢 | 🟢 | 🟢 | Estándar Maestro 100% verificado (`AGENTS.md`, `adapters/`, `core/`, `knowledge/`, `skills/`, `templates/`) |
-| `backend-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `flutter-agent-rules` | 🟢 | 🟢 | 🟢 | Auditado contra Estándar Maestro: 100% verificado (`skills/README.md` creado, `$laconico` agregado) |
-| `game-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `go-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `kotlin-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `multicore-agent-rules` | 🟢 | 🟢 | 🟢 | Creado y 100% verificado contra `RULES_STANDARD.md` y `ARCHITECTURE_STANDARD.md` (Hub & Spoke, contratos y matriz de congruencia) |
-| `python-agent-rules` | 🔴 | 🔴 | ⚪ | **Falta carpeta `arquitectura/` y adjuntos** |
-| `rust-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `second-brain-agent-rules` | 🟢 | 🟢 | 🟢 | Re-auditado contra Estándar Maestro: 100% verificado (`templates/architecture/{core,modules,routes_map.md}` y `templates/trackers/`) |
-| `swift-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `transversal-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `web-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente revisión Capa 1 y 2 |
-| `solidity-agent-rules` | 🟡 | 🔴 | ⚪ | Creado [w7]. Core Web3 / Base blockchain. Capa 2 pendiente de auditoría. |
-
+| `agent-rules-ecosystem` (Master) | 🟢 | 🟢 | 🟢 | Estándar Maestro saneado y alineado (`AGENTS.md`, `adapters/`, `core/`, `knowledge/`, `skills/`, `templates/`) |
+| `backend-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
+| `flutter-agent-rules` | 🔴 | 🔴 | ⚪ | Requiere re-auditoría tras actualización de estándares maestros |
+| `game-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
+| `go-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
+| `kotlin-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
+| `multicore-agent-rules` | 🔴 | 🔴 | ⚪ | Requiere re-auditoría tras actualización de estándares maestros |
+| `python-agent-rules` | 🔴 | 🔴 | ⚪ | **Falta carpeta `architecture/` y adjuntos** + Prioridad 1 |
+| `rust-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
+| `second-brain-agent-rules` | 🔴 | 🔴 | ⚪ | Requiere re-auditoría tras actualización de estándares maestros |
+| `solidity-agent-rules` | 🔴 | 🔴 | ⚪ | Creado [w7]. Core Web3 / Base blockchain. Pendiente auditoría Capas 1 y 2. |
+| `swift-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
+| `web-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
 
 ---
 
@@ -50,12 +48,12 @@
 | Skill Repository | Core Heredador | Capa 1 (Base/Arqui) | Capa 2 (Congruencia) | Capa 3 (Rules Sync) | Notas / Hallazgos |
 | :--- | :--- | :---: | :---: | :---: | :--- |
 | `lore-agent-skill` | `second-brain-agent-rules` / `game-agent-rules` | 🟢 | 🟢 | 🟢 | Auditado y verificado: 100% congruente con `second-brain-agent-rules` y `game-agent-rules` |
-| `performance-agent-skill` | `transversal-agent-rules` | 🟢 | 🟢 | 🟢 | Creado y validado contra `SKILL_STANDARD.md` (100% Markdown, adaptadores por plataforma, core y knowledge) |
+| `performance-agent-skill` | `Transversal (Agnóstica)` | 🟢 | 🟢 | 🟢 | Creado y validado contra `SKILL_STANDARD.md` (100% Markdown, adaptadores por plataforma, core y knowledge) |
 | ~`second-brain-agent-skill`~ (Deprecado) | `second-brain-agent-rules` | ⚪ | ⚪ | ⚪ | Deprecado [w11]: Transición canónica a Spoke Knowledge (bóveda persistente / rol topológico) |
-| `grapho-agent-skill` | `transversal-agent-rules` | 🟢 | 🟢 | 🟢 | Auditado y verificado: motor de grafos AST/código y grafos de conocimiento SQLite FTS5 (`scan_knowledge.py`) |
+| `grapho-agent-skill` | `Transversal (Agnóstica)` | 🟢 | 🟢 | 🟢 | Auditado y verificado: motor de grafos AST/código y grafos de conocimiento SQLite FTS5 (`scan_knowledge.py`) |
 
 ---
 
 ## 📌 Hallazgos Críticos Iniciales (Capa 1)
-- [ ] `python-agent-rules`: Crear estructura `arquitectura/` y sync con `architecture.md`.
+- [ ] `python-agent-rules`: Crear estructura `architecture/` y sync con `architecture.md`.
 - [x] `second-brain-agent-rules`: Estructura `architecture/` y `trackers/` creadas y sincronizadas.

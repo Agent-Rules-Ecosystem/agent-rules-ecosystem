@@ -29,9 +29,9 @@ graph TD
     ROOT --> CORE_DATA["overview/architecture/core/data_flow.md\n(Local-First & State)"]
     ROOT --> CORE_RULES["overview/architecture/core/import_rules.md\n(Reglas de Importación)"]
     
-    ROOT --> MOD1["overview/architecture/modules/ordenes.md\n(Módulo Órdenes & Bitácoras)"]
-    ROOT --> MOD2["overview/architecture/modules/materia_prima.md\n(Módulo MP & Proveedores)"]
-    ROOT --> MOD3["overview/architecture/modules/cotizaciones.md\n(Módulo Cotizaciones & Monetización)"]
+    ROOT --> MOD1["overview/architecture/modules/modulo_a.md\n(Módulo A / Autenticación)"]
+    ROOT --> MOD2["overview/architecture/modules/modulo_b.md\n(Módulo B / Catálogo)"]
+    ROOT --> MOD3["overview/architecture/modules/modulo_c.md\n(Módulo C / Facturación)"]
 ```
 
 ---
@@ -64,7 +64,7 @@ Todo proyecto cliente bajo la gobernanza del ecosistema debe organizar su docume
 Cuando un agente de IA ejecuta la auditoría `$archi` o busca contexto de arquitectura para realizar un trabajo:
 
 1. **Lectura del Índice Raíz**: El agente abre *únicamente* `overview/architecture.md` para entender las capas generales del proyecto y ubicar los submódulos.
-2. **Navegación Quirúrgica**: El agente identifica el subdocumento correspondiente a la tarea actual (ejemplo: `overview/architecture/modules/cotizaciones.md`).
+2. **Navegación Quirúrgica**: El agente identifica el subdocumento correspondiente a la tarea actual (ejemplo: `overview/architecture/modules/modulo_c.md`).
 3. **Carga Focalizada**: Abre únicamente ese subdocumento. 
 4. **Resultado**: Reducción del 90% en consumo de tokens y cero interferencia de módulos ajenos a la tarea.
 
@@ -103,18 +103,18 @@ El índice raíz vive en `overview/architecture.md` y *no debe superar las 200 l
 
 | Capa | Ubicación | Descripción Breve |
 |---|---|---|
-| **Presentation** | `lib/presentation/` | Pantallas, widgets modulares y notificadores de estado |
-| **Domain** | `lib/domain/` | Entidades puras y casos de uso de negocio |
-| **Infrastructure** | `lib/infrastructure/` | Repositorios, adaptadores de DB local y servicios de red |
-| **Core** | `lib/core/` | Router, temas visuales y utilidades compartidas |
+| **Presentation / Entry** | `src/presentation/` | Vistas, controladores y manejadores de estado |
+| **Domain / Logic** | `src/domain/` | Entidades puras y casos de uso de negocio |
+| **Infrastructure / Data** | `src/infrastructure/` | Repositorios, adaptadores de DB local y servicios de red |
+| **Core / Utils** | `src/core/` | Enrutamiento, configuración base y utilidades compartidas |
 
 ## 2. Diagrama de Estado y Persistencia Global
 [Diagrama Mermaid sintético de alto nivel del flujo de datos]
 
 ## 3. Índice de Módulos (Subdocumentos de Dominio)
-* 📦 **[Módulo Órdenes y Producción](./architecture/modules/ordenes.md):** Órdenes, bitácoras y PDFs.
-* 🧪 **[Módulo Materia Prima](./architecture/modules/materia_prima.md):** Catálogo MP, inventario y proveedores.
-* 💎 **[Módulo Cotizaciones](./architecture/modules/cotizaciones.md):** Calculadora, ajustes y catálogo comercial.
+* 📦 **[Módulo A — Autenticación](./architecture/modules/modulo_a.md):** Sesiones, permisos y acceso.
+* 🧪 **[Módulo B — Catálogo](./architecture/modules/modulo_b.md):** Entidades principales y persistencia.
+* 💎 **[Módulo C — Facturación](./architecture/modules/modulo_c.md):** Reglas de negocio y salidas.
 
 ## 4. Guías Transversales
 * 🧭 **[Mapa Global de Rutas](./architecture/routes_map.md)** — Registro completo de enrutamiento.
@@ -132,7 +132,7 @@ Cada subdocumento de módulo en `overview/architecture/modules/` debe centrarse 
 # 📦 Módulo: [Nombre del Módulo]
 
 > Pertenece a: `overview/architecture/modules/[nombre].md`  
-> Referenciado desde: [`overview/architecture.md`](../../../architecture.md)
+> Referenciado desde: [`overview/architecture.md`](../../architecture.md)
 
 ## 1. Mapa de Enrutamiento Lógico y Flujo Operativo
 [Diagrama Mermaid específico del módulo]
@@ -142,9 +142,9 @@ Cada subdocumento de módulo en `overview/architecture/modules/` debe centrarse 
 * **Regla 2:** Explicación técnica de la regla.
 
 ## 3. Componentes y Servicios Clave
-* **Pantallas / Vistas:** `lib/presentation/screens/[modulo]/`
-* **Widgets / UI Modules:** `lib/presentation/screens/[modulo]/widgets/`
-* **Servicios / Notifiers:** `lib/presentation/providers/`
+* **Vistas / Puntos de Entrada:** `src/presentation/[modulo]/`
+* **Casos de Uso / Servicios:** `src/domain/[modulo]/`
+* **Repositorios / Adaptadores:** `src/infrastructure/[modulo]/`
 
 ## 4. Estado Actual de Refactorización
 * [x] Componentes modulares (< 250L por archivo)
@@ -220,8 +220,6 @@ La subdivisión se aplica un nivel a la vez. No anticipar jerarquías futuras: s
 
 ---
 
----
-
 ## 🛡️ Estándar de Interoperabilidad Nativa y C-ABI (Protocolo Zero-Panic & Caller Buffers)
 
 > **Ámbito de Aplicación**: Cualquier nodo con rol `Provider` o `Bridge` que exponga interfaces binarias nativas (Rust, C++, Zig, Go c-shared) hacia runtimes anfitriones (Python, Node.js, Godot, Dart/Flutter, Blender).
@@ -260,6 +258,33 @@ La subdivisión se aplica un nivel a la vez. No anticipar jerarquías futuras: s
    - Todo componente comercial o de pago reside en capas desacopladas de staging/overlay (ej. `engine/overlay/`) y se comunica exclusivamente mediante interfaces abstractas en `packages/contracts/`.
 2. **Empaquetado Multi-Tier**:
    - La inyección de código propietario se ejecuta durante el pipeline de empaquetado/distribución (ej. `tools/pack_zip/`), manteniendo el repositorio público 100% puro y auditable.
+
+---
+
+## 🧩 Patrones Transversales de Diseño y Modularidad
+
+> **Ámbito de Aplicación**: Cualquier proyecto de software gobernado por `*-agent-rules`, independientemente del lenguaje o framework.
+
+1. **Modularización Segura con Re-exportación Retrocompatible (`<250L`)**:
+   - Al dividir archivos monolíticos (`>250L`), transformar el archivo maestro en un *barrel export* (o fachada) que re-exporte los submódulos extraídos, preservando los contratos de importación sin refactors en cascada. Validar atómicamente con análisis estático antes de avanzar.
+2. **Principio de Parquedad en Gestión de Estado**:
+   - Antes de reportar como deuda técnica la ausencia de gestores de estado complejos, verificar si los mecanismos reactivos nativos del entorno resuelven el flujo con claridad y sin sobreingeniería.
+3. **Inicialización Perezosa (*Lazy Loading*) en Navegación y Módulos**:
+   - Evitar la instanciación prematura de todos los sub-árboles o módulos en contenedores de navegación/rutas; cargar bajo demanda según el contexto activo para reducir consumo de memoria y tiempo de arranque.
+4. **Encapsulación CRUD Genérica**:
+   - Cuando existan múltiples entidades de dominio con operaciones equivalentes, encapsular los verbos CRUD en adaptadores o controladores genéricos parametrizados para eliminar boilerplate y divergencias.
+5. **Unificación de Procesos Hermanos/Paralelos**:
+   - Unificar la lógica de mutación de procesos que operan sobre estructuras de datos simétricas mediante funciones puras o de orden superior compartidas para garantizar paridad.
+6. **Descomposición Funcional en Generadores de Salida Densa**:
+   - En generadores de documentos o reportes complejos, aislar la construcción de cada bloque funcional en helpers privados puros para facilitar el mantenimiento de layout sin alterar la estructura global.
+7. **Filtrado por Relación Directa de Dominio**:
+   - En flujos de entrada dependientes, filtrar opciones válidas mediante relaciones directas entre entidades de dominio en lugar de usar diccionarios de sinónimos o fallbacks estáticos.
+8. **Sincronización Reactiva Inmediata en Estado Derivado**:
+   - En rankings, métricas o vistas agregadas, propagar de inmediato reversiones y reinicios tanto en memoria como en persistencia para evitar desfasajes en tiempo real.
+9. **Normalización y Auto-reparación de Datos Persistentes**:
+   - Al clasificar entidades persistentes en categorías disjuntas, aplicar normalizadores basados en metadatos y auto-reparar retroactivamente registros legados al inicializar.
+10. **Principio Contract-First (Prohibición de Invención Unilateral)**:
+    - En cualquier frontera productor/consumidor (APIs, eventos, FFI), prohibir asumir, omitir o alterar campos, firmas o códigos de error sin actualizar previamente el contrato compartido.
 
 ---
 

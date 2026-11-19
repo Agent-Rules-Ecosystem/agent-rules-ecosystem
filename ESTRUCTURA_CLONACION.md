@@ -21,7 +21,6 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 │   ├── flutter-agent-rules/     # Gobernanza y protocolos Flutter
 │   └── flutter-agent-skill/     # Habilidades y patrones Flutter
 │       ├── flutter-bloc-patterns-agent-skill/
-│       ├── flutter-firebase-auth-agent-skill/
 │       ├── flutter-firebase-odoo-agent-skill/
 │       └── flutter-payments-agent-skill/
 ├── Game/
@@ -35,6 +34,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 ├── Go/
 │   ├── go-agent-rules/          # Gobernanza y protocolos Go (Golang)
 │   └── go-agent-skill/          # Habilidades y patrones Go
+│       └── go-plc-modbus-agent-skill/
 ├── Kotlin/
 │   ├── kotlin-agent-rules/      # Gobernanza y protocolos Kotlin (Android Nativo / KMP)
 │   └── kotlin-agent-skill/      # Habilidades y patrones Kotlin
@@ -53,9 +53,11 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 ├── Rust/
 │   ├── rust-agent-rules/        # Gobernanza y protocolos Rust (Sistemas / Embebidos / Tokio)
 │   └── rust-agent-skill/        # Habilidades y patrones Rust
+│       └── rust-plc-modbus-agent-skill/
 ├── SecondBrain/
 │   ├── second-brain-agent-rules/# Gobernanza de Segundo Cerebro (Spoke Canónico Knowledge / Stand-Alone)
-│   └── lore-agent-skill/        # Worldbuilding, Game Lore y Gestión Narrativa (.skill/)
+│   └── second-brain-agent-skill/
+│       └── lore-agent-skill/    # Worldbuilding, Game Lore y Gestión Narrativa (.skill/)
 ├── Swift/
 │   ├── swift-agent-rules/       # Gobernanza y protocolos Swift (iOS Nativo / SwiftUI)
 │   └── swift-agent-skill/       # Habilidades y patrones Swift
@@ -91,7 +93,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 Cuando el usuario pida: **"Inicializa o sincroniza la estructura del ecosistema"**, el Agente de IA debe ejecutar las siguientes acciones:
 
 1. **Ubicación Base**: Validar que la ejecución ocurra en el directorio raíz elegido para el ecosistema.
-2. **Verificación de Carpetas**: Garantizar la existencia de los 13 bloques principales (`Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `MultiCore`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`, `Web3`, `agent-rules-ecosystem`).
+2. **Verificación de Carpetas**: Garantizar la existencia de los 14 bloques principales (13 categorías: `Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `MultiCore`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`, `Web3` + `agent-rules-ecosystem`).
 3. **Clonación / Verificación Git**:
    - Para cada submódulo o repositorio de gobernanza (`*-agent-rules`), clonar en la raíz de su categoría (`<Dominio>/<dominio>-agent-rules`).
    - Para las skills especializadas, clonar dentro del subdirectorio contenedor `<Dominio>/<dominio>-agent-skill/<nombre-skill>/`.
@@ -143,7 +145,6 @@ REPOS=(
 
   # Skills Flutter
   "Flutter:flutter-agent-skill:flutter-bloc-patterns-agent-skill"
-  "Flutter:flutter-agent-skill:flutter-firebase-auth-agent-skill"
   "Flutter:flutter-agent-skill:flutter-firebase-odoo-agent-skill"
   "Flutter:flutter-agent-skill:flutter-payments-agent-skill"
 
@@ -184,7 +185,7 @@ REPOS=(
   "Rust:rust-agent-skill:rust-plc-modbus-agent-skill"
 
   # Skills SecondBrain
-  "SecondBrain::lore-agent-skill"
+  "SecondBrain:second-brain-agent-skill:lore-agent-skill"
 
   # Skills Swift
   "Swift:swift-agent-skill:swiftui-navigation-state-agent-skill"
@@ -235,7 +236,6 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Ecosistema Base** | `agent-rules-ecosystem` | `agent-rules-ecosystem` | `git@github.com:Agent-Rules-Ecosystem/agent-rules-ecosystem.git` |
 | **Flutter Core** | `Flutter/flutter-agent-rules` | `flutter-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/flutter-agent-rules.git` |
 | **Flutter Skill** | `Flutter/flutter-agent-skill/flutter-bloc-patterns-agent-skill` | `flutter-bloc-patterns-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/flutter-bloc-patterns-agent-skill.git` |
-| **Flutter Skill** | `Flutter/flutter-agent-skill/flutter-firebase-auth-agent-skill` | `flutter-firebase-auth-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/flutter-firebase-auth-agent-skill.git` |
 | **Flutter Skill** | `Flutter/flutter-agent-skill/flutter-firebase-odoo-agent-skill` | `flutter-firebase-odoo-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/flutter-firebase-odoo-agent-skill.git` |
 | **Flutter Skill** | `Flutter/flutter-agent-skill/flutter-payments-agent-skill` | `flutter-payments-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/flutter-payments-agent-skill.git` |
 | **Web Core** | `Web/web-agent-rules` | `web-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/web-agent-rules.git` |
@@ -269,7 +269,7 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Rust Core** | `Rust/rust-agent-rules` | `rust-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/rust-agent-rules.git` |
 | **Rust Skill** | `Rust/rust-agent-skill/rust-plc-modbus-agent-skill` | `rust-plc-modbus-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/rust-plc-modbus-agent-skill.git` |
 | **SecondBrain Core** | `SecondBrain/second-brain-agent-rules` | `second-brain-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/second-brain-agent-rules.git` |
-| **SecondBrain Skill** | `SecondBrain/lore-agent-skill` | `lore-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/lore-agent-skill.git` |
+| **SecondBrain Skill** | `SecondBrain/second-brain-agent-skill/lore-agent-skill` | `lore-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/lore-agent-skill.git` |
 | **Swift Core** | `Swift/swift-agent-rules` | `swift-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/swift-agent-rules.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swiftui-navigation-state-agent-skill` | `swiftui-navigation-state-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swiftui-navigation-state-agent-skill.git` |
 | **Swift Skill** | `Swift/swift-agent-skill/swift-async-concurrency-agent-skill` | `swift-async-concurrency-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/swift-async-concurrency-agent-skill.git` |

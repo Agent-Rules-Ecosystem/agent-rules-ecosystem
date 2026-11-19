@@ -16,6 +16,10 @@
 | `$archi` | Actualizar arquitectura viva (diagramas Mermaid) |
 | `$learn [texto]` | Registrar aprendizaje general en `overview/learning.md` |
 | `$learnagnostico [texto]` | Abstraer a términos genéricos antes de registrar |
+| `$learnskill [skill] [texto]` | Registrar propuesta de mejora para una skill en `overview/learning.md` |
+| `$revlearnskill` | Clasificar propuestas `[nombre-skill]` en el governing repo (`*-agent-rules`) |
+| `$laconico` | Activar o reforzar el Modo Lacónico (por defecto) |
+| `$modo:detallado` | Activar explicaciones técnicas paso a paso sin relleno |
 | `$close` | Protocolo de cierre de sesión con sincronización de rastreadores |
 
 ---

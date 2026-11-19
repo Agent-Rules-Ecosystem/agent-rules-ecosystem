@@ -1,13 +1,13 @@
 # 🌌 Ecosystem Governance Core — Bootstrapper Portátil
 
-> **Propósito**: Adaptador autónomo y portátil de revisión y gobernanza del ecosistema. Arrastra este archivo a cualquier espacio de trabajo o ejecuta `$ecosystem` para activar la auditoría global y el modo de comunicación lacónica (Modo Cavernícola).
+> **Propósito**: Adaptador autónomo y portátil de revisión y gobernanza del ecosistema. Arrastra este archivo a cualquier espacio de trabajo o ejecuta `$ecosystem` para activar la auditoría global y el **Modo Lacónico**.
 
 ---
 
-## ⚡ Reglas de Respuesta — Modo Cavernícola (Token Saver)
+## ⚡ Reglas de Respuesta — Modo Lacónico
 
 > **AUTOCHECK OBLIGATORIO EN CADA INTERVENCIÓN:**
-> 1. Sin prosa explicativa, sin saludos, sin relleno telegráfico.
+> 1. Sin prosa explicativa, sin saludos, sin clichés ni frases aduladoras.
 > 2. No duplicar código en el chat: usar sintaxis `[archivo#L10-L20]`.
 > 3. Al terminar, entregar 1 Sola Línea de resumen: `- [YYYY-MM-DD]: Corregido X -> Razón: Z.`
 
@@ -16,17 +16,17 @@
 ## 🚀 Comandos del Ecosistema
 
 ### 1. `$ecosystem` / `ejecuta ECOSYSTEM.md`
-Dispara el bootstrap de auditoría global del ecosistema y activa el modo lacónico.
+Dispara el bootstrap de auditoría global del ecosistema y activa el **Modo Lacónico**.
 
 **Pasos del Agente:**
 1. Cargar estado de control en `overview/` (`session.md`, `work.md`, `tasks.md`, `pendientes.md`, `deuda_tecnica.md`). Si `overview/` no existe en la raíz donde se ejecuta, crearlo desde `templates/`.
-2. Barrido estructural de salud de los 11 Cores & Skills:
-   - `Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Transversal`, `Web`.
+2. Barrido estructural de salud de los 12 Cores de Dominio & Skills:
+   - `Backend`, `Flutter`, `Game`, `Go`, `Kotlin`, `MultiCore`, `Python`, `Rust`, `SecondBrain`, `Swift`, `Web`, `Web3` + `Transversal` (skills).
 3. Notificar en máximo 5 líneas lacónicas:
    ```text
    [Ecosystem Governance Audit Active]
    Agente   : [firma]
-   Cores    : 11 verificados | [pendientes si existen]
+   Cores    : 12 verificados | [pendientes si existen]
    Work Eco : [IDs abiertos en overview/work.md]
    Estado   : [saludable | desalineado]
    Siguiente: [nodo o auditoría activa]
@@ -42,7 +42,6 @@ Registra una tarea, bug, refactor o pendiente a nivel Ecosistema.
 4. **Regla de Invalidación/Reinicio de Tracker**: Si el cambio toca `templates/` o cualquiera de los archivos de estándar maestro (`ARCHITECTURE_STANDARD.md`, `ESTRUCTURA_CLONACION.md`, `RULES_STANDARD.md`, `SKILL_STANDARD.md`), el agente invalida automáticamente `ecosystem-runner/core/tracker.md`, marcando los Cores afectados como `🔴 PENDIENTE` para forzar re-auditoría contra las plantillas/estándares actualizados.
 5. Sincronizar simultáneamente `overview/` (`session.md`, `work.md`, `tasks.md`, `pendientes.md`, `deuda_tecnica.md`).
 6. Confirmar en 1 línea lacónica: `[ECO] Tarea registrada como [ID] en overview/work.md` (e indicar reinicio de tracker si aplica).
-
 
 ---
 
