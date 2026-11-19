@@ -1,6 +1,6 @@
 # 🌐 Sincronización Canónica del Ecosistema (`sync_ecosystem`)
 
-> **Formato 100% Declarativo Markdown**. Especificación multiplataforma (Bash / PowerShell) para clonar o actualizar los 12 Cores (`*-agent-rules`) y las 38 Skills (`*-agent-skill`) de [`Agent-Rules-Ecosystem`](https://github.com/Agent-Rules-Ecosystem) usando SSH.
+> **Formato 100% Declarativo Markdown**. Especificación multiplataforma (Bash / PowerShell) para clonar o actualizar los 12 Cores (`*-agent-rules`) y las 39 Skills (`*-agent-skill`) de [`Agent-Rules-Ecosystem`](https://github.com/Agent-Rules-Ecosystem) usando SSH.
 > Fuente de verdad del árbol de directorios: [`ESTRUCTURA_CLONACION.md`](../ESTRUCTURA_CLONACION.md).
 
 ## 📜 Referencia Bash (`sync_ecosystem.sh`)
@@ -47,6 +47,7 @@ REPOS=(
   "Flutter:flutter-agent-skill:flutter-bloc-patterns-agent-skill"
   "Flutter:flutter-agent-skill:flutter-firebase-odoo-agent-skill"
   "Flutter:flutter-agent-skill:flutter-payments-agent-skill"
+  "Web:web-agent-skill:browser-extensions-agent-skill"
   "Web:web-agent-skill:web-react-agent-skill"
   "Web:web-agent-skill:web-svelte-agent-skill"
   "Web:web-agent-skill:web-realtime-agent-skill"

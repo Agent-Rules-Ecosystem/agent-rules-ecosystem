@@ -330,6 +330,7 @@ git submodule add git@github.com:Agent-Rules-Ecosystem/<nombre>-agent-skill.git 
 | **Web** | `web-realtime-agent-skill` | `.skill/web-realtime-agent-skill/` | `$realtime` |
 | **Web** | `three-js-agent-skills` | `.skill/three-js-agent-skills/` | `$threejs` |
 | **Web** | `wordpress-agent-skill` | `.skill/wordpress-agent-skill/` | `$wp` |
+| **Web** | `browser-extensions-agent-skill` | `.skill/browser-extensions-agent-skill/` | `$ext` |
 | **Backend** | `backend-auth-oauth-agent-skill` | `.skill/backend-auth-oauth-agent-skill/` | `$auth` |
 | **Backend** | `backend-graphql-agent-skill` | `.skill/backend-graphql-agent-skill/` | `$gql` |
 | **Backend** | `backend-stripe-agent-skill` | `.skill/backend-stripe-agent-skill/` | `$stripe` |

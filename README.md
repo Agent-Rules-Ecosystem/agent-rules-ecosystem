@@ -108,6 +108,7 @@ CORE/
 ├── Web/
 │   ├── web-agent-rules/         # Gobernanza Web (HTML5, CSS, Svelte, React, Vue, Astro)
 │   └── web-agent-skill/         # Habilidades Web
+│       ├── browser-extensions-agent-skill/
 │       ├── three-js-agent-skills/
 │       ├── web-react-agent-skill/
 │       ├── web-realtime-agent-skill/
@@ -136,6 +137,7 @@ CORE/
   - [`web-realtime-agent-skill`](https://github.com/Agent-Rules-Ecosystem/web-realtime-agent-skill) (`$realtime`) — WebSockets, SSE y estado en tiempo real
   - [`three-js-agent-skills`](https://github.com/Agent-Rules-Ecosystem/three-js-agent-skills) (`$threejs`) — WebGL, Three.js y optimización GPU
   - [`wordpress-agent-skill`](https://github.com/Agent-Rules-Ecosystem/wordpress-agent-skill) (`$wp`) — Plantillas visuales, FSE, REST/GraphQL, ACF
+  - [`browser-extensions-agent-skill`](https://github.com/Agent-Rules-Ecosystem/browser-extensions-agent-skill) (`$ext`) — WebExtensions MV3 Chrome/Firefox, ZIP POSIX y seguridad AMO
 
 ### ⚙️ 3. Backend & APIs
 - 🛡️ **Gobernanza**: [`backend-agent-rules`](https://github.com/Agent-Rules-Ecosystem/backend-agent-rules)

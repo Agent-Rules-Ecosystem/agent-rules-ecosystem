@@ -43,6 +43,12 @@ Registra una tarea, bug, refactor o pendiente a nivel Ecosistema.
 5. Sincronizar simultáneamente `overview/` (`session.md`, `work.md`, `tasks.md`, `pendientes.md`, `deuda_tecnica.md`).
 6. Confirmar en 1 línea lacónica: `[ECO] Tarea registrada como [ID] en overview/work.md` (e indicar reinicio de tracker si aplica).
 
+### 3. `$audit:cores` / `$audit:skills`
+Ejecuta auditoría semántica 1-a-1 mediante subagentes de solo lectura (ver `core/brain.md`):
+- Lanza subagentes en paralelo (tandas de máx. 6), 1 repo por subagente, contra la versión vigente de `agent-rules-ecosystem`.
+- Cada subagente evalúa: **(A)** alineación y congruencia cruzada entre todos los archivos base del repo, **(B)** vigencia, sentido técnico, pureza y coherencia interna del dominio especializado (y acoplamiento con su core heredador en skills), **(C)** higiene estructural, enlaces/tablas e inspección de `git diff`.
+- Devuelve `OK` o `archivo:línea -> [Eje A|B|C] problema + ajuste sugerido` para corrección puntual y actualización de `core/tracker.md`.
+
 ---
 
 ## 🗺️ Mapa de Archivos Canónicos

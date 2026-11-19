@@ -77,6 +77,7 @@ La raíz del espacio de trabajo se puede ubicar en cualquier directorio local el
 ├── Web/
 │   ├── web-agent-rules/         # Gobernanza y protocolos Web (React/Next/Vite)
 │   └── web-agent-skill/         # Habilidades y patrones Web
+│       ├── browser-extensions-agent-skill/
 │       ├── three-js-agent-skills/
 │       ├── web-react-agent-skill/
 │       ├── web-realtime-agent-skill/
@@ -149,6 +150,7 @@ REPOS=(
   "Flutter:flutter-agent-skill:flutter-payments-agent-skill"
 
   # Skills Web
+  "Web:web-agent-skill:browser-extensions-agent-skill"
   "Web:web-agent-skill:web-react-agent-skill"
   "Web:web-agent-skill:web-svelte-agent-skill"
   "Web:web-agent-skill:web-realtime-agent-skill"
@@ -244,6 +246,7 @@ echo "🎉 Estructura completada y sincronizada correctamente."
 | **Web Skill** | `Web/web-agent-skill/web-realtime-agent-skill` | `web-realtime-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/web-realtime-agent-skill.git` |
 | **Web Skill** | `Web/web-agent-skill/three-js-agent-skills` | `three-js-agent-skills` | `git@github.com:Agent-Rules-Ecosystem/three-js-agent-skills.git` |
 | **Web Skill** | `Web/web-agent-skill/wordpress-agent-skill` | `wordpress-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/wordpress-agent-skill.git` |
+| **Web Skill** | `Web/web-agent-skill/browser-extensions-agent-skill` | `browser-extensions-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/browser-extensions-agent-skill.git` |
 | **Backend Core** | `Backend/backend-agent-rules` | `backend-agent-rules` | `git@github.com:Agent-Rules-Ecosystem/backend-agent-rules.git` |
 | **Backend Skill** | `Backend/backend-agent-skill/backend-auth-oauth-agent-skill` | `backend-auth-oauth-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/backend-auth-oauth-agent-skill.git` |
 | **Backend Skill** | `Backend/backend-agent-skill/backend-graphql-agent-skill` | `backend-graphql-agent-skill` | `git@github.com:Agent-Rules-Ecosystem/backend-graphql-agent-skill.git` |

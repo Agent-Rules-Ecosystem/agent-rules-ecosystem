@@ -27,19 +27,19 @@
 
 | Core Repository | Capa 1 (Base/Arqui) | Capa 2 (Congruencia) | Capa 3 (Skill Sync) | Notas / Hallazgos |
 | :--- | :---: | :---: | :---: | :--- |
-| `agent-rules-ecosystem` (Master) | 🟢 | 🟢 | 🟢 | Estándar Maestro saneado y alineado (`AGENTS.md`, `adapters/`, `core/`, `knowledge/`, `skills/`, `templates/`) |
-| `backend-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
-| `flutter-agent-rules` | 🔴 | 🔴 | ⚪ | Requiere re-auditoría tras actualización de estándares maestros |
-| `game-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
-| `go-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
-| `kotlin-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
-| `multicore-agent-rules` | 🔴 | 🔴 | ⚪ | Requiere re-auditoría tras actualización de estándares maestros |
-| `python-agent-rules` | 🔴 | 🔴 | ⚪ | **Falta carpeta `architecture/` y adjuntos** + Prioridad 1 |
-| `rust-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
-| `second-brain-agent-rules` | 🔴 | 🔴 | ⚪ | Requiere re-auditoría tras actualización de estándares maestros |
-| `solidity-agent-rules` | 🔴 | 🔴 | ⚪ | Creado [w7]. Core Web3 / Base blockchain. Pendiente auditoría Capas 1 y 2. |
-| `swift-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
-| `web-agent-rules` | 🔴 | 🔴 | ⚪ | Pendiente propagación Prioridad 1 y revisión Capa 1 y 2 |
+| `agent-rules-ecosystem` (Master) | 🟢 | 🟢 | 🟢 | Estándar Maestro saneado y alineado (`AGENTS.md`, `adapters/`, `core/`, `knowledge/`, `skills/`, `templates/`, `$audit:cores`/`$audit:skills`) |
+| `backend-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 propagada + auditoría 1-a-1 subagente aplicada y verificada |
+| `flutter-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 propagada + auditoría 1-a-1 subagente aplicada y verificada |
+| `game-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 & 2 propagadas + fugas Flutter/Dart purgadas + `adapters/ENGINES.md` separado |
+| `go-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 propagada + `adapters/` + tablas `deuda_tecnica.md` y 3 Capas verificadas |
+| `kotlin-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 propagada + auditoría 1-a-1 subagente aplicada y verificada |
+| `multicore-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 & 2 (grafo Lore↔Gameplay) + auditoría 1-a-1 subagente aplicada y verificada |
+| `python-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 + `templates/architecture/` + auditoría 1-a-1 subagente aplicada y verificada |
+| `rust-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 propagada + `adapters/` + tablas `deuda_tecnica.md` y 3 Capas verificadas |
+| `second-brain-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 & 2 (auditoría incremental) + auditoría 1-a-1 subagente aplicada y verificada |
+| `solidity-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 + `routes_map.md` + auditoría 1-a-1 subagente aplicada y verificada |
+| `swift-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 propagada + auditoría 1-a-1 subagente aplicada y verificada |
+| `web-agent-rules` | 🟢 | 🟢 | ⚪ | Prioridad 1 & 2 (ergonomía UI + `file://` ESM) + auditoría 1-a-1 subagente aplicada y verificada |
 
 ---
 
@@ -55,5 +55,5 @@
 ---
 
 ## 📌 Hallazgos Críticos Iniciales (Capa 1)
-- [ ] `python-agent-rules`: Crear estructura `architecture/` y sync con `architecture.md`.
+- [x] `python-agent-rules`: Crear estructura `architecture/` y sync con `architecture.md`.
 - [x] `second-brain-agent-rules`: Estructura `architecture/` y `trackers/` creadas y sincronizadas.
